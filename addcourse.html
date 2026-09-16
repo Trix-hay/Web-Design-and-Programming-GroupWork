@@ -10,6 +10,59 @@
     <body>
 
         <h1>Add Course</h1>
+        <form method="GET">
+
+            <label for="Semester">Semester: </label>
+                <select id="Semester">
+                    <option>Spring</option>
+                    <option>Summer</option>
+                    <option>Fall</option>
+               </select><br>
+
+            <label for="CoursePrefix">Course Prefix: </label>
+            <input type="text" id="CoursePrefix"><br>
+
+            <label for="CourseNumber">Course Number: </label>
+            <input type="text" id="CourseNumber"><br>
+
+            <label for="CourseSection">Course Section: </label>
+            <input type="text" id="CourseSection"><br>
+            
+            <label for="CourseName">Course Name: </label>
+            <input type="text" id="CourseName"><br>
+
+            <label for="Room">Room: </label>
+            <input type="text" placeholder="Building & Room Number" id=CourseNumber"><br>
+            
+            <label for="DaysOffered">Days Offered: </label>
+                <select id="DaysOffered">
+                    <option>Monday, Wednesday, Friday</option>
+                    <option>Monday, Wednesday</option>
+                    <option>Tuesday, Thursday</option>
+                    <option>Monday</option>
+                    <option>Tuesday</option>
+                    <option>Wednesday</option>
+                    <option>Thursday</option>
+                </select><br>
+
+            <!-- Need to ask Dr. Williamson about implementation of time here. Should the list shown depend on the choice made in Days Offered?
+             Should the time field be a separate field than the days offered, or a standalone field?-->
+            
+            <label for="CreditHours">Credit Hours: </label>
+            <input type="text" id="CreditHours"><br>
+
+            <label for="InstructorFirstName">Instructor First Name: </label>
+            <input type="text" id="InstructorFirstName"><br>
+            
+            <label for="InstructorLastName">Instructor Last Name: </label>
+            <input type="text" id="InstructorLastName"><br>
+
+            <label for="EnrollmentCap">Enrollment Cap: </label>
+            <input type="text" id="EnrollmentCap"><br>
+
+            <!-- I need help understanding when to use semantic tags prior to implementing CSS.-->
+            
+        </form>
         
     </body>
 </html>
