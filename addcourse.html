@@ -17,14 +17,14 @@
             <hr>
         </header>
 
-        <form method="GET">
+        <form method="POST">
 
             <label for="Semester">Semester: </label>
-                <select id="Semester">
-                    <option>Spring</option>
-                    <option>Summer</option>
-                    <option>Fall</option>
-               </select><br>
+            <select id="Semester">
+                <option>Spring</option>
+                <option>Summer</option>
+                <option>Fall</option>
+            </select><br>
 
             <label for="CoursePrefix">Course Prefix: </label>
             <input type="text" id="CoursePrefix"><br>
@@ -39,22 +39,55 @@
             <input type="text" id="CourseName"><br>
 
             <label for="Room">Room: </label>
-            <input type="text" placeholder="Building & Room Number" id=CourseNumber"><br>
+            <input type="text" placeholder="Building & Room Number" id="Room"><br>
             
             <label for="DaysOffered">Days Offered: </label>
-                <select id="DaysOffered">
-                    <option>Monday, Wednesday, Friday</option>
-                    <option>Monday, Wednesday</option>
-                    <option>Tuesday, Thursday</option>
-                    <option>Monday</option>
-                    <option>Tuesday</option>
-                    <option>Wednesday</option>
-                    <option>Thursday</option>
-                </select><br>
+            <select id="DaysOffered">
+                <option>Monday, Wednesday, Friday</option>
+                <option>Monday, Wednesday</option>
+                <option>Tuesday, Thursday</option>
+                <option>Monday</option>
+                <option>Tuesday</option>
+                <option>Wednesday</option>
+                <option>Thursday</option>
+            </select><br>
 
-            <!-- Need to ask Dr. Williamson about implementation of time here. Should the list shown depend on the choice made in Days Offered?
-             Should the time field be a separate field than the days offered, or a standalone field?-->
+            <label for="MWFTime">Time of course (MWF): </label>
+            <select name="MWFTime" id="MWFTime">
+                <option>8:00am to 8:50am</option>
+                <option>9:00am to 9:50am</option>
+                <option>10:00am to 10:50am</option>
+                <option>11:00am to 11:50am</option>
+                <option>12:00pm to 12:50pm</option>
+                <option>1:00pm to 1:50pm</option>
+                <option>2pm to 2:50pm</option>
+                <option>3pm to 3:50pm</option>
+            </select><br>
+
+            <label for="MWTime">Time of course (MW): </label>
+            <select name="MWTime" id="MWTime">
+                <option>9:00am to 10:50am</option>
+                <option>1:00pm to 2:15pm</option>
+                <option>1:00pm to 2:50pm</option>
+                <option>2:00pm to 3:15pm</option>
+            </select><br>
             
+            <label for="TThTime">Time of course (TTh): </label>
+            <select name="TThTime" id="TThTime">
+                <option>8:00am to 9:15am</option>
+                <option>9:30am to 10:45am</option>
+                <option>11:00am to 12:15pm</option>
+                <option>1:00pm to 2:15pm</option>
+                <option>2:30pm to 3:45pm</option>
+            </select><br> 
+
+            <label for="SingleDayTime">Time of course (single day): </label>
+            <select name="SingleDayTime" id="SingleDayTime">
+                <option>1:00pm to 4:00pm</option>
+                <option>2:00pm to 5:00pm</option>
+                <option>7:00pm to 9:30pm</option>
+            </select><br>
+
             <label for="CreditHours">Credit Hours: </label>
             <input type="text" id="CreditHours"><br>
 
@@ -67,11 +100,11 @@
             <label for="EnrollmentCap">Enrollment Cap: </label>
             <input type="text" id="EnrollmentCap"><br>
 
+            <input type="submit">
+
             <!-- I need help understanding when to use semantic tags prior to implementing CSS.-->
             
         </form>
-
-        <input type="submit">
 
         <footer>
 
