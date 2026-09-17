@@ -4,21 +4,26 @@
     <head>
         <meta charset="utf-8">
         <meta name="Enroll Student" content="Allows the user to add a student to our Web application.">
+        <link rel="stylesheet" href="moduleOne.css">
         <title>Course Registration: Enroll Student</title>
     </head>
 
     <body>
+        <header>
+            <a href="homepage.html"><h1>Home</h1></a> 
+            <h2>Enroll Student</h2>
+            <p>This page allows users to enroll a student.</p>
+            <hr>
         <main>
-            <h1>Enroll Student</h1> 
             <form>
                <label for="StudentFirstName">StudentFirstName:</label>
-               <input type="text" id="StudentFirstName"><br>
+               <input type="text" id="StudentFirstName" name="StudentFirstName"><br>
 
                <label for="StudentLastName">StudentLastName:</label>
-               <input type="text" id="StudentLastName"><br>
+               <input type="text" id="StudentLastName" name ="StudentLastName"><br>
 
                <label for="Year">Year:</label>
-               <select id="Year">
+               <select name="Year">
                     <option>Freshman</option>
                      <option>Sophomore</option>
                      <option>Junior</option>
@@ -26,12 +31,12 @@
                </select><br>
 
                <label for="Major">Major:</label>
-               <input type="text" id="Major"><br>
+               <input type="text" id="Major"name="Major"><br>
 
                <label for="EmailAddress">SchoolEmail:</label>
-               <input type="text" id="EmailAddress"><br>
+               <input type="text" id="EmailAddress" name="EmailAddress"><br>
 
-               <button type="submit">Submit</button>
+               <button>Submit</button>
             </form>     
         </main>
     </body> 

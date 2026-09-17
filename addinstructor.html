@@ -4,24 +4,31 @@
     <head>
         <meta charset="utf-8">
         <meta name="Add Instructor" content="Allows users to add an instructor.">
+        <link rel="stylesheet" href="moduleOne.css">
         <title>Course Registration: Add Instructor</title>
     </head>
 
     <body>
+         <header>
+            <a href="homepage.html"><h1>Home</h1></a>
+            <h2>Add Instructor</h2>
+            <p>This page allows users to add an instructor to our web application</p>
+            <hr>
+        </header>
         <main>
             <h1>Add Instructor</h1>
             <form>
                 <label for="InstructorFirstName">Instructor's First Name:</label>
-                <input type="text" id="InstructorFirstName"><br>
+                <input type="text" id="InstructorFirstName" name="InstructorFirstName"><br>
 
                 <label for="InstructorLastName">Instructor's LastName:</label>
-                <input type="text" id="InstructorLastName"><br>
+                <input type="text" id="InstructorLastName" name="InstructorLastName"><br>
 
                 <label for="Department">Instructor's Department:</label>
-                <input type="text" id="Department"><br>
+                <input type="text" id="Department" name="Department"><br>
 
                 <label for="Rank">Rank:</label>
-                <select id="Rank">
+                <select name="Rank">
                     <option>Instructor</option>
                     <option>Assistant Professor</option>
                     <option>Associate Professor</option>
@@ -29,9 +36,9 @@
                 </select><br>
 
                 <label for="InstructorEmailAddress">Email:</label>
-                <input type="text" id="InstructorEmailAddress"><br>
+                <input type="text" id="InstructorEmailAddress" name="InstructorEmailAddress"><br>
 
-                <button type="submit">Submit</button>
+                <button>Submit</button>
             </form>
         </main>
         
