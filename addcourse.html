@@ -11,10 +11,9 @@
     <body>
 
         <header>
-            <a href="homepage.html"><h1>Home</h1></a> <!--provides access back to home page, probably want on all pages in some form-->
+            <a href="homepage.html"><h1>Course Registration System</h1></a> <!--provides access back to home page, probably want on all pages in some form-->
             <h2>Add Course</h2>
             <p>This page allows users to add a course to a semester.</p>
-            <hr>
         </header>
 
         <form method="POST">
@@ -27,22 +26,22 @@
             </select><br>
 
             <label for="CoursePrefix">Course Prefix: </label>
-            <input type="text" id="CoursePrefix"><br>
+            <input type="text" name ="CoursePrefix"id="CoursePrefix"><br>
 
             <label for="CourseNumber">Course Number: </label>
-            <input type="text" id="CourseNumber"><br>
+            <input type="text" name ="CourseNumber" id="CourseNumber"><br>
 
             <label for="CourseSection">Course Section: </label>
-            <input type="text" id="CourseSection"><br>
+            <input type="text" name ="CourseSection" id="CourseSection"><br>
             
             <label for="CourseName">Course Name: </label>
-            <input type="text" id="CourseName"><br>
+            <input type="text" name="CourseSection" id="CourseName"><br>
 
             <label for="Room">Room: </label>
-            <input type="text" placeholder="Building & Room Number" id="Room"><br>
+            <input type="text" placeholder="Building & Room Number" name="Room" id="Room"><br>
             
             <label for="DaysOffered">Days Offered: </label>
-            <select id="DaysOffered">
+            <select name="DaysOffered" id="DaysOffered"> <!-- do select tags need the name attribute?-->
                 <option>Monday, Wednesday, Friday</option>
                 <option>Monday, Wednesday</option>
                 <option>Tuesday, Thursday</option>
@@ -89,16 +88,16 @@
             </select><br>
 
             <label for="CreditHours">Credit Hours: </label>
-            <input type="text" id="CreditHours"><br>
+            <input type="text" name="CreditHours" id="CreditHours"><br>
 
             <label for="InstructorFirstName">Instructor First Name: </label>
-            <input type="text" id="InstructorFirstName"><br>
+            <input type="text" name="InstructorFirstName" id="InstructorFirstName"><br>
             
             <label for="InstructorLastName">Instructor Last Name: </label>
-            <input type="text" id="InstructorLastName"><br>
+            <input type="text" name="InstructorLastName" id="InstructorLastName"><br>
 
             <label for="EnrollmentCap">Enrollment Cap: </label>
-            <input type="text" id="EnrollmentCap"><br>
+            <input type="text" name="EnrollmentCap" id="EnrollmentCap"><br>
 
             <input type="submit">
 

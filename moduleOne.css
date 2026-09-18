@@ -1,20 +1,33 @@
 header {
+    height: 150px;
     font-family: Tahoma, Geneva, Verdana, sans-serif;
 }
 
 footer {
-
+    position: fixed;
+    bottom: 10px;
 }
 
 nav {
+    width: 200px; 
+    position: fixed;
+    left: 10px;
+    top: 150px;
+}
 
+nav a {
+    display: block;
+}
+
+main {
+    margin-left: 200px; /* make the left margin start where the nav pane ends */
 }
 
 form {
-
+    top: 150px;
+    left: 10px;
 }
 
 button {
 
 }
-/* Above are the required selectors for the project. More can (and should) be made. */
