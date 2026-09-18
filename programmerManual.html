@@ -6,14 +6,465 @@
         <meta name="Programmer Manual" content="Provides all information necessary for programmers that have never seen this code
 before.">
         <title>Course Registration Program Manual</title>
+        <link rel="stylesheet" href="moduleOne.css">
     </head>
-
     <body>
         <header>
-
-            <h1>Programmer Manual</h1>
-
+            <h1>Course Registration System</h1>
+            <h2>Programmer Manual</h2>
+            <p>The Navigation menu is on the left side and contains
+                the links to all the individual pages within the course registration system.
+            </p>
         </header>
+        
+        <nav>
+            <a href="HomePage.html">HomePage</a>
+            <a href="enrollstudent.html">Enroll Student</a>
+            <a href="addinstructor.html">Add Instructor</a>
+            <a href="addcourse.html">Add Course</a>
+            <a href="registercourse.html">Register Course</a>
+            <a href="dropcourse.html">DropCourse</a>
+            <a href="userManual.html">user Manual</a>
+            <a href="ProgrammerManual.html">programmerManual</a>
+        </nav>
+        <main>
+            <h2>Overview of the Course Registration System.</h2>
+            <p>The Course Registration System is a web application designed to
+                 automate the process of managing student course registration. The system is structured to allow users to add students, instructors, and courses through Web forms.
+                Users will also be able to register students for courses and drop students from courses.
+                The Web interface is implemented using HTML and CSS. The HTML pages provide the structure of the application 
+                and contain the forms and input elements used to collect information. Each form element is assigned 
+                a unique id attribute so that the elements can be referenced by JavaScript and other application components in later modules. CSS is used to provide a 
+                consistent layout and visual style across the Web pages.
+                The complete application is designed to use JavaScript, Node.js, and Express for application and server-side functionality and SQLite for database storage. The database will store information associated with students, instructors, courses, and course registrations. 
+                In Module 1, the primary focus is the Web interface, so the HTML forms have been created but do not yet perform database operations or other application functionality.
+                The application is divided into multiple HTML pages, with each page responsible for a specific part of the course registration process. 
+                The pages share a consistent layout and navigation structure so that users and developers can move between the different components of the system.
+            </p>
+            <h2>Summary of Each Page Content</h2>
+            <p>
+                <h3> <a href="HomePage.html">HomePage.html</a></h3>
+                The Home page serves at the starting page for the Course Registration Sysytem.
+                It contains the site header, navigation menu, main content area and footer.
+
+                <h3><a href="enrollstudent.html">enrollstudent.html</a></h3>
+                This page contains the Web form used to collect student information, 
+                including the student's first name, last name, year, major, and email address.
+
+                <h3> <a href="addinstructor.html">addinstructor.html</a></h3>
+                This page contains the Web form used to collect instructor information,
+                including the instructor's first name, last name, department, rank, and email address.
+
+                <h3><a href="addcourse.html">addcourse.html</a></h3>
+                This page contains the Web form used to collect course information, 
+                including the semester and year, course prefix and number, section, course name, room, 
+                days offered, time, credit hours, instructor information, and enrollment cap.
+
+                <h3><a href="registercourse.html">registercourse.html</a></h3>
+                This page contains the Web form used to collect the information needed to register a student for a course.
+
+                <h3><a href="dropcourse.html">dropcourse.html</a></h3>
+                This page contains the Web form used to collect the information needed to drop a student from a course.
+
+                <h3><a href="ProgrammerManual.html">ProgrammerManual.html</a></h3>
+                Contains the technical documentation for the Course Registration System,
+                including the system overview, HTML page descriptions, file organization, form elements, and functions.
+
+                <h3><a href="moduleOne.css">Stylesheet.css</a></h3>
+                Contains the CSS rules used to provide consistent styling for the header, footer, navigation links, forms, and buttons throughout the website.
+            </p>
+
+            <p>
+                <h2>Site/File organization</h2>
+                -->does he just want how they are arranged??--> need to figure this sone out
+
+            </p>
+
+            <p>
+                <h2>Description of all Form Elements</h2>
+                This section describes the form elements used throughout the
+                Course Registration System. Each form element has a unique
+                id  attribute so that it can be referenced by
+                JavaScript and other application components in later modules.
+               <h3>Enroll Student</h3>
+                <table>
+                <tr>
+                    <th>Form Element</th>
+                    <th>Type</th>
+                    <th>ID</th>
+                    <th>Purpose</th>
+                    <th>Functions Called</th>
+                </tr>
+
+                <tr>
+                    <td>Student First Name</td>
+                    <td>Text input</td>
+                    <td>studentFirstName</td>
+                    <td>Collects the student's first name.</td>
+                    <td>None</td>
+                </tr>
+
+                <tr>
+                    <td>Student Last Name</td>
+                    <td>Text input</td>
+                    <td>studentLastName</td>
+                    <td>Collects the student's last name.</td>
+                    <td>None</td>
+                </tr>
+
+                <tr>
+                    <td>Student Year</td>
+                    <td>Select list</td>
+                    <td>year</td>
+                    <td>Allows the user to select the student's academic year.</td>
+                    <td>None</td>
+                </tr>
+
+                <tr>
+                    <td>Student Major</td>
+                    <td>Text input</td>
+                    <td>major</td>
+                    <td>Collects the student's major.</td>
+                    <td>None</td>
+                </tr>
+
+                <tr>
+                    <td>Student Email</td>
+                    <td>Text input</td>
+                    <td>studentEmail</td>
+                    <td>Collects the student's email address.</td>
+                    <td>None</td>
+                </tr>
+
+                <tr>
+                    <td>Submit</td>
+                    <td>Submit button</td>
+                    <td>None</td>
+                    <td>Provides a button for submitting the form.</td>
+                    <td>None</td>
+                </tr>
+            </table>
+
+            <h3>Add Instructor</h3>
+                <table>
+                <tr>
+                    <th>Form Element</th>
+                    <th>Type</th>
+                    <th>ID</th>
+                    <th>Purpose</th>
+                    <th>Functions Called</th>
+                </tr>
+
+                <tr>
+                    <td>Instructor's First Name</td>
+                    <td>Text input</td>
+                    <td>InstructorFirstName</td>
+                    <td>Collects the Instructor's  first name.</td>
+                    <td>None</td>
+                </tr>
+
+                <tr>
+                    <td>Instructor's  Last Name</td>
+                    <td>Text input</td>
+                    <td>InstructorLastName</td>
+                    <td>Collects the Instructor's  last name.</td>
+                    <td>None</td>
+                </tr>
+
+                <tr>
+                    <td>Instructor's  Department</td>
+                    <td>Text input</td>
+                    <td>InstructorDepartment</td>
+                    <td>collects the Instructor's Department.</td>
+                    <td>None</td>
+                </tr>
+
+                <tr>
+                    <td>Instructor's Rank</td>
+                    <td>Select List</td>
+                    <td>InstructorRank</td>
+                    <td>Allows the user to select the rank of an instructor.</td>
+                    <td>None</td>
+                </tr>
+
+                <tr>
+                    <td>Instructor's  Email</td>
+                    <td>Text input</td>
+                    <td>InstructorEmail</td>
+                    <td>Collects the Instructor's  email address.</td>
+                    <td>None</td>
+                </tr>
+
+                <tr>
+                    <td>Submit</td>
+                    <td>Submit button</td>
+                    <td>None</td>
+                    <td>Provides a button for submitting the form.</td>
+                    <td>None</td>
+                </tr>
+            </table>
+        
+            
+            <h3>Add Course</h3>
+                <table>
+                <tr>
+                    <th>Form Element</th>
+                    <th>Type</th>
+                    <th>ID</th>
+                    <th>Purpose</th>
+                    <th>Functions Called</th>
+                </tr>
+
+                <tr>
+                <td>Semester</td>
+                <td>Select list</td>
+                <td>Semester</td>
+                <td>Allows the user to select Spring, Summer, or Fall.</td>
+                <td>None</td>
+            </tr>
+
+            <tr>
+                <td>Course Prefix</td>
+                <td>Text input</td>
+                <td>CoursePrefix</td>
+                <td>Collects the course prefix, such as CSCI.</td>
+                <td>None</td>
+            </tr>
+
+            <tr>
+                <td>Course Number</td>
+                <td>Text input</td>
+                <td>CourseNumber</td>
+                <td>Collects the course number.</td>
+                <td>None</td>
+            </tr>
+
+            <tr>
+                <td>Course Section</td>
+                <td>Text input</td>
+                <td>CourseSection</td>
+                <td>Collects the section number or identifier for the course.</td>
+                <td>None</td>
+            </tr>
+
+            <tr>
+                <td>Course Name</td>
+                <td>Text input</td>
+                <td>CourseName</td>
+                <td>Collects the name of the course.</td>
+                <td>None</td>
+            </tr>
+
+            <tr>
+                <td>Room</td>
+                <td>Text input</td>
+                <td>Room</td>
+                <td>Collects the building and room number where the course is held.</td>
+                <td>None</td>
+            </tr>
+
+            <tr>
+                <td>Days Offered</td>
+                <td>Select list</td>
+                <td>DaysOffered</td>
+                <td>Allows the user to select the days on which the course is offered.</td>
+                <td>None</td>
+            </tr>
+
+            <tr>
+                <td>Time of Course (MWF)</td>
+                <td>Select list</td>
+                <td>MWFTime</td>
+                <td>Provides time options for courses offered Monday, Wednesday, and Friday.</td>
+                <td>None</td>
+            </tr>
+
+            <tr>
+                <td>Time of Course (MW)</td>
+                <td>Select list</td>
+                <td>MWTime</td>
+                <td>Provides time options for courses offered Monday and Wednesday.</td>
+                <td>None</td>
+            </tr>
+
+            <tr>
+                <td>Time of Course (TTh)</td>
+                <td>Select list</td>
+                <td>TThTime</td>
+                <td>Provides time options for courses offered Tuesday and Thursday.</td>
+                <td>None</td>
+            </tr>
+
+            <tr>
+                <td>Time of Course (Single Day)</td>
+                <td>Select list</td>
+                <td>SingleDayTime</td>
+                <td>Provides time options for courses offered on a single day.</td>
+                <td>None</td>
+            </tr>
+
+            <tr>
+                <td>Credit Hours</td>
+                <td>Text input</td>
+                <td>CreditHours</td>
+                <td>Collects the number of credit hours for the course.</td>
+                <td>None</td>
+            </tr>
+
+            <tr>
+                <td>Instructor First Name</td>
+                <td>Text input</td>
+                <td>InstructorFirstName</td>
+                <td>Collects the first name of the instructor teaching the course.</td>
+                <td>None</td>
+            </tr>
+
+            <tr>
+                <td>Instructor Last Name</td>
+                <td>Text input</td>
+                <td>InstructorLastName</td>
+                <td>Collects the last name of the instructor teaching the course.</td>
+                <td>None</td>
+            </tr>
+
+            <tr>
+                <td>Enrollment Cap</td>
+                <td>Text input</td>
+                <td>EnrollmentCap</td>
+                <td>Collects the maximum number of students who can enroll in the course.</td>
+                <td>None</td>
+            </tr>
+
+            <tr>
+                <td>Submit</td>
+                <td>Submit button</td>
+                <td>None</td>
+                <td>Allows the user to submit the Add Course form.</td>
+                <td>None</td>
+            </tr>
+        </table>
+
+        <h3>Register Course</h3>
+
+                <table>
+                <tr>
+                    <th>Form Element</th>
+                    <th>Type</th>
+                    <th>ID</th>
+                    <th>Purpose</th>
+                    <th>Functions Called</th>
+                </tr>
+                <tr>
+                    <td>Student First Name</td>
+                    <td>Text input</td>
+                    <td>studentFirstName</td>
+                    <td>Collects the student's first name.</td>
+                    <td>None</td>
+                </tr>
+
+                <tr>
+                    <td>Student Last Name</td>
+                    <td>Text input</td>
+                    <td>studentLastName</td>
+                    <td>Collects the student's last name.</td>
+                    <td>None</td>
+                </tr>
+
+                <tr>
+                <td>Semester</td>
+                <td>Select list</td>
+                <td>Semester</td>
+                <td>Allows the user to select Spring, Summer, or Fall.</td>
+                <td>None</td>
+            </tr>
+
+            <tr>
+                <td>Course Prefix</td>
+                <td>Text input</td>
+                <td>CoursePrefix</td>
+                <td>Collects the course prefix, such as CSCI.</td>
+                <td>None</td>
+            </tr>
+
+            <tr>
+                <td>Course Number</td>
+                <td>Text input</td>
+                <td>CourseNumber</td>
+                <td>Collects the course number.</td>
+                <td>None</td>
+            </tr>
+
+            <tr>
+                <td>Course Section</td>
+                <td>Text input</td>
+                <td>CourseSection</td>
+                <td>Collects the section number or identifier for the course.</td>
+                <td>None</td>
+            </tr>
+        </table>
+
+        <h3>Drop Course</h3>
+            <table>
+                <tr>
+                    <th>Form Element</th>
+                    <th>Type</th>
+                    <th>ID</th>
+                    <th>Purpose</th>
+                    <th>Functions Called</th>
+                </tr>
+                <tr>
+                    <td>Student First Name</td>
+                    <td>Text input</td>
+                    <td>studentFirstName</td>
+                    <td>Collects the student's first name.</td>
+                    <td>None</td>
+                </tr>
+
+                <tr>
+                    <td>Student Last Name</td>
+                    <td>Text input</td>
+                    <td>studentLastName</td>
+                    <td>Collects the student's last name.</td>
+                    <td>None</td>
+                </tr>
+
+                <tr>
+                <td>Semester</td>
+                <td>Select list</td>
+                <td>Semester</td>
+                <td>Allows the user to select Spring, Summer, or Fall.</td>
+                <td>None</td>
+            </tr>
+
+            <tr>
+                <td>Course Prefix</td>
+                <td>Text input</td>
+                <td>CoursePrefix</td>
+                <td>Collects the course prefix, such as CSCI.</td>
+                <td>None</td>
+            </tr>
+
+            <tr>
+                <td>Course Number</td>
+                <td>Text input</td>
+                <td>CourseNumber</td>
+                <td>Collects the course number.</td>
+                <td>None</td>
+            </tr>
+
+            <tr>
+                <td>Course Section</td>
+                <td>Text input</td>
+                <td>CourseSection</td>
+                <td>Collects the section number or identifier for the course.</td>
+                <td>None</td>
+            </tr>
+        </table>
+        </p>
+
+        <h2>Description of all Functions</h2>
+        <p>There are no functions implemented in module 1.</p>
+
 
         <footer>
 
