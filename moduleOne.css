@@ -29,8 +29,14 @@ form {
 }
 
 button {
-
+	padding: 10px 20px;      /* Space inside the button */
+    font-size: 16px;         /* Size of the text */
+    border-radius: 5px;      /* Rounds the corners */
+    cursor: pointer;         /* Shows hand cursor when hovering */
+    background-color: gray;  /* we can change the color if we want to*/
 }
+
+
 
 table{
 	border:solid 1pt black;
