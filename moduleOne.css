@@ -37,10 +37,16 @@ button {
 }
 
 
-
 table{
 	border:solid 1pt black;
 	border-collapse:collapse;
 }
 td{
 	border:solid 1pt black
+}
+
+body {
+    background-color: lightgray; */we can mess up with the color we want*/
+}
+
+
