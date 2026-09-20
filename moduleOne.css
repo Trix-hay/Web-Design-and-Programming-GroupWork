@@ -41,11 +41,23 @@ main h2 {
     margin-top: 0; /* removes auto-margins from header elements in main so the content aligns with the nav pane */
 }
 
+main h3{
+	color:blue;
+}
+
+
 form {
     top: 150px;
     left: 10px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* likely want to add some stylistic choices here */ 
+    /* likely want to add some stylistic choices here */ I added some stuff below(Beatrice)
+	
+    background-color: white; /* makes the form itself white*/
+    padding: 25px; */ adds space inside the form*/                       */ do we like this cardlike form or no?*/
+    border: 1px solid #cccccc; */ adds a subtle border around the form*/
+    border-radius: 10px;
+    width: 500px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); */ adds a shadow so the form looks like a card*/
 }
 
 form label {
