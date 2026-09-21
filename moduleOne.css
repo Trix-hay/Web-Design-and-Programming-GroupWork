@@ -1,4 +1,4 @@
-/* We have all the basic requirements, but likely want to spend some time making the sute look nicer and just messing around with the CSS to get experience. */
+/* We have all the basic requirements, but likely want to spend some time making the site look nicer and just messing around with the CSS to get experience. */
 
 header {
     height: 150px;
@@ -9,6 +9,15 @@ header a {
     text-align: center;
     font-family: Verdana, sans-serif;
     font-size: 18px;
+}
+
+a:link {
+    color: lightpink;
+    text-decoration-line: none;
+}
+
+a:visited {
+    color: darkslateblue;
 }
 
 footer {
@@ -42,7 +51,7 @@ main h2 {
 }
 
 main h3{
-	color:blue;
+	color: mediumblue;
 }
 
 
@@ -50,14 +59,14 @@ form {
     top: 150px;
     left: 10px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* likely want to add some stylistic choices here */ I added some stuff below(Beatrice)
+    /* likely want to add some stylistic choices here */ /* I added some stuff below(Beatrice) */
 	
     background-color: white; /* makes the form itself white*/
-    padding: 25px; */ adds space inside the form*/                       */ do we like this cardlike form or no?*/
-    border: 1px solid #cccccc; */ adds a subtle border around the form*/
+    padding: 25px; /* adds space inside the form */                       /* do we like this cardlike form or no? */
+    border: 1px solid #cccccc; /* adds a subtle border around the form */
     border-radius: 10px;
     width: 500px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); */ adds a shadow so the form looks like a card*/
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* adds a shadow so the form looks like a card */
 }
 
 form label {
