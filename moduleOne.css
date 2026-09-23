@@ -1,13 +1,15 @@
-/* We have all the basic requirements, but likely want to spend some time making the site look nicer and just messing around with the CSS to get experience. */
+/* Color palette: 114B5F, 456990, E4FDE1, F45B69, 6B2737 */
+/* Fonts: Tahoma (for anchors in headers, other large icons), Roboto (for normal text in header/footer), Verdana (for form/filler text) */
 
 header {
     height: 150px;
-    font-family: Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Roboto, serif;
+    color: #043242;
 }
 
 header a {
     text-align: center;
-    font-family: Verdana, sans-serif;
+    font-family: Tahoma, serif;
     font-size: 18px;
 }
 
@@ -17,13 +19,14 @@ a:link {
 }
 
 a:visited {
-    color: darkslateblue;
+    color: #E4FDE1;
 }
 
 footer {
     position: fixed;
     bottom: 10px;
-    font-family: Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Roboto, serif;
+    color: #043242;
 }
 
 nav {
@@ -32,7 +35,7 @@ nav {
     left: 10px;
     top: 150px;
     
-    font-family: Geneva, Verdana, sans-serif;
+    font-family: Verdana, serif;
 }
 
 nav a {
@@ -43,7 +46,8 @@ nav a {
 main {
     top: 150px;
     margin-left: 175px; /* make the left margin start where the nav pane ends */
-    font-family: Geneva, Verdana, sans-serif;
+    font-family: Verdana, serif;
+    color: #043242;
 }
 
 main h2 {
@@ -51,18 +55,16 @@ main h2 {
 }
 
 main h3{
-	color: mediumblue;
+	color: #782b50;
 }
-
 
 form {
     top: 150px;
     left: 10px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* likely want to add some stylistic choices here */ /* I added some stuff below(Beatrice) */
-	
-    background-color: white; /* makes the form itself white*/
-    padding: 25px; /* adds space inside the form */                       /* do we like this cardlike form or no? */
+    font-family: Verdana, serif;
+
+    background-color: #F45B69; /* makes the form itself white*/
+    padding: 25px; /* adds space inside the form */ 
     border: 1px solid #cccccc; /* adds a subtle border around the form */
     border-radius: 10px;
     width: 500px;
@@ -73,12 +75,17 @@ form label {
     margin-right: 5px;
 }
 
+form input {
+    border-radius: 3px;
+}
+
 button {
 	padding: 10px 20px;      /* Space inside the button */
     font-size: 16px;         /* Size of the text */
     border-radius: 5px;      /* Rounds the corners */
     cursor: pointer;         /* Shows hand cursor when hovering */
-    background-color: gray;  /* we can change the color if we want to*/
+    background-color: #782b50;  /* we can change the color if we want to*/
+    color: whitesmoke;
 }
 
 
@@ -92,5 +99,5 @@ td {
 }
 
 body {
-    background-color: beige; /* we can mess up with the color we want */
+    background-color: #567ba3; /* we can mess up with the color we want */
 }
