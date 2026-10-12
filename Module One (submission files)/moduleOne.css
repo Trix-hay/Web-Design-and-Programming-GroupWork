@@ -19,7 +19,7 @@ a:link {
 }
 
 a:visited {
-    color: #E4FDE1;
+    color: #8a0761;
 }
 
 footer {
@@ -55,7 +55,7 @@ main h2 {
 }
 
 main h3{
-	color: #782b50;
+	color: #8a0761;
 }
 
 form {
@@ -84,8 +84,8 @@ button {
     font-size: 16px;         /* Size of the text */
     border-radius: 5px;      /* Rounds the corners */
     cursor: pointer;         /* Shows hand cursor when hovering */
-    background-color: #782b50;  /* we can change the color if we want to*/
-    color: whitesmoke;
+    background-color: #6be594;  /* we can change the color if we want to*/
+    color: #043242;
 }
 
 
@@ -99,7 +99,7 @@ td {
 }
 
 body {
-    background-color: #567ba3; /* we can mess up with the color we want */
+    background-color: #88b1dd; /* we can mess up with the color we want */
 }
 
 
