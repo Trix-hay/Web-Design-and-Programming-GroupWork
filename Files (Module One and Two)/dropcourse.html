@@ -3,16 +3,16 @@
 <html lang = "en">
     <head>
         <meta charset="utf-8">
-        <meta name="Register Course" content="Allows users to register for a course.">
+        <meta name="Drop Course" content="Allows users to drop a course.">
         <link rel="stylesheet" href="moduleOne.css">
-        <title>Course Registration: Register Course</title>
+        <title>Course Registration: Drop Course</title>
     </head>
 
     <body>
         <header>
-            <a href="homepage.html"><h1>Course Registration System</h1></a> 
-            <h2>Register Course</h2>
-            <p>This page allows users to register for a course.</p>
+            <a href="homepage.html"><h1>Course Registration System</h1></a>
+            <h2>Drop Course</h2>
+            <p>This page allows users to drop a course.</p>
         </header>
 
         <nav>
@@ -29,8 +29,8 @@
         </nav>
 
         <main>
-        
-            <form method="POST" enctype="multipart/form-data">
+
+            <form method="POST" enctype="multipart/form-data" id="dropCourseForm">
                 <label for="firstname">First Name:</label>
                 <input type="text" name="firstname" id="firstname">
                 <br>
@@ -57,5 +57,6 @@
         <footer>
 
         </footer>
+        <script src="validation.js"></script>
     </body>
 </html>
