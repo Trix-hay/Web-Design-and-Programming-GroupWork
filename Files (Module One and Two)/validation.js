@@ -196,6 +196,77 @@ if (dropCourseForm) {
 if (enrollStudentForm) {
     enrollStudentForm.addEventListener("submit", function(e) {
         // validation rules go in here
+        let enrollStudentFormIsValid = true;
+        // all validation
+
+        const firstname = document.getElementById("StudentFirstName").value;
+        const lastname=document.getElementById("StudentLastName").value;
+        const year=document.getElementById("Year").value;
+        const major=document.getElementById("Major").value;
+        const email=document.getElementById("EmailAddress").value;
+
+        const nameRegex = /^[A-Za-z]+(?:[ '-][A-Za-z]+)*$/;
+        const emailRegex = /^[a-zA-Z]{2,3}[0-9]{3}@marietta\.edu$/;
+
+        
+        if (firstname===""){  //check if it is empty
+
+            alert("This is a required field.");
+            enrollStudentFormIsValid = false;
+            e.preventDefault()
+            return;
+
+        }else if (!nameRegex.test(firstname)){  //test the value of name  against the defined name  RegEx
+            alert("please enter a valid firstname.");
+            enrollStudentFormIsValid = false;
+            e.preventDefault()
+            return;
+        }
+
+        if (lastname===""){  //check if it is empty
+
+            alert("This is a required field");
+            enrollStudentFormIsValid = false;
+            e.preventDefault()
+            return;
+
+        }else if (!nameRegex.test(lastname)){  //test the value of name  against the defined name  RegEx
+            alert("please enter a valid  lastname.");
+            enrollStudentFormIsValid = false;
+            e.preventDefault()
+            return;
+        }
+
+        if (major !== "" && !nameRegex.test(major)) {  //test the value of major  against the defined name  RegEx
+            alert("please enter a valid  lastname.");
+            alert("Please enter a valid major.");
+            enrollStudentFormIsValid = false;
+            e.preventDefault()
+            return;
+        }
+
+        if (email ===""){  // check if it is empty
+            alert("This is a required field.");
+            enrollStudentFormIsValid = false;
+            e.preventDefault()
+            return;
+
+        }else if (!emailRegex.test(email)){  //test the value of email  against the defined email RegEx
+            alert("please enter a valid email.");
+            enrollStudentFormIsValid = false;
+            e.preventDefault()
+            return;
+        }
+        // If you reach this point, validation has passed.
+
+        alert(    // the alert shows the message on the screen rather that the developer tools so we can change it later
+            "All validation checks passed!\n\n" +
+            "First Name: " + firstname +
+            "\nLast Name: " + lastname +
+            "\nYear: " + year +
+            "\nMajor: " + major +
+            "\nEmail: " + email    // is this is the display that he is talking about??
+        );
     });
 }
 
