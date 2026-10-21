@@ -10,36 +10,150 @@ const registerCourseForm = document.getElementById("registerCourseForm");
 if (addCourseForm) { //confirm the page has this specific form before running validation. if the form element isn't found, we aren't on that page and don't need this validation
     addCourseForm.addEventListener("submit", function(e) {
         let addCourseFormIsValid = true; //boolean to track what submission should do (more efficient way to track overall status)
-        //year validation
+
+        //constants (used for checks)
         const year = document.getElementById("Year").value;
-        if (year == "") {
+        const coursePrefix = document.getElementById("CoursePrefix").value;
+        const courseNumber = document.getElementById("CourseNumber").value;
+        const courseSection = document.getElementById("CourseSection").value;
+        const room = document.getElementById("Room").value;
+        const creditHours = document.getElementById("CreditHours").value;
+        const instructorFirstName = document.getElementById("InstructorFirstName").value;
+        const instructorLastName = document.getElementById("InstructorLastName").value;
+        const enrollmentCap = document.getElementById("EnrollmentCap").value;
+
+        //year validation
+        const yearRegEx = /^[3-9][0-9]{3}$|^202[6-9]$|^20[3-9][0-9]$|^2[1-9][0-9][0-9]$/; //regEx expression
+        
+        if (year == "") { 
             console.log("Error: required field.");
             addCourseFormIsValid = false;
         }
-        const yearRegEx = /^[3-9][0-9]{3}$|^202[6-9]$|^20[3-9][0-9]$|^2[1-9][0-9][0-9]$/; //regEx expression
-        if (yearRegEx.test(year)) { //test the value of year against the defined year RegEx
-            console.log("Success! You entered a valid year format."); //this will likely change later once we implement the display feature
-        }
-        else {
+        else if (!yearRegEx.test(year)) { //only test the value of year against the defined year RegEx if something is in the field (otherwise, skip since it's a required field)
+            //since above uses ! (not operator), this would be if the year does NOT match rules
             console.log("Error: year does not match required format.");
             addCourseFormIsValid = false; 
         }
+        else {
+            console.log("Success! You entered a valid year format.");
+        }
 
         //course prefix validation
+        const coursePrefixRegEx = /^[A-Z]{3,4}$/;
+
+        if (coursePrefix == "") {
+            console.log("Error: required field.");
+            addCourseFormIsValid = false;
+        }
+        else if (!coursePrefixRegEx.test(coursePrefix)) {
+            console.log("Error: course prefix does not match required format.");
+            addCourseFormIsValid = false;
+        }
+        else {
+            console.log("Success! You entered a valid course prefix format.");
+        }
 
         //course number validation
+        const courseNumberRegEx = /^[1-4][0-9][0-9]$/;
+
+        if (courseNumber == "") {
+            console.log("Error: required field.");
+            addCourseFormIsValid = false;
+        }
+        else if (!courseNumberRegEx.test(courseNumber)) {
+            console.log("Error: course number does not match required format.");
+            addCourseFormIsValid = false;
+        }
+        else {
+            console.log("Success! You entered a valid course number format.");
+        }
 
         //course section validation
+        const courseSectionRegEx = /^[0-9][0-9]$/;
+
+        if (courseSection == "") {
+            console.log("Error: required field.");
+            addCourseFormIsValid = false;
+        }
+        else if (!courseSectionRegEx.test(courseSection)) {
+            console.log("Error: course section does not match required format.");
+            addCourseFormIsValid = false;
+        }
+        else {
+            console.log("Success! You entered a valid course section format.");
+        }
 
         //room validation
+        const roomRegEx = /^[A-Za-z'\s]+\s?[0-9]{2,3}[a-zA-Z]?$/;
+
+        if (!roomRegEx.test(room)) {
+            console.log("Error: room does not match required format.");
+            addCourseFormIsValid = false;
+        }
+        else {
+            console.log("Success! You entered a valid room format.");
+        }
 
         //credit hours validation
+        const creditHoursRegEx = /^[0-4]$/;
+
+        if (creditHours == "") {
+            console.log("Error: required field.");
+            addCourseFormIsValid = false;
+        }
+        else if (!creditHoursRegEx.test(creditHours)) {
+            console.log("Error: credit hours does not match required format.");
+            addCourseFormIsValid = false;
+        }
+        else {
+            console.log("Success! You entered a valid credit hours format.");
+        }
 
         //instructor first name validation
+        const instructorFirstNameRegEx = /^[A-Za-z-'\s]+$/;
+
+        if (instructorFirstName == "") {
+            console.log("Error: required field.");
+            addCourseFormIsValid = false;
+        }
+        else if (!instructorFirstNameRegEx.test(instructorFirstName)) {
+            console.log("Error: instructor first name does not match required format.");
+            addCourseFormIsValid = false;
+        }
+        else {
+            console.log("Success! You entered a valid instructor first name format.");
+        }
 
         //instructor last name validation
+        const instructorLastNameRegEx = /^[A-Za-z-'\s]+$/;
+
+        if (instructorLastName == "") {
+            console.log("Error: required field.");
+            addCourseFormIsValid = false;
+        }
+        else if (!instructorLastNameRegEx.test(instructorLastName)) {
+            console.log("Error: instructor last name does not match required format.");
+            addCourseFormIsValid = false;
+        }
+        else {
+            console.log("Success! You entered a valid instructor last name format.");
+        }
 
         //enrollment cap validation
+
+        const enrollmentCapRegEx = /^[0-9]{2}$/;
+
+        if (enrollmentCap == "") {
+            console.log("Error: required field.");
+            addCourseFormIsValid = false;
+        }
+        else if (!enrollmentCapRegEx.test(enrollmentCap)) {
+            console.log("Error: enrollment cap does not match required format.");
+            addCourseFormIsValid = false;
+        }
+        else {
+            console.log("Success! You entered a valid enrollment cap name format.");
+        }
 
         if (addCourseFormIsValid == false) {
             console.log("Error: form can not be submitted due to issues with one or more fields.");
@@ -47,7 +161,15 @@ if (addCourseForm) { //confirm the page has this specific form before running va
         } else {
             console.log("Success! All fields are valid. Now printing information.");
             e.preventDefault()
-            //this is where we will call some function that displays the information back to the user
+            alert(
+                `Year: ${year}
+                Course Prefix: ${coursePrefix}
+                Course: ${courseNumber}-${courseSection}
+                Room: ${room}
+                Credit Hours: ${creditHours}
+                Instructor Name: ${instructorFirstName} ${instructorLastName}
+                Enrollment Cap: ${enrollmentCap}`
+            );
         }
 
     });
