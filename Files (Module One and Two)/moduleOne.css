@@ -102,4 +102,38 @@ body {
     background-color: #88b1dd; /* we can mess up with the color we want */
 }
 
+/* Validation tables in the User Manual */
+.validation-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-family: Verdana, sans-serif;
+}
+
+.validation-table th,
+.validation-table td {
+    border: 1px solid #456990;
+    padding: 12px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.validation-table th {
+    background-color: #114B5F;
+    color: white;
+}
+
+.validation-table tbody tr:nth-child(even) {
+    background-color: #E4FDE1;
+}
+
+.validation-table tbody tr:hover {
+    background-color: #f0f4f8;
+}
+
+.validation-table td {
+    line-height: 1.5;
+}
+
+
 
