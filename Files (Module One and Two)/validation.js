@@ -180,8 +180,96 @@ if (addCourseForm) { //confirm the page has this specific form before running va
 if (addInstructorForm) {
     addInstructorForm.addEventListener("submit", function(e) {
         // validation rules go in here
+
+         let addInstructorFormIsValid = true;
+        // all validation
+
+        const InstructorFirstName = document.getElementById("InstructorFirstName").value;
+        const InstructorLastName =document.getElementById("InstructorLastName").value;
+        const Department=document.getElementById("Department").value;
+        const InstructorEmail=document.getElementById("InstructorEmailAddress").value;
+        const Rank = document.getElementById("Rank").value;
+
+        const nameRegex = /^[A-Za-z]+(?:[ '-][A-Za-z]+)*$/;
+        const emailRegex = /^[a-zA-Z]{2,3}[0-9]{3}@marietta\.edu$/;
+
+        
+        if (InstructorFirstName===""){  //check if it is empty
+
+            console.log("Error: This is a required field.");
+            addInstructorFormIsValid = false;
+            
+
+        }else if (!nameRegex.test(InstructorFirstName)){  //test the value of name against the defined name  RegEx
+            console.log("Error: instructor first name does not match required format.");
+            addInstructorFormIsValid = false;
+        
+        }
+        else {
+            console.log("Success! You entered a valid instructor first name format.");
+        }
+
+        if (InstructorLastName===""){  //check if it is empty
+
+            console.log("Error: This is a required field");
+            addInstructorFormIsValid= false;
+            
+
+        }else if (!nameRegex.test(InstructorLastName)){  //test the value of name  against the defined name  RegEx
+            console.log("Error: Instructor last name does not match the required format");
+            addInstructorFormIsValid= false;
+
+        }
+        else {
+            console.log("Success! You entered a valid instructor first name format.");
+        }
+
+        if (Department !== "" && !namepattern.test(Department)){
+            console.log("Error:Department name does not match the required format.")
+            addInstructorFormIsValid= false;
+        
+        }
+        else {
+            console.log("Success! You entered a valid department name format.");
+        }
+
+        if (InstructorEmail ===""){  // check if it is empty
+            console.log("Error: This is a required field.");
+            addInstructorFormIsValid = false;
+            
+
+        }else if (!emailRegex.test(InstructorEmail)){  //test the value of email  against the defined email RegEx
+            console.log("Error: The email does not match the required email format.");
+            addInstructorFormIsValid = false;
+    
+        }
+        else {
+            console.log("Success! You entered a valid email format.");
+        }
+
+        if (addInstructorFormIsValid== false) {
+            console.log("Error: form can not be submitted due to issues with one or more fields.");
+            e.preventDefault()
+
+            // If you reach this point, validation has passed.
+
+        } else {
+            console.log("Success! All fields are valid. Now printing information.");
+            e.preventDefault()
+
+            alert(
+                `First Name: ${InstructorFirstName }
+                Last Name: ${InstructorLastName}
+                Department: ${Department}
+                Rank: ${Rank}
+                Email: ${InstructorEmail}`
+            );
+        }
+
     });
 }
+        
+
 
 // -----DROP COURSE-----
 
@@ -197,6 +285,7 @@ if (enrollStudentForm) {
     enrollStudentForm.addEventListener("submit", function(e) {
         // validation rules go in here
         let enrollStudentFormIsValid = true;
+
         // all validation
 
         const firstname = document.getElementById("StudentFirstName").value;
@@ -211,64 +300,83 @@ if (enrollStudentForm) {
         
         if (firstname===""){  //check if it is empty
 
-            alert("This is a required field.");
+            console.log("Error: This is a required field.");
             enrollStudentFormIsValid = false;
-            e.preventDefault()
-            return;
+
 
         }else if (!nameRegex.test(firstname)){  //test the value of name  against the defined name  RegEx
-            alert("please enter a valid firstname.");
+            console.log("Error: student first name does not match required format.");
             enrollStudentFormIsValid = false;
-            e.preventDefault()
-            return;
+    
         }
+
+        else {
+            console.log("Success! You entered a valid student first name format.");
+        }
+
 
         if (lastname===""){  //check if it is empty
 
-            alert("This is a required field");
+            console.log("Error: This is a required field");
             enrollStudentFormIsValid = false;
-            e.preventDefault()
-            return;
+
 
         }else if (!nameRegex.test(lastname)){  //test the value of name  against the defined name  RegEx
-            alert("please enter a valid  lastname.");
+            console.log("Error: student last name does not match the required format.");
             enrollStudentFormIsValid = false;
-            e.preventDefault()
-            return;
         }
+
+        else {
+            console.log("Success! You entered a valid student last name format.");
+        }
+
 
         if (major !== "" && !nameRegex.test(major)) {  //test the value of major  against the defined name  RegEx
-            alert("please enter a valid  lastname.");
-            alert("Please enter a valid major.");
+            console.log("Error: Major does not match the required format");
             enrollStudentFormIsValid = false;
-            e.preventDefault()
-            return;
         }
+
+        else {
+            console.log("Success! You entered a valid  major format.");
+        }
+
 
         if (email ===""){  // check if it is empty
-            alert("This is a required field.");
+            console.log("Error: This is a required field.");
             enrollStudentFormIsValid = false;
-            e.preventDefault()
-            return;
+
 
         }else if (!emailRegex.test(email)){  //test the value of email  against the defined email RegEx
-            alert("please enter a valid email.");
+            console.log("Error: The email does not match the required format");
             enrollStudentFormIsValid = false;
-            e.preventDefault()
-            return;
         }
-        // If you reach this point, validation has passed.
 
-        alert(    // the alert shows the message on the screen rather that the developer tools so we can change it later
-            "All validation checks passed!\n\n" +
-            "First Name: " + firstname +
-            "\nLast Name: " + lastname +
-            "\nYear: " + year +
-            "\nMajor: " + major +
-            "\nEmail: " + email    // is this is the display that he is talking about??
-        );
+        else {
+            console.log("Success! You entered a valid student email format.");
+        }
+        
+        if (enrollStudentFormIsValid == false) {
+            console.log("Error: form can not be submitted due to issues with one or more fields.");
+            e.preventDefault()
+
+            // If you reach this point, validation has passed.
+
+        } else {
+            console.log("Success! All fields are valid. Now printing information.");
+            e.preventDefault()
+
+            alert(
+                `First Name: ${firstname}
+                Last Name: ${lastname}
+                Year: ${year}
+                Major: ${major}
+                Email: ${email}`
+            );
+        }
+
     });
 }
+
 
 // -----REGISTER COURSE-----
 
