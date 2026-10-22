@@ -191,8 +191,7 @@ if (addInstructorForm) {
         const Rank = document.getElementById("Rank").value;
 
         const nameRegex = /^[A-Za-z]+(?:[ '-][A-Za-z]+)*$/;
-        const emailRegex = /^[a-zA-Z]{2,3}[0-9]{3}@marietta\.edu$/;
-
+        const emailRegex = /^[a-zA-Z]{2,3}[0-9]{3}@marietta\.edu$/;         
         
         if (InstructorFirstName===""){  //check if it is empty
 
@@ -224,14 +223,15 @@ if (addInstructorForm) {
             console.log("Success! You entered a valid instructor first name format.");
         }
 
-        if (Department !== "" && !namepattern.test(Department)){
+        if (Department !== "" && !nameRegex.test(Department)){
             console.log("Error:Department name does not match the required format.")
             addInstructorFormIsValid= false;
         
         }
-        else {
+        else if(Department !== ""){
             console.log("Success! You entered a valid department name format.");
         }
+        
 
         if (InstructorEmail ===""){  // check if it is empty
             console.log("Error: This is a required field.");
@@ -247,7 +247,7 @@ if (addInstructorForm) {
             console.log("Success! You entered a valid email format.");
         }
 
-        if (addInstructorFormIsValid== false) {
+        if (addInstructorFormIsValid == false) {
             console.log("Error: form can not be submitted due to issues with one or more fields.");
             e.preventDefault()
 
