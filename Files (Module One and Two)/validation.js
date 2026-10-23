@@ -16,6 +16,20 @@ if (addCourseForm) { //confirm the page has this specific form before running va
     const TTHTime = document.getElementById("TThTime");
     const singleDayTime = document.getElementById("SingleDayTime");
 
+    //initially start with MWF displayed since it is first "shown" in select list
+
+    MWFTime.hidden = false;
+    MWFTime.previousSibling.previousSibling.hidden = false;
+
+    MWTime.previousSibling.previousSibling.hidden = true;
+    MWTime.hidden = true;
+
+    TTHTime.previousSibling.previousSibling.hidden = true;
+    TTHTime.hidden = true;
+
+    singleDayTime.previousSibling.previousSibling.hidden = true;
+    singleDayTime.hidden = true;
+
     daysOffered.addEventListener("change", function(e) {
         const selectedDayIndex = e.target.selectedIndex;
         console.log(e.target.selectedIndex);
