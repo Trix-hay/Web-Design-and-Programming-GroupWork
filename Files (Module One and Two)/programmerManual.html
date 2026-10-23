@@ -32,7 +32,18 @@ before.">
         </nav>
         
         <main>
-            <h2>Overview of the Course Registration System.</h2>
+            <h2>Programmer Manual Navigation</h2>
+            <p>Below are the links to the sections of the manual.</p>
+
+            <nav id="programmer-nav">
+            <a href="#overview">Overview</a>
+            <a href="#page-summary">Page Summary</a>
+            <a href="#file-organization">File Organization</a>
+            <a href="#form-elements">Form Elements</a>
+            <a href="#functions">Functions</a>
+            </nav>  
+
+            <h2 id="overview"> Overview of the Course Registration System.</h2>
             <p>The Course Registration System is a web application designed to
                  automate the process of managing student course registration. The system is structured to allow users to add students, instructors, and courses through Web forms.
                 Users will also be able to register students for courses and drop students from courses.
@@ -45,10 +56,10 @@ before.">
                 The application is divided into multiple HTML pages, with each page responsible for a specific part of the course registration process. 
                 The pages share a consistent layout and navigation structure so that users and developers can move between the different components of the system.
             </p>
-            <h2>Summary of Each Page Content</h2>
+            <h2 id ="page-summary">Summary of Each Page Content</h2>
             <p>
                 <h3> <a href="HomePage.html">HomePage.html</a></h3>
-                The Home page serves at the starting page for the Course Registration Sysytem.
+                The Home page serves at the starting page for the Course Registration System.
                 It contains the site header, navigation menu, main content area and footer.
 
                 <h3><a href="enrollstudent.html">enrollstudent.html</a></h3>
@@ -79,14 +90,14 @@ before.">
             </p>
 
             <p>
-                <h2>Site/File organization</h2>
-                <p>All Module 1 HTML and CSS files are stored in the main project directory.
+                <h2 id="file-organization">Site/File organization</h2>
+                <p>All Module 1 and 2 HTML, CSS and javascript files are stored in the main project directory.
                 </p>
 
             </p>
 
             <p>
-                <h2>Description of all Form Elements</h2>
+                <h2 id="form-elements">Description of all Form Elements</h2>
                 This section describes the form elements used throughout the
                 Course Registration System. Each form element has a unique
                 id  attribute so that it can be referenced by
@@ -106,7 +117,7 @@ before.">
                     <td>Text input</td>
                     <td>studentFirstName</td>
                     <td>Collects the student's first name.</td>
-                    <td>None</td>
+                    <td>Read and validated by the Enroll Student form submit event handler</td>
                 </tr>
 
                 <tr>
@@ -114,7 +125,7 @@ before.">
                     <td>Text input</td>
                     <td>studentLastName</td>
                     <td>Collects the student's last name.</td>
-                    <td>None</td>
+                    <td>Read and validated by the Enroll Student form submit event handler</td>
                 </tr>
 
                 <tr>
@@ -138,7 +149,7 @@ before.">
                     <td>Text input</td>
                     <td>studentEmail</td>
                     <td>Collects the student's email address.</td>
-                    <td>None</td>
+                    <td>Read and validated by the Enroll Student form submit event handler</td>
                 </tr>
 
                 <tr>
@@ -146,7 +157,7 @@ before.">
                     <td>Submit button</td>
                     <td>None</td>
                     <td>Provides a button for submitting the form.</td>
-                    <td>None</td>
+                    <td>Enroll Student form submit event handler</td>
                 </tr>
             </table>
 
@@ -179,7 +190,7 @@ before.">
                 <tr>
                     <td>Instructor's  Department</td>
                     <td>Text input</td>
-                    <td>InstructorDepartment</td>
+                    <td>Department</td>
                     <td>collects the Instructor's Department.</td>
                     <td>None</td>
                 </tr>
@@ -187,7 +198,7 @@ before.">
                 <tr>
                     <td>Instructor's Rank</td>
                     <td>Select List</td>
-                    <td>InstructorRank</td>
+                    <td>Rank</td>
                     <td>Allows the user to select the rank of an instructor.</td>
                     <td>None</td>
                 </tr>
@@ -195,7 +206,7 @@ before.">
                 <tr>
                     <td>Instructor's  Email</td>
                     <td>Text input</td>
-                    <td>InstructorEmail</td>
+                    <td>InstructorEmailAddress</td>
                     <td>Collects the Instructor's  email address.</td>
                     <td>None</td>
                 </tr>
@@ -467,12 +478,40 @@ before.">
         </table>
         </p>
 
-        <h2>Description of all Functions</h2>
-        <p>No JavaScript functions are implemented in Module 1. The current module focuses on creating the HTML and CSS user interface. 
-            The form Submit buttons do not currently perform any processing or database operations. JavaScript 
-            functions will be documented in this section as they are implemented in later modules. 
-            Each function will include a description of its purpose, its input parameters, and the page or pages that call the function.
-        </p>
+        <h2 id ="functions"> Description of all Functions</h2>
+        <h3>1. Enroll Student Form Submission</h3>
+
+        <p><strong>Function Name:</strong>
+        Enroll Student submit event handler (anonymous callback).</p>
+
+        <p><strong>Purpose:</strong>
+        Validates the student information before displaying the submitted data.</p> 
+
+        <p><strong>Input Parameters:</strong>   
+        The event object, e, which represents the form submission.
+        The function also reads the values entered into the student form fields.</p>
+
+        <p><strong>Return Value:</strong>
+        None.</p>
+
+        <p><strong>Page Used:</strong>
+        enrollstudent.html</p>
+
+        <p><strong>Important DOM Elements:</strong>
+        The Enroll Student form and its first name, last name, year,
+        major, and email fields.</p>
+
+        <p><strong>Technical Explanation:</strong>The event handler is registered using addEventListener()
+        to respond when the form is submitted. It retrieves the
+        values entered by the user and checks them against the
+        validation rules. If any validation check fails, the handler
+        prevents the form from submitting. If all checks pass, it
+        displays the entered information in an alert box.</p>
+
+        <h3>2. Add Instructor Form Submission</h3>
+
+
+
         <footer>
         </footer>
     </body>
