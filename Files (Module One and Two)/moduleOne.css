@@ -19,7 +19,7 @@ a:link {
 }
 
 a:visited {
-    color: #8a0761;
+    color: #E4FDE1;
 }
 
 footer {
@@ -43,6 +43,32 @@ nav a {
     padding-bottom: 5px;
 }
 
+#manual-nav {
+    position: static;
+    width: 100%;
+    float: none;
+    display: block;
+    margin-bottom: 30px;
+}
+
+#manual-nav a {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+#programmer-nav {
+    position: static;
+    width: 100%;
+    float: none;
+    display: block;
+    margin-bottom: 30px;
+}
+
+#programmer-nav a {
+    display: inline-block;
+    margin-right: 15px;
+}
+
 main {
     top: 150px;
     margin-left: 175px; /* make the left margin start where the nav pane ends */
@@ -54,8 +80,8 @@ main h2 {
     margin-top: 0; /* removes auto-margins from header elements in main so the content aligns with the nav pane */
 }
 
-main h3{
-	color: #8a0761;
+main h4{
+	color: #782b50;
 }
 
 form {
@@ -84,8 +110,8 @@ button {
     font-size: 16px;         /* Size of the text */
     border-radius: 5px;      /* Rounds the corners */
     cursor: pointer;         /* Shows hand cursor when hovering */
-    background-color: #6be594;  /* we can change the color if we want to*/
-    color: #043242;
+    background-color: #782b50;  /* we can change the color if we want to*/
+    color: whitesmoke;
 }
 
 
@@ -99,8 +125,11 @@ td {
 }
 
 body {
-    background-color: #88b1dd; /* we can mess up with the color we want */
+    background-color: #567ba3; /* we can mess up with the color we want */
 }
+
+
+
 
 /* Validation tables in the User Manual */
 .validation-table {
@@ -132,6 +161,106 @@ body {
 }
 
 .validation-table td {
+    line-height: 1.5;
+}
+
+.validation-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-family: Verdana, sans-serif;
+}
+
+.validation-table th,
+.validation-table td {
+    border: 1px solid #456990;
+    padding: 12px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.validation-table th {
+    background-color: #114B5F;
+    color: white;
+}
+
+.validation-table tbody tr:nth-child(even) {
+    background-color: #E4FDE1;
+}
+
+.validation-table tbody tr:hover {
+    background-color: #f0f4f8;
+}
+
+.validation-table td {
+    line-height: 1.5;
+}
+
+
+
+/* Validation tables in the programmer Manual */
+
+.programmer-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-family: Verdana, sans-serif;
+}
+
+.programmer-table th,
+.programmer-table td {
+    border: 1px solid #456990;
+    padding: 12px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.programmer-table th {
+    background-color: #114B5F;
+    color: white;
+}
+
+.programmer-table tbody tr:nth-child(even) {
+    background-color: #E4FDE1;
+}
+
+.programmer-table tbody tr:hover {
+    background-color: #f0f4f8;
+}
+
+.programmer-table td {
+    line-height: 1.5;
+}
+
+.programmer-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-family: Verdana, sans-serif;
+}
+
+.programmer-table th,
+.programmer-table td {
+    border: 1px solid #456990;
+    padding: 12px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.programmer-table th {
+    background-color: #114B5F;
+    color: white;
+}
+
+.programmer-table tbody tr:nth-child(even) {
+    background-color: #E4FDE1;
+}
+
+.programmer-table tbody tr:hover {
+    background-color: #f0f4f8;
+}
+
+.programmer-table td {
     line-height: 1.5;
 }
 
