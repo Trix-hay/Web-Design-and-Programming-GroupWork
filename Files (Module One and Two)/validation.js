@@ -8,7 +8,74 @@ const registerCourseForm = document.getElementById("registerCourseForm");
 // -----ADD COURSE-----
 
 if (addCourseForm) { //confirm the page has this specific form before running validation. if the form element isn't found, we aren't on that page and don't need this validation
+    
+    // -----ADD COURSE SELECT LIST DISPLAY-----
+    const daysOffered = document.getElementById("DaysOffered");
+    const MWFTime = document.getElementById("MWFTime");
+    const MWTime = document.getElementById("MWTime");
+    const TTHTime = document.getElementById("TThTime");
+    const singleDayTime = document.getElementById("SingleDayTime");
+
+    daysOffered.addEventListener("change", function(e) {
+        const selectedDayIndex = e.target.selectedIndex;
+        console.log(e.target.selectedIndex);
+
+        if (selectedDayIndex == 0) { //MWF
+            MWFTime.hidden = false;
+            MWFTime.previousSibling.previousSibling.hidden = false;
+
+            MWTime.previousSibling.previousSibling.hidden = true;
+            MWTime.hidden = true;
+
+            TTHTime.previousSibling.previousSibling.hidden = true;
+            TTHTime.hidden = true;
+
+            singleDayTime.previousSibling.previousSibling.hidden = true;
+            singleDayTime.hidden = true;
+        }
+        else if (selectedDayIndex == 1)  { //MW
+            MWFTime.previousSibling.previousSibling.hidden = true;
+            MWFTime.hidden = true;
+
+            MWTime.previousSibling.previousSibling.hidden = false;
+            MWTime.hidden = false;
+
+            TTHTime.previousSibling.previousSibling.hidden = true;
+            TTHTime.hidden = true;
+
+            singleDayTime.previousSibling.previousSibling.hidden = true;
+            singleDayTime.hidden = true;
+        }
+        else if (selectedDayIndex == 2) { //TTH
+            MWFTime.previousSibling.previousSibling.hidden = true;
+            MWFTime.hidden = true;
+
+            MWTime.previousSibling.previousSibling.hidden = true;
+            MWTime.hidden = true;
+
+            TTHTime.previousSibling.previousSibling.hidden = false;
+            TTHTime.hidden = false;
+
+            singleDayTime.previousSibling.previousSibling.hidden = true;
+            singleDayTime.hidden = true;
+        }
+        else if (selectedDayIndex >= 3) {
+            MWFTime.previousSibling.previousSibling.hidden = true;
+            MWFTime.hidden = true;
+
+            MWTime.previousSibling.previousSibling.hidden = true;
+            MWTime.hidden = true;
+
+            TTHTime.previousSibling.previousSibling.hidden = true;
+            TTHTime.hidden = true;
+
+            singleDayTime.previousSibling.previousSibling.hidden = false;
+            singleDayTime.hidden = false;
+        }
+    });
+
     addCourseForm.addEventListener("submit", function(e) {
+
         let addCourseFormIsValid = true; //boolean to track what submission should do (more efficient way to track overall status)
 
         //constants (used for checks)
@@ -160,6 +227,7 @@ if (addCourseForm) { //confirm the page has this specific form before running va
             e.preventDefault()
         } else {
             console.log("Success! All fields are valid. Now printing information.");
+            // need to add other fields here (select list options)
             e.preventDefault()
             alert(
                 `Year: ${year}
@@ -268,8 +336,6 @@ if (addInstructorForm) {
 
     });
 }
-        
-
 
 // -----DROP COURSE-----
 
@@ -377,7 +443,6 @@ if (enrollStudentForm) {
     });
 }
 
-
 // -----REGISTER COURSE-----
 
 if (registerCourseForm) {
@@ -385,3 +450,5 @@ if (registerCourseForm) {
         // validation rules go in here
     });
 }
+
+
