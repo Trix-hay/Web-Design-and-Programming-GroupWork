@@ -94,10 +94,17 @@ if (addCourseForm) { //confirm the page has this specific form before running va
 
         //constants (used for checks)
         const year = document.getElementById("Year").value;
+        const semester = document.getElementById("Semester").value;
         const coursePrefix = document.getElementById("CoursePrefix").value;
         const courseNumber = document.getElementById("CourseNumber").value;
         const courseSection = document.getElementById("CourseSection").value;
+        const courseName = document.getElementById("CourseName").value;
         const room = document.getElementById("Room").value;
+        const daysOffered = document.getElementById("DaysOffered").value;
+        const MWFTime = document.getElementById("MWFTime").value;
+        const MWTime = document.getElementById("MWTime").value;
+        const TTHTime = document.getElementById("TThTime").value;
+        const singleDayTime = document.getElementById("SingleDayTime").value;
         const creditHours = document.getElementById("CreditHours").value;
         const instructorFirstName = document.getElementById("InstructorFirstName").value;
         const instructorLastName = document.getElementById("InstructorLastName").value;
@@ -241,13 +248,14 @@ if (addCourseForm) { //confirm the page has this specific form before running va
             e.preventDefault()
         } else {
             console.log("Success! All fields are valid. Now printing information.");
-            // need to add other fields here (select list options)
             e.preventDefault()
+            //need help only showing time for selected list (e.g., only show MWF time if MWF is selected)
             alert(
-                `Year: ${year}
+                `Year: ${semester} ${year}
                 Course Prefix: ${coursePrefix}
-                Course: ${courseNumber}-${courseSection}
+                Course: ${courseName} ${courseNumber}-${courseSection}
                 Room: ${room}
+                Time: ${daysOffered}
                 Credit Hours: ${creditHours}
                 Instructor Name: ${instructorFirstName} ${instructorLastName}
                 Enrollment Cap: ${enrollmentCap}`
