@@ -101,10 +101,6 @@ if (addCourseForm) { //confirm the page has this specific form before running va
         const courseName = document.getElementById("CourseName").value;
         const room = document.getElementById("Room").value;
         const daysOffered = document.getElementById("DaysOffered").value;
-        const MWFTime = document.getElementById("MWFTime").value;
-        const MWTime = document.getElementById("MWTime").value;
-        const TTHTime = document.getElementById("TThTime").value;
-        const singleDayTime = document.getElementById("SingleDayTime").value;
         const creditHours = document.getElementById("CreditHours").value;
         const instructorFirstName = document.getElementById("InstructorFirstName").value;
         const instructorLastName = document.getElementById("InstructorLastName").value;
@@ -249,13 +245,27 @@ if (addCourseForm) { //confirm the page has this specific form before running va
         } else {
             console.log("Success! All fields are valid. Now printing information.");
             e.preventDefault()
-            //need help only showing time for selected list (e.g., only show MWF time if MWF is selected)
+            // determine which time to display based on what time select list is shown
+            let selectedTime;
+            if (!MWFTime.hidden) { //if the MWF select list is not hidden, it must be visible and thus has the time value we want
+                selectedTime = MWFTime.value;
+            }
+            else if (!MWTime.hidden) {
+                selectedTime = MWTime.value;
+            }
+            else if (!TTHTime.hidden) {
+                selectedTime = TTHTime.value;
+            }
+            else if (!singleDayTime.hidden) {
+                selectedTime = singleDayTime.value;
+            }
+
             alert(
                 `Year: ${semester} ${year}
                 Course Prefix: ${coursePrefix}
                 Course: ${courseName} ${courseNumber}-${courseSection}
                 Room: ${room}
-                Time: ${daysOffered}
+                Time: ${selectedTime} ${daysOffered}
                 Credit Hours: ${creditHours}
                 Instructor Name: ${instructorFirstName} ${instructorLastName}
                 Enrollment Cap: ${enrollmentCap}`
@@ -322,7 +332,6 @@ if (addInstructorForm) {
             console.log("Success! You entered a valid department name format.");
         }
         
-
         if (InstructorEmail ===""){  // check if it is empty
             console.log("Error: This is a required field.");
             addInstructorFormIsValid = false;
