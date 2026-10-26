@@ -8,7 +8,7 @@
 
         <title>User Manual - Course Registration System</title>
 
-        <meta name="description" content="A user Manual for the course Registration System">
+        <meta name="description" content="A User Manual for the Course Registration System">
 
         <link rel="stylesheet" href="moduleOne.css">
 
@@ -24,7 +24,7 @@
 
             <h2>User Manual</h2>
 
-            <p>The navigation pane provides links to the individual pages within this site. while the other navigation pane 
+            <p>The horizontal navigation pane provides links to the individual pages within this site, while the main/vertical navigation pane 
                 jumps to different sections within the User Manual.
             </p>
 
@@ -59,7 +59,7 @@
             <!-- Navigation for the sections of the User Manual -->
 
             <h2>User Manual Navigation</h2>
-            <p>Click on any of the links below to jump to specific section within the user maunal.</p>
+            <p>Click on any of the links below to jump to a specific section within the user manual.</p>
 
             <nav id="manual-nav">
 
@@ -97,13 +97,13 @@
             <!-- Home Page -->
 
             <h2 id="home-page">Home Page</h2>
-            <h3>Summary:</h3>
+            <h3>Summary</h3>
             <p>
                 The Home Page is the starting page of the system.
-                It provides a brief description of the course Registration
-                system and has links to other pages in the system.
+                It provides a brief description of the Course Registration
+                System and has links to other pages in the system.
             </p>
-            <h3>Detailed Description:</h3>
+            <h3>Detailed Description</h3>
             <p>
                 The Home Page contains the title of the Course Registration System at the top of the page, along with a brief description of the system. 
                 A navigation menu is located on the page and provides links to the Enroll Student, Add Instructor, Add Course, Register Course, Drop Course, User Manual, and Programmer Manual pages.
@@ -114,29 +114,29 @@
             <!-- Enroll Student -->
 
             <h2 id="enroll-student">Enroll Student</h2>
-            <h3>Summary:</h3>
+            <h3>Summary</h3>
             <p>
                 The enroll student page allows the user to enter student information
                 and add to the web application.
             </p>
-            <h3>Detailed Description:</h3>
+            <h3>Detailed Description</h3>
             <p>
             The page contains a form where the user enters the student's personal and academic information. 
             Each field should be completed with information that identifies and describes the student. It has the following fields:
             </p>
 
-            <h4>1. Student FirstName</h4>
+            <h4>1. Student First Name</h4>
 
             <p>
-                Enter the Student's First Name.<br>
+                Enter the student's first name.<br>
                 Example: Olivia
             </p>
 
 
-            <h4>2. Student LastName</h4>
+            <h4>2. Student Last Name</h4>
 
             <p>
-                Enter the Student's Last Name.<br>
+                Enter the student's last name.<br>
                 Example: Hughes
             </p>
 
@@ -145,14 +145,14 @@
 
             <p>
                 Select the student's year from the list.<br>
-                Acceptable Values are Freshman, Sophomore, Junior or Senior.
+                Acceptable values are Freshman, Sophomore, Junior or Senior.
             </p>
 
 
             <h4>4. Student Major</h4>
 
             <p>
-                Enter the Student's Major.<br>
+                Enter the student's major.<br>
                 Example: Computer Science
             </p>
 
@@ -160,12 +160,12 @@
             <h4>5. Student Email</h4>
 
             <p>
-                Enter the Student's email address.<br>
+                Enter the student's email address.<br>
                 Example: oh010@marietta.edu
             </p>
 
             <h3>Validation Rules for Enroll Student</h3>
-            <p>These are the validation rules for the enroll student page;</p>
+            <p>These are the validation rules for the enroll student page.</p>
             <table class ="validation-table">
                 <thead>
                     <th>Field</th>
@@ -177,38 +177,38 @@
                 <tbody>
                     <tr>
 
-                        <td>Student Firstname</td>
-                        <td>Required field,must be string. Spaces, hyphens and apostrophes are allowed</td>
+                        <td>Student First Name</td>
+                        <td>Required field, must be a string. Spaces, hyphens and apostrophes are allowed.</td>
                         <td>Mary, Ann-Marie, M'ckennie</td>
-                        <td>"Error: student first name does not match required format."</td>
+                        <td>"Error: student first name does not match the required format."</td>
                     </tr>
 
                     <tr>
-                        <td>Student Lastname</td>
-                        <td>Required,must be a string. Spaces,hypens and apostrophes are allowed</td>
-                        <td>Harrel,O'brien,Bob-Chase</td>
-                         <td>"Error: student last name name does not match required format."</td>
+                        <td>Student Last Name</td>
+                        <td>Required field, must be a string. Spaces, hyphens and apostrophes are allowed.</td>
+                        <td>Harrel, O'Brien, Bob-Chase</td>
+                         <td>"Error: student last name name does not match the required format."</td>
                     </tr>
 
                     <tr>
                         <td>Student Year</td>
-                        <td>No validation rules since it is a select list.</td>
+                        <td>No validation rules since the input is a select list.</td>
                         <td>-</td>
                         <td>-</td>
                     </tr>
 
                     <tr>
                         <td>Major</td>
-                        <td>Not required, must be a string. Spaces,hyphens and apostrohes are allowed</td>
-                        <td>Computer science, Mathematics</td>
-                        <td>"Error: Major does not match the required format"</td>
+                        <td>Not required, must be a string. Spaces, hyphens and apostrohes are allowed.</td>
+                        <td>Computer Science, Mathematics</td>
+                        <td>"Error: Major does not match the required format."</td>
                     </tr>
 
                     <tr>
                         <td>Student's Email Address</td>
-                        <td>Required field,must follow the format two or three letters followed by exactly 3 digits and end with @marietta.edu</td>
+                        <td>Required field, must follow the format of two or three letters, followed by exactly 3 digits, and ending with "@marietta.edu".</td>
                         <td>rty034@marietta.edu, ch345@marietta.edu</td>
-                        <td>"Error: The email does not match the required format"</td>
+                        <td>"Error: The email does not match the required format."</td>
                     </tr>
                 </tbody>
                 
@@ -219,31 +219,29 @@
             <!-- Add Instructor -->
 
             <h2 id="add-instructor">Add Instructor</h2>
-            <h3>Summary:</h3>
+            <h3>Summary</h3>
             <p>
-                The add Instructor page is a web form that allows the user
+                The Add Instructor page is a web form that allows the user
                 to add an instructor to the web application.
             </p>
-            <h3>Detailed Description:</h3>
+            <h3>Detailed Description</h3>
             <p>
                 The page contains a form for entering the instructor's name, department, academic rank, and email address.
                 It has the following fields:
             </p>
                 
-            
-
-            <h4>1. Instructor FirstName</h4>
+            <h4>1. Instructor First Name</h4>
 
             <p>
-                Enter the Instructor's First Name.<br>
+                Enter the instructor's first name.<br>
                 Example: Matthew
             </p>
 
 
-            <h4>2. Instructor's LastName</h4>
+            <h4>2. Instructor's Last Name</h4>
 
             <p>
-                Enter the Instructor's Last Name.<br>
+                Enter the instructor's last name.<br>
                 Example: Williamson
             </p>
 
@@ -251,7 +249,7 @@
             <h4>3. Instructor's Department</h4>
 
             <p>
-                Enter the Instructor's Department.<br>
+                Enter the instructor's department.<br>
                 Example: Computer Science
             </p>
 
@@ -259,13 +257,13 @@
             <h4>4. Instructor's Rank</h4>
 
             <p>
-                Select the rank of the Instructor from the select list.<br>
+                Select the rank of the instructor from the select list.<br>
                 Acceptable values are Instructor, Assistant Professor,
                 Associate Professor and Professor.
             </p>
 
             <h3>Validation Rules for Add Instructor</h3>
-            <p>These are the validation rules for the add instructor page;</p>
+            <p>These are the validation rules for the add instructor page.</p>
             <table class ="validation-table">
                 <thead>
                     <th>Field</th>
@@ -277,24 +275,24 @@
                 <tbody>
                     <tr>
 
-                        <td>Instructor Firstname</td>
-                        <td>Required field,must be string. Spaces, hyphens and apostrophes are allowed</td>
+                        <td>Instructor First Name</td>
+                        <td>Required field, must be a string. Spaces, hyphens and apostrophes are allowed.</td>
                         <td>Matthew, Ann-Marie, Bob</td>
                         <td>"Error: instructor first name does not match required format."</td>
                     </tr>
 
                     <tr>
-                        <td>Instructor Lastname</td>
-                        <td>Required, must be a string. Spaces,hypens and apostrophes are allowed</td>
-                        <td>Williamson, O'Niel,Van-Camp</td>
+                        <td>Instructor Last Name</td>
+                        <td>Required field, must be a string. Spaces, hyphens and apostrophes are allowed.</td>
+                        <td>Williamson, O'Neill, Van-Camp</td>
                         <td>"Error: Instructor last name does not match the required format."</td>
                     </tr>
 
                     <tr>
                         <td>Instructor Department</td>
-                        <td>Not required. Must be a string. Spaces,hypens and apostrophes are allowed</td>
+                        <td>Not required. Must be a string. Spaces, hyphens and apostrophes are allowed.</td>
                         <td>Computer Science, Physics, Mathematics</td>
-                        <td>Error:Department name does not match the required format."</td>
+                        <td>Error: Department name does not match the required format."</td>
                     </tr>
 
                     <tr>
@@ -306,7 +304,7 @@
 
                     <tr>
                         <td>Instructor's Email Address</td>
-                        <td>Required field,must follow the format two or three letters followed by exactly 3 digits and end with @marietta.edu</td>
+                        <td>Required field, must follow the format of two or three letters, followed by exactly 3 digits, and ending with "@marietta.edu".</td>
                         <td>rty034@marietta.edu, ch345@marietta.edu</td>
                         <td>"Error: The email does not match the required email format."</td>
                     </tr>
@@ -318,14 +316,14 @@
             <!-- Add Course -->
 
             <h2 id="add-course">Add Course</h2>
-            <h3>Summary:</h3>
+            <h3>Summary</h3>
             <p>
                 The Add Course page allows users to enter information about a course that will be offered during a particular semester. 
                 The form collects information about the course, including its semester, course number, section, meeting schedule, location, credit hours, instructor, and enrollment capacity.
             </p>
-            <h3>Detailed Description:</h3>
+            <h3>Detailed Description</h3>
             <p>The user enters the course information into the form. Some fields require the user to type information, while others require the user to select an option from a drop-down list.
-                It has the following fields;
+                It has the following fields:
             </p>
 
 
@@ -333,7 +331,7 @@
 
             <p>
                 The user can choose the semester by selecting from the select list.<br>
-                Acceptable Values are spring, summer and fall.
+                Acceptable values are spring, summer, and fall.
             </p>
 
 
@@ -348,7 +346,7 @@
             <h4>3. Course Number</h4>
 
             <p>
-                The user should add the course number for easy identification.<br>
+                The user should add the course number.<br>
                 Example: 101, 330 etc.
             </p>
 
@@ -365,6 +363,7 @@
 
             <p>
                 The user should enter the name of the course.
+                Example: Web Design and Programming
             </p>
 
 
@@ -397,7 +396,7 @@
             </p>
 
             <p>
-                Acceptable Values for Mondays are;<br>
+                Acceptable Values for Mondays are:<br>
 
                 8:00 AM to 8:50 AM<br>
 
@@ -417,7 +416,7 @@
             </p>
 
             <p>
-                Acceptable values for Monday, Wednesday are;<br>
+                Acceptable values for Monday, Wednesday are:<br>
 
                 9:00 AM to 10:50 AM<br>
 
@@ -429,7 +428,7 @@
             </p>
 
             <p>
-                Available times for Tuesday, Thursday are;<br>
+                Available times for Tuesday, Thursday are:<br>
 
                 8:00 AM to 9:15 AM<br>
 
@@ -443,7 +442,7 @@
             </p>
 
             <p>
-                Available times for any single day are;<br>
+                Available times for any single day are:<br>
 
                 1:00 PM to 4:00 PM<br>
 
@@ -470,18 +469,18 @@
             </p>
 
 
-            <h3>10. Instructor FirstName</h3>
+            <h3>10. Instructor First Name</h3>
 
             <p>
-                Enter the Instructor's First Name.<br>
+                Enter the instructor's first name.<br>
                 Example: Matthew
             </p>
 
 
-            <h4>11. Instructor's LastName</h4>
+            <h4>11. Instructor's Last Name</h4>
 
             <p>
-                Enter the Instructor's Last Name.<br>
+                Enter the instructor's last name.<br>
                 Example: Williamson
             </p>
 
@@ -508,28 +507,28 @@
                     <tr>
 
                         <td>Semester and Year</td>
-                        <td>Year is a required field, must consist of four digits, cannot be before 2026. Cannot create a course already done.</td>
+                        <td>Required field, must consist of four digits and cannot be before 2026.</td>
                         <td>Summer 2027</td>
                         <td>"Error: year does not match required format."</td>
                     </tr>
 
                     <tr>
                         <td>Course Prefix</td>
-                        <td>Required, must have either 3 or 4 capital letters.</td>
+                        <td>Required field, must have either 3 or 4 capital letters.</td>
                         <td>ART, CSCI, MATH</td>
                         <td>"Error: course prefix does not match required format."</td>
                     </tr>
 
                     <tr>
                         <td>Course Number</td>
-                        <td>Required. Must have exactly 3 digits and must be between 100 and 499.</td>
+                        <td>Required field, must have exactly 3 digits and must be between 100 and 499.</td>
                         <td>101, 385, 495</td>
                         <td>"Error: course number does not match required format."</td>
                     </tr>
 
                     <tr>
                         <td>Course Section</td>
-                        <td>Required. Must have exactly 2 digits.</td>
+                        <td>Required field, must have exactly 2 digits.</td>
                         <td>01, 02, 03</td>
                         <td>"Error: course section does not match required format."</td>
                     </tr>
@@ -542,8 +541,8 @@
                     </tr>
 
                     <tr>
-                        <td>Room(Building and Room Number)</td>
-                        <td>Not Required, building name must be a string that can have spaces and/or apostrophes. Room number can be 2 or 3 digits and may end with a letter.</td>
+                        <td>Room (Building and Room Number)</td>
+                        <td>Not required, building name must be a string that can have spaces and/or apostrophes. Room number can be 2 or 3 digits and may end with a letter.</td>
                         <td>Selby 239, THMS 123H</td>
                         <td>"Error: room does not match required format."</td>
                     </tr>
@@ -564,29 +563,29 @@
 
                     <tr>
                         <td>Credit Hours</td>
-                        <td>Required field. Must be formatted as a number between 0 and 4 hours.</td>
-                        <td>1,2,3,4</td>
+                        <td>Required field, must be formatted as a number between 0 and 4 hours.</td>
+                        <td>1, 2, 3, 4</td>
                         <td>"Error: credit hours does not match required format."</td>
                     </tr>
 
                     <tr>
 
-                        <td>Instructor Firstname</td>
-                        <td>Required field,must be string. Spaces, hyphens and apostrophes are allowed</td>
+                        <td>Instructor First Name</td>
+                        <td>Required field, must be a string. Spaces, hyphens and apostrophes are allowed.</td>
                         <td>Matthew, Ann-Marie, Bob</td>
                         <td>"Error: instructor first name does not match required format."</td>
                     </tr>
 
                     <tr>
-                        <td>Instructor Lastname</td>
-                        <td>Required, must be a string. Spaces,hypens and apostrophes are allowed</td>
-                        <td>Williamson, O'Niel,Van-Camp</td>
+                        <td>Instructor Last Name</td>
+                        <td>Required field, must be a string. Spaces, hyphens and apostrophes are allowed.</td>
+                        <td>Williamson, O'Neill, Van-Camp</td>
                         <td>"Error: instructor last name does not match required format."</td>
                     </tr>
 
                     <tr>
                         <td>Enrollment Cap</td>
-                        <td>Required field. Must be a number with two digits.</td>
+                        <td>Required field, must be a number with two digits.</td>
                         <td>25, 40</td>
                         <td>"Error: enrollment cap does not match required format."</td>
                     </tr>
@@ -595,24 +594,21 @@
                 
             </table>
 
-            
-
-
             <!-- Register Course -->
 
             <h2 id="register-course">Register Course</h2>
-            <h3>Summary:</h3>
+            <h3>Summary</h3>
 
             <p>
                 The Register Course page allows a user to enter the information needed to register a student for a particular course.
             </p>
-            <h3>Detailed Description:</h3>
+            <h3>Detailed Description</h3>
             <p>
                 The form identifies both the student and the course for which the student is being registered. The user should enter the student's name and the information that identifies the specific course.
-                It has the following fields;
+                It has the following fields:
             </p>
 
-            <h4>1. Student FirstName</h4>
+            <h4>1. Student First Name</h4>
 
             <p>
                 Enter the Student's First Name.<br>
@@ -620,7 +616,7 @@
             </p>
 
 
-            <h4>2. Student LastName</h4>
+            <h4>2. Student Last Name</h4>
 
             <p>
                 Enter the Student's Last Name.<br>
@@ -660,7 +656,7 @@
             </p>
 
             <h3>Validation Rules for Register  Course</h3>
-            <p>These are the validation rules for the register course page;</p>
+            <p>These are the validation rules for the register course page:</p>
             <table class ="validation-table">
                 <thead>
                     <th>Field</th>
@@ -672,83 +668,77 @@
                 <tbody>
                     <tr>
 
-                        <td>Student Firstname</td>
-                        <td>Required field,must be string. Spaces, hyphens and apostrophes are allowed</td>
+                        <td>Student First Name</td>
+                        <td>Required field, must be a string. Spaces, hyphens and apostrophes are allowed.</td>
                         <td>Mary, Ann-Marie, M'ckennie</td>
                         <td>"Error: student first name does not match required format."</td>
                     </tr>
 
                     <tr>
-                        <td>Student Lastname</td>
-                        <td>Required,must be a string. Spaces,hypens and apostrophes are allowed</td>
-                        <td>Harrel,O'brien,Bob-Chase</td>
+                        <td>Student Last Name</td>
+                        <td>Required field, must be a string. Spaces, hyphens and apostrophes are allowed.</td>
+                        <td>Harrel, O'Brien, Bob-Chase</td>
                         <td>"Error: student last name does not match required format."</td>
                     </tr>
 
                     <tr>
 
                         <td>Semester and Year</td>
-                        <td>Year is a required field, must consist of four digits, cannot be before 2026. Cannot create a course already done.</td>
+                        <td>Required field, must consist of four digits and cannot be before 2026.</td>
                         <td>Summer 2027</td>
                         <td>"Error: year does not match required format."</td>
                     </tr>
 
                     <tr>
                         <td>Course Prefix</td>
-                        <td>Required, must have either 3 or 4 capital letters.</td>
+                        <td>Required field, must have either 3 or 4 capital letters.</td>
                         <td>ART, CSCI, MATH</td>
                         <td>"Error: course prefix does not match required format."</td>
                     </tr>
 
                     <tr>
                         <td>Course Number</td>
-                        <td>Required. Must have exactly 3 digits and must be between 100 and 499.</td>
+                        <td>Required field, must have exactly 3 digits and must be between 100 and 499.</td>
                         <td>101, 385, 495</td>
                         <td>"Error: course number does not match required format."</td>
                     </tr>
 
                     <tr>
                         <td>Course Section</td>
-                        <td>Required. Must have exactly 2 digits.</td>
+                        <td>Required field, must have exactly 2 digits.</td>
                         <td>01, 02, 03</td>
                         <td>"Error: course section does not match required format."</td>
                     </tr>
                 </tbody>
             </table>
 
-
-
-
-
-
-
             <!-- Drop Course -->
 
             <h2 id="drop-course">Drop Course</h2>
-            <h3>Summary:</h3>
+            <h3>Summary</h3>
             <p>
                 The Drop Course page is a web form that allows the user
-                to remove from a  course.
+                to remove from a course.
             </p>
-            <h3>Detailed Description:</h3>
+            <h3>Detailed Description</h3>
             <p>
                 The form identifies the student and the specific course from which the student should be dropped. The user enters the student's information and the information identifying the course.
-                It has the follwoing fields;
+                It has the following fields:
             </p>
 
 
-            <h4>1. Student FirstName</h4>
+            <h4>1. Student First Name</h4>
 
             <p>
-                Enter the Student's First Name.<br>
+                Enter the student's first name.<br>
                 Example: Olivia
             </p>
 
 
-            <h4>2. Student LastName</h4>
+            <h4>2. Student Last Name</h4>
 
             <p>
-                Enter the Student's Last Name.<br>
+                Enter the student's last name.<br>
                 Example: Hughes
             </p>
 
@@ -797,44 +787,44 @@
                 <tbody>
                     <tr>
 
-                        <td>Student Firstname</td>
-                        <td>Required field,must be string. Spaces, hyphens and apostrophes are allowed</td>
+                        <td>Student First Name</td>
+                        <td>Required field,must be a string. Spaces, hyphens and apostrophes are allowed.</td>
                         <td>Mary, Ann-Marie, M'ckennie</td>
                         <td>"Error: student first name does not match required format."</td>
                     </tr>
 
                     <tr>
-                        <td>Student Lastname</td>
-                        <td>Required,must be a string. Spaces,hypens and apostrophes are allowed</td>
-                        <td>Harrel,O'brien,Bob-Chase</td>
+                        <td>Student Last Name</td>
+                        <td>Required field, must be a string. Spaces, hyphens and apostrophes are allowed.</td>
+                        <td>Harrel, O'Brien, Bob-Chase</td>
                         <td>"Error: student last name does not match required format."</td>
                     </tr>
 
                     <tr>
 
                         <td>Semester and Year</td>
-                        <td>Year is a required field, must consist of four digits, cannot be before 2026. Cannot create a course already done.</td>
+                        <td>Required field, must consist of four digits and cannot be before 2026.</td>
                         <td>Summer 2027</td>
                         <td>"Error: year does not match required format."</td>
                     </tr>
 
                     <tr>
                         <td>Course Prefix</td>
-                        <td>Required, must have either 3 or 4 capital letters.</td>
+                        <td>Required field, must have either 3 or 4 capital letters.</td>
                         <td>ART, CSCI, MATH</td>
                         <td>"Error: course prefix does not match required format."</td>
                     </tr>
 
                     <tr>
                         <td>Course Number</td>
-                        <td>Required. Must have exactly 3 digits and must be between 100 and 499.</td>
+                        <td>Required field, must have exactly 3 digits and must be between 100 and 499.</td>
                         <td>101, 385, 495</td>
                         <td>"Error: course number does not match required format."</td>
                     </tr>
 
                     <tr>
                         <td>Course Section</td>
-                        <td>Required. Must have exactly 2 digits.</td>
+                        <td>Required field, must have exactly 2 digits.</td>
                         <td>01, 02, 03</td>
                         <td>"Error: course section does not match required format."</td>
                     </tr>
