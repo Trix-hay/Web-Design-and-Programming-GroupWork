@@ -284,6 +284,7 @@ if (addInstructorForm) {
         // validation rules go in here
 
          let addInstructorFormIsValid = true;
+         let failedMessage = ""; //will store info for alert, to be displayed if boolean becomes false
         // all validation
 
         const InstructorFirstName = document.getElementById("InstructorFirstName").value;
@@ -296,13 +297,12 @@ if (addInstructorForm) {
         const emailRegex = /^[a-zA-Z]{2,3}[0-9]{3}@marietta\.edu$/;         
         
         if (InstructorFirstName===""){  //check if it is empty
-
-            console.log("Error: This is a required field.");
+            failedMessage += "Error: This is a required field.\n";
             addInstructorFormIsValid = false;
             
 
         }else if (!nameRegex.test(InstructorFirstName)){  //test the value of name against the defined name  RegEx
-            console.log("Error: instructor first name does not match required format.");
+            failedMessage += "Error: instructor first name does not match required format.\n";
             addInstructorFormIsValid = false;
         
         }
@@ -311,13 +311,12 @@ if (addInstructorForm) {
         }
 
         if (InstructorLastName===""){  //check if it is empty
-
-            console.log("Error: This is a required field");
+            failedMessage +=  "Error: This is a required field.\n";
             addInstructorFormIsValid= false;
             
 
         }else if (!nameRegex.test(InstructorLastName)){  //test the value of name  against the defined name  RegEx
-            console.log("Error: Instructor last name does not match the required format");
+            failedMessage += "Error: Instructor last name does not match the required format.\n";
             addInstructorFormIsValid= false;
 
         }
@@ -326,7 +325,7 @@ if (addInstructorForm) {
         }
 
         if (Department !== "" && !nameRegex.test(Department)){
-            console.log("Error: Department name does not match the required format.")
+            failedMessage += "Error: Department name does not match the required format.\n";
             addInstructorFormIsValid= false;
         
         }
@@ -335,12 +334,12 @@ if (addInstructorForm) {
         }
         
         if (InstructorEmail ===""){  // check if it is empty
-            console.log("Error: This is a required field.");
+            failedMessage += "Error : This is a required field.\n";
             addInstructorFormIsValid = false;
             
 
         }else if (!emailRegex.test(InstructorEmail)){  //test the value of email  against the defined email RegEx
-            console.log("Error: The email does not match the required email format.");
+            failedMessage += "Error: The email does not match the required email format.\n";
             addInstructorFormIsValid = false;
     
         }
@@ -350,6 +349,7 @@ if (addInstructorForm) {
 
         if (addInstructorFormIsValid == false) {
             console.log("Error: form can not be submitted due to issues with one or more fields.");
+             alert(failedMessage); //displays errors back to user
             e.preventDefault()
 
         } else {
@@ -382,6 +382,7 @@ if (enrollStudentForm) {
     enrollStudentForm.addEventListener("submit", function(e) {
         // validation rules go in here
         let enrollStudentFormIsValid = true;
+        let failedMessage = ""; //will store info for alert, to be displayed if boolean becomes false
 
         // all validation
 
@@ -396,13 +397,12 @@ if (enrollStudentForm) {
 
         
         if (firstname===""){  //check if it is empty
-
-            console.log("Error: This is a required field.");
+            failedMessage += "Error: This is a required field.\n";
             enrollStudentFormIsValid = false;
 
 
         }else if (!nameRegex.test(firstname)){  //test the value of name  against the defined name  RegEx
-            console.log("Error: student first name does not match required format.");
+            failedMessage += "Error: student first name does not match required format.\n";
             enrollStudentFormIsValid = false;
     
         }
@@ -414,12 +414,12 @@ if (enrollStudentForm) {
 
         if (lastname===""){  //check if it is empty
 
-            console.log("Error: This is a required field");
+            failedMessage += "Error: This is a required field.\n";
             enrollStudentFormIsValid = false;
 
 
         }else if (!nameRegex.test(lastname)){  //test the value of name  against the defined name  RegEx
-            console.log("Error: student last name does not match the required format.");
+            failedMessage += "Error: student last name does not match the required format.\n";
             enrollStudentFormIsValid = false;
         }
 
@@ -429,7 +429,7 @@ if (enrollStudentForm) {
 
 
         if (major !== "" && !nameRegex.test(major)) {  //test the value of major  against the defined name  RegEx
-            console.log("Error: Major does not match the required format");
+            failedMessage += "Error: Major does not match the required format.\n";
             enrollStudentFormIsValid = false;
         }
 
@@ -439,12 +439,12 @@ if (enrollStudentForm) {
 
 
         if (email ===""){  // check if it is empty
-            console.log("Error: This is a required field.");
+            failedMessage += "Error: This is a required field.\n";
             enrollStudentFormIsValid = false;
 
 
         }else if (!emailRegex.test(email)){  //test the value of email  against the defined email RegEx
-            console.log("Error: The email does not match the required format");
+            failedMessage += "Error: The email does not match the required format.\n";
             enrollStudentFormIsValid = false;
         }
 
@@ -454,6 +454,7 @@ if (enrollStudentForm) {
         
         if (enrollStudentFormIsValid == false) {
             console.log("Error: form can not be submitted due to issues with one or more fields.");
+            alert(failedMessage); //displays errors back to user
             e.preventDefault()
 
             // If you reach this point, validation has passed.
@@ -481,5 +482,3 @@ if (registerCourseForm) {
         // validation rules go in here
     });
 }
-
-
