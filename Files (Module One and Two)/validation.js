@@ -346,6 +346,13 @@ if (addInstructorForm) {
         else {
             console.log("Success! You entered a valid email format.");
         }
+                         // Extra Credit for addinstructor page
+
+        // extra validation for instructor department length:
+         if ( Department.length <2 || Department.length > 50){
+            failedMessage += "Error: Department name cannot be must be between 2 and 50 characters\n";
+            addInstructorFormIsValid= false;
+        }
 
         if (addInstructorFormIsValid == false) {
             console.log("Error: form can not be submitted due to issues with one or more fields.");
@@ -451,6 +458,29 @@ if (enrollStudentForm) {
         else {
             console.log("Success! You entered a valid student email format.");
         }
+
+                        // Extra Credit for enroll student page
+
+        // extra validation for student firstname length:
+        if (firstname.length < 2 || firstname.length > 20){
+            failedMessage += "Error: Firstname must be between 2 and 20 characters\n";
+            enrollStudentFormIsValid = false;
+        }
+
+        // extra validation for student lastname length:
+
+         if (lastname.length < 2 || lastname.length > 20){
+            failedMessage += "Error: Lastname must be between 2 and 20 characters\n";
+            enrollStudentFormIsValid = false;
+        }
+
+        // extra validation for student major length:
+
+         if (major.length<2 || major.length >50){
+            failedMessage += "Error: Major name should be between 2 and  50 characters\n";
+            enrollStudentFormIsValid = false;
+        }
+
         
         if (enrollStudentFormIsValid == false) {
             console.log("Error: form can not be submitted due to issues with one or more fields.");
