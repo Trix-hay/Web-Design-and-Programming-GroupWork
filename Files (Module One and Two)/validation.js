@@ -91,6 +91,7 @@ if (addCourseForm) { //confirm the page has this specific form before running va
     addCourseForm.addEventListener("submit", function(e) {
 
         let addCourseFormIsValid = true; //boolean to track what submission should do (more efficient way to track overall status)
+        let = failedMessage = ""; //will store info for alert, to be displayed if boolean becomes false
 
         //constants (used for checks)
         const year = document.getElementById("Year").value;
@@ -110,12 +111,14 @@ if (addCourseForm) { //confirm the page has this specific form before running va
         const yearRegEx = /^[3-9][0-9]{3}$|^202[6-9]$|^20[3-9][0-9]$|^2[1-9][0-9][0-9]$/; //regEx expression
         
         if (year == "") { 
-            console.log("Error: required field.");
+            console.log("Error: year is a required field.");
+            failedMessage += "Error: year is a required field.";
             addCourseFormIsValid = false;
         }
         else if (!yearRegEx.test(year)) { //only test the value of year against the defined year RegEx if something is in the field (otherwise, skip since it's a required field)
             //since above uses ! (not operator), this would be if the year does NOT match rules
             console.log("Error: year does not match required format.");
+            failedMessage += "Error: year does not match required format.";
             addCourseFormIsValid = false; 
         }
         else {
@@ -127,10 +130,12 @@ if (addCourseForm) { //confirm the page has this specific form before running va
 
         if (coursePrefix == "") {
             console.log("Error: required field.");
+            failedMessage += "Error: required field.";
             addCourseFormIsValid = false;
         }
         else if (!coursePrefixRegEx.test(coursePrefix)) {
             console.log("Error: course prefix does not match required format.");
+            failedMessage += "Error: course prefix does not match required format.";
             addCourseFormIsValid = false;
         }
         else {
@@ -142,10 +147,12 @@ if (addCourseForm) { //confirm the page has this specific form before running va
 
         if (courseNumber == "") {
             console.log("Error: required field.");
+            failedMessage += "Error: required field.";
             addCourseFormIsValid = false;
         }
         else if (!courseNumberRegEx.test(courseNumber)) {
             console.log("Error: course number does not match required format.");
+            failedMessage += "Error: course number does not match required format.";
             addCourseFormIsValid = false;
         }
         else {
@@ -157,6 +164,7 @@ if (addCourseForm) { //confirm the page has this specific form before running va
 
         if (courseSection == "") {
             console.log("Error: required field.");
+            failedMessage += "Error: required field."; //pick up alert messages here
             addCourseFormIsValid = false;
         }
         else if (!courseSectionRegEx.test(courseSection)) {
@@ -348,9 +356,8 @@ if (addInstructorForm) {
 
         if (addInstructorFormIsValid == false) {
             console.log("Error: form can not be submitted due to issues with one or more fields.");
+            alert(failedMessage); //display issues back to user
             e.preventDefault()
-
-            // If you reach this point, validation has passed.
 
         } else {
             console.log("Success! All fields are valid. Now printing information.");
