@@ -31,7 +31,7 @@ Any enrollment cap field must be a number with 2 digits.
 To test the major features of this module, go to any of the 5 pages with forms and enter some information in some or all of the fields. Once valid input has been submitted, a pop-up message will appear in the browser displaying the content that has been received. If no pop-up is displayed, one or more of the fields has not been validated. To gain more specific information about where the error is coming from, please examine the console via the developer tools of your browser. An error will print and specify what kind of validation error is occurring. 
 On the Add Course page, a feature has been implemented that helps handle the display of the available times for courses depending on the value selected for "Days Offered". To test this feature, I would change the value of the Days Offered field and watch as different lists appear and disappear. 
 
-At this time, our group has not completed any extra credit opportunities.
+Our group completed one extra credit opportunity for this module. We added 5 additional validation rules that help make the site more realistic. One of these rules is in the Add Course form, where the Course Name must be between 5 and 50 characters. The rule in that form verifies that the input for the department field is between 2 and 50 characters. The other 3 rules are in the Enroll Student form. The first rule in this form verifies that the student's first name is between 2 and 20 characters. The same type of rule is also applied to the student's last name and the major.
 
 
 

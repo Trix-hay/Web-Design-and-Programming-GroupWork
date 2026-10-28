@@ -295,7 +295,6 @@ if (addInstructorForm) {
 
          let addInstructorFormIsValid = true;
          let failedMessage = ""; //will store info for alert, to be displayed if boolean becomes false
-        // all validation
 
         const InstructorFirstName = document.getElementById("InstructorFirstName").value;
         const InstructorLastName =document.getElementById("InstructorLastName").value;
@@ -308,10 +307,9 @@ if (addInstructorForm) {
         
         if (InstructorFirstName===""){  //check if it is empty
             failedMessage += "Error: Instructor first name is a required field.\n";
-            addInstructorFormIsValid = false;
-            
+            addInstructorFormIsValid = false;  
 
-        }else if (!nameRegex.test(InstructorFirstName)){  //test the value of name against the defined name  RegEx
+        } else if (!nameRegex.test(InstructorFirstName)){  //test the value of name against the defined name  RegEx
             failedMessage += "Error: instructor first name does not match required format.\n";
             addInstructorFormIsValid = false;
         
@@ -325,7 +323,7 @@ if (addInstructorForm) {
             addInstructorFormIsValid= false;
             
 
-        }else if (!nameRegex.test(InstructorLastName)){  //test the value of name  against the defined name  RegEx
+        } else if (!nameRegex.test(InstructorLastName)){  //test the value of name  against the defined name  RegEx
             failedMessage += "Error: instructor last name does not match required format.\n";
             addInstructorFormIsValid= false;
 
@@ -339,7 +337,7 @@ if (addInstructorForm) {
             addInstructorFormIsValid= false;
         
         }
-        else if(Department !== ""){
+        else if (Department !== ""){
             console.log("Success! You entered a valid department name format.");
         }
         
@@ -348,7 +346,7 @@ if (addInstructorForm) {
             addInstructorFormIsValid = false;
             
 
-        }else if (!emailRegex.test(InstructorEmail)){  //test the value of email  against the defined email RegEx
+        } else if (!emailRegex.test(InstructorEmail)){  //test the value of email  against the defined email RegEx
             failedMessage += "Error: email does not match the required format.\n";
             addInstructorFormIsValid = false;
     
@@ -417,7 +415,7 @@ if (enrollStudentForm) {
             enrollStudentFormIsValid = false;
 
 
-        }else if (!nameRegex.test(firstname)){  //test the value of name  against the defined name  RegEx
+        } else if (!nameRegex.test(firstname)){  //test the value of name  against the defined name  RegEx
             failedMessage += "Error: student first name does not match required format.\n";
             enrollStudentFormIsValid = false;
     
@@ -433,8 +431,7 @@ if (enrollStudentForm) {
             failedMessage += "Error: student last name is a required field.\n";
             enrollStudentFormIsValid = false;
 
-
-        }else if (!nameRegex.test(lastname)){  //test the value of name  against the defined name  RegEx
+        } else if (!nameRegex.test(lastname)){  //test the value of name  against the defined name  RegEx
             failedMessage += "Error: student last name does not match the required format.\n";
             enrollStudentFormIsValid = false;
         }
@@ -452,13 +449,12 @@ if (enrollStudentForm) {
             console.log("Success! You entered a valid  major format.");
         }
 
-
         if (email ===""){  // check if it is empty
             failedMessage += "Error: student email is a required field.\n";
             enrollStudentFormIsValid = false;
 
 
-        }else if (!emailRegex.test(email)){  //test the value of email  against the defined email RegEx
+        } else if (!emailRegex.test(email)){  //test the value of email  against the defined email RegEx
             failedMessage += "Error: student email does not match the required format.\n";
             enrollStudentFormIsValid = false;
         }
