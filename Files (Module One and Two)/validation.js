@@ -240,6 +240,16 @@ if (addCourseForm) { //confirm the page has this specific form before running va
             console.log("Success! You entered a valid enrollment cap name format.");
         }
 
+        // extra credit validation
+        if (courseName.length < 5 || courseName.length > 50) {
+            failedMessage += "Error: course name must be between 2 and 50 characters.\n";
+            addCourseFormIsValid = false;
+        }
+
+        else {
+            console.log("Success! You entered a valid course name.");
+        }
+
         if (addCourseFormIsValid == false) {
             console.log("Error: form can not be submitted due to issues with one or more fields.");
             alert(failedMessage); //displays errors back to user
@@ -297,7 +307,7 @@ if (addInstructorForm) {
         const emailRegex = /^[a-zA-Z]{2,3}[0-9]{3}@marietta\.edu$/;         
         
         if (InstructorFirstName===""){  //check if it is empty
-            failedMessage += "Error: This is a required field.\n";
+            failedMessage += "Error: Instructor first name is a required field.\n";
             addInstructorFormIsValid = false;
             
 
@@ -311,12 +321,12 @@ if (addInstructorForm) {
         }
 
         if (InstructorLastName===""){  //check if it is empty
-            failedMessage +=  "Error: This is a required field.\n";
+            failedMessage +=  "Error: instructor last name is a required field.\n";
             addInstructorFormIsValid= false;
             
 
         }else if (!nameRegex.test(InstructorLastName)){  //test the value of name  against the defined name  RegEx
-            failedMessage += "Error: Instructor last name does not match the required format.\n";
+            failedMessage += "Error: instructor last name does not match required format.\n";
             addInstructorFormIsValid= false;
 
         }
@@ -325,7 +335,7 @@ if (addInstructorForm) {
         }
 
         if (Department !== "" && !nameRegex.test(Department)){
-            failedMessage += "Error: Department name does not match the required format.\n";
+            failedMessage += "Error: department name does not match required format.\n";
             addInstructorFormIsValid= false;
         
         }
@@ -334,29 +344,28 @@ if (addInstructorForm) {
         }
         
         if (InstructorEmail ===""){  // check if it is empty
-            failedMessage += "Error : This is a required field.\n";
+            failedMessage += "Error: instructor email is a required field.\n";
             addInstructorFormIsValid = false;
             
 
         }else if (!emailRegex.test(InstructorEmail)){  //test the value of email  against the defined email RegEx
-            failedMessage += "Error: The email does not match the required email format.\n";
+            failedMessage += "Error: email does not match the required format.\n";
             addInstructorFormIsValid = false;
     
         }
         else {
             console.log("Success! You entered a valid email format.");
         }
-                         // Extra Credit for addinstructor page
+        // Extra Credit for addinstructor page
 
-        // extra validation for instructor department length:
-         if ( Department.length <2 || Department.length > 50){
-            failedMessage += "Error: Department name cannot be must be between 2 and 50 characters\n";
+         if ( Department.length < 2 || Department.length > 50){
+            failedMessage += "Error: department name must be between 2 and 50 characters.\n";
             addInstructorFormIsValid= false;
         }
 
         if (addInstructorFormIsValid == false) {
             console.log("Error: form can not be submitted due to issues with one or more fields.");
-             alert(failedMessage); //displays errors back to user
+            alert(failedMessage); //displays errors back to user
             e.preventDefault()
 
         } else {
@@ -364,7 +373,7 @@ if (addInstructorForm) {
             e.preventDefault()
 
             alert(
-                `First Name: ${InstructorFirstName }
+                `First Name: ${InstructorFirstName}
                 Last Name: ${InstructorLastName}
                 Department: ${Department}
                 Rank: ${Rank}
@@ -404,7 +413,7 @@ if (enrollStudentForm) {
 
         
         if (firstname===""){  //check if it is empty
-            failedMessage += "Error: This is a required field.\n";
+            failedMessage += "Error: student first name is a required field.\n";
             enrollStudentFormIsValid = false;
 
 
@@ -421,7 +430,7 @@ if (enrollStudentForm) {
 
         if (lastname===""){  //check if it is empty
 
-            failedMessage += "Error: This is a required field.\n";
+            failedMessage += "Error: student last name is a required field.\n";
             enrollStudentFormIsValid = false;
 
 
@@ -434,9 +443,8 @@ if (enrollStudentForm) {
             console.log("Success! You entered a valid student last name format.");
         }
 
-
         if (major !== "" && !nameRegex.test(major)) {  //test the value of major  against the defined name  RegEx
-            failedMessage += "Error: Major does not match the required format.\n";
+            failedMessage += "Error: major does not match the required format.\n";
             enrollStudentFormIsValid = false;
         }
 
@@ -446,12 +454,12 @@ if (enrollStudentForm) {
 
 
         if (email ===""){  // check if it is empty
-            failedMessage += "Error: This is a required field.\n";
+            failedMessage += "Error: student email is a required field.\n";
             enrollStudentFormIsValid = false;
 
 
         }else if (!emailRegex.test(email)){  //test the value of email  against the defined email RegEx
-            failedMessage += "Error: The email does not match the required format.\n";
+            failedMessage += "Error: student email does not match the required format.\n";
             enrollStudentFormIsValid = false;
         }
 
@@ -459,25 +467,25 @@ if (enrollStudentForm) {
             console.log("Success! You entered a valid student email format.");
         }
 
-                        // Extra Credit for enroll student page
+        // Extra Credit for enroll student page
 
         // extra validation for student firstname length:
         if (firstname.length < 2 || firstname.length > 20){
-            failedMessage += "Error: Firstname must be between 2 and 20 characters\n";
+            failedMessage += "Error: student first name must be between 2 and 20 characters\n";
             enrollStudentFormIsValid = false;
         }
 
         // extra validation for student lastname length:
 
          if (lastname.length < 2 || lastname.length > 20){
-            failedMessage += "Error: Lastname must be between 2 and 20 characters\n";
+            failedMessage += "Error: student last name must be between 2 and 20 characters\n";
             enrollStudentFormIsValid = false;
         }
 
         // extra validation for student major length:
 
-         if (major.length<2 || major.length >50){
-            failedMessage += "Error: Major name should be between 2 and  50 characters\n";
+         if (major.length < 3 || major.length > 50){
+            failedMessage += "Error: major  should be between 3 and 50 characters\n";
             enrollStudentFormIsValid = false;
         }
 
