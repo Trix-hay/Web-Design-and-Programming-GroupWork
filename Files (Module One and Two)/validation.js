@@ -242,7 +242,7 @@ if (addCourseForm) { //confirm the page has this specific form before running va
 
         // extra credit validation
         if (courseName.length < 5 || courseName.length > 50) {
-            failedMessage += "Error: course name must be between 2 and 50 characters.\n";
+            failedMessage += "Error: course name must be between 5 and 50 characters.\n";
             addCourseFormIsValid = false;
         }
 
@@ -481,7 +481,7 @@ if (enrollStudentForm) {
         // extra validation for student major length:
 
          if (major.length < 3 || major.length > 50){
-            failedMessage += "Error: major  should be between 3 and 50 characters\n";
+            failedMessage += "Error: major must be between 3 and 50 characters\n";
             enrollStudentFormIsValid = false;
         }
 
