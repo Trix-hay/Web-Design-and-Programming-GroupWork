@@ -165,7 +165,7 @@
             </p>
 
             <h3>Validation Rules for Enroll Student</h3>
-            <p>These are the validation rules for the enroll student page.</p>
+            <p>The table below shows the validation rules for the enroll student page.</p>
             <table class ="validation-table">
                 <thead>
                     <th>Field</th>
@@ -263,7 +263,7 @@
             </p>
 
             <h3>Validation Rules for Add Instructor</h3>
-            <p>These are the validation rules for the add instructor page.</p>
+            <p>The table below shows the validation rules for the add instructor page.</p>
             <table class ="validation-table">
                 <thead>
                     <th>Field</th>
@@ -494,7 +494,7 @@
             </p>
 
             <h3>Validation Rules for Add Course</h3>
-            <p>These are the validation rules for the add instructor page;</p>
+            <p>The table below shows the validation rules for the add course page;</p>
             <table class ="validation-table">
                 <thead>
                     <th>Field</th>
@@ -656,7 +656,7 @@
             </p>
 
             <h3>Validation Rules for Register  Course</h3>
-            <p>These are the validation rules for the register course page:</p>
+            <p>The table below shows the validation rules for the register course page:</p>
             <table class ="validation-table">
                 <thead>
                     <th>Field</th>
@@ -775,7 +775,7 @@
             </p>
 
             <h3>Validation Rules for Drop Course</h3>
-            <p>These are the validation rules for the drop course page;</p>
+            <p>The table below shows the validation rules for the drop course page;</p>
             <table class ="validation-table">
                 <thead>
                     <th>Field</th>
@@ -828,6 +828,58 @@
                         <td>01, 02, 03</td>
                         <td>"Error: course section does not match required format."</td>
                     </tr>
+                </tbody>
+            </table>
+
+             <h3>Extra Validation Rules</h3>
+             <p>This table  below shows five additional validation rules which makes the pages more realistic and the error
+                messages that shows when the user enters incorrect information.
+             </p>
+            <table class ="validation-table">
+                <thead>
+                    <th>Field</th>
+                    <th>Extra Validation Rule</th>
+                    <th>Page(s) Used</th>
+                    <th>Error Messages</th>
+                </thead>
+
+                <tbody>
+                    <tr>
+
+                        <td>Student Firstname</td>
+                        <td>Firstname length must be between 2 and 20 characters.</td>
+                        <td>enrollstudent.html</td>
+                        <td>"Error: Firstname must be between 2 and 20 characters."</td>
+                    </tr>
+
+                    <tr>
+                        <td>student LastName</td>
+                        <td>Lastname length must be between 2 and 20 characters.</td>
+                        <td>enrollstudent.html</td>
+                        <td>"Error: Lastname must be between 2 and 20 characters."</td>
+                    </tr>
+
+                    <tr>
+                        <td>student major</td>
+                        <td>Major name length must be between 2 and 50 characters.</td>
+                        <td>enrollstudent.html</td>
+                        <td>"Error: Major must be between 2 and  50 characters."</td>
+                    </tr>
+
+                    <tr>
+                        <td>Instructor Department</td>
+                        <td>Department name length must be between 2 and 50 characters.</td>
+                        <td>addinstructor.html</td>
+                        <td>"Error: department name must be between 2 and 50 characters."</td>
+                    </tr>
+
+                    <tr>
+                        <td>Course Name</td>
+                        <td>Course name must be between 5 and 50 characters.</td>
+                        <td>addcourse.html</td>
+                        <td>"Error: course name must be between 5 and 50 characters."</td>
+                    </tr>
+
                 </tbody>
             </table>
         </main>
