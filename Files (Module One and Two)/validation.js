@@ -305,8 +305,8 @@ if (addInstructorForm) {
         const nameRegex = /^[A-Za-z]+(?:[ '-][A-Za-z]+)*$/;
         const emailRegex = /^[a-zA-Z]{2,3}[0-9]{3}@marietta\.edu$/;
 
-        if (InstructorFirstName === "") {  //check if it is empty
-            failedMessage += "Error: Instructor first name is a required field.\n";
+        if (InstructorFirstName == "") {  //check if it is empty
+            failedMessage += "Error: instructor first name is a required field.\n";
             addInstructorFormIsValid = false;
 
         } else if (!nameRegex.test(InstructorFirstName)) {  //test the value of name against the defined name  RegEx
@@ -318,10 +318,9 @@ if (addInstructorForm) {
             console.log("Success! You entered a valid instructor first name format.");
         }
 
-        if (InstructorLastName === "") {  //check if it is empty
+        if (InstructorLastName == "") {  //check if it is empty
             failedMessage += "Error: instructor last name is a required field.\n";
             addInstructorFormIsValid = false;
-
 
         } else if (!nameRegex.test(InstructorLastName)) {  //test the value of name  against the defined name  RegEx
             failedMessage += "Error: instructor last name does not match required format.\n";
@@ -347,7 +346,7 @@ if (addInstructorForm) {
 
 
         } else if (!emailRegex.test(InstructorEmail)) {  //test the value of email  against the defined email RegEx
-            failedMessage += "Error: email does not match the required format.\n";
+            failedMessage += "Error: instructor email does not match the required format.\n";
             addInstructorFormIsValid = false;
 
         }
@@ -405,45 +404,45 @@ if (dropCourseForm) {
         const coursesection = event.target.elements.coursesection.value;
 
         if (!firstname) {
-            errorMessage += "First Name is Blank.\n";
+            errorMessage += "Error: first name is a required field.\n";
         }
         else if (!nameRegex.test(firstname)) {
-            errorMessage += "Enter Your First Name, Starting with a Capital Letter.\n";
+            errorMessage += "Error: first name does not match required format.\n";
         }
 
         if (!lastname) {
-            errorMessage += "Last Name is Blank.\n";
+            errorMessage += "Error: last name is a required field.\n";
         }
         else if (!nameRegex.test(lastname)) {
-            errorMessage += "Enter Your Last Name.\n";
+            errorMessage += "Error: last name does not match required format.\n";
         }
 
         if (!semester) {
-            errorMessage += "Semester is Blank.\n";
+            errorMessage += "Error: semester is a required field.\n";
         }
         else if (!semRegex.test(semester)) {
-            errorMessage += "Enter the Semester and Year, Ex. Fall 2026.\n";
+            errorMessage += "Error: semester does not match required format.\n";
         }
 
         if (!courseprefix) {
-            errorMessage += "Course Prefix is Blank.\n";
+            errorMessage += "Error: course prefix is a required field.\n";
         }
         else if (!coursePreRegex.test(courseprefix)) {
-            errorMessage += "Enter Course Prefix, Ex. CSCI.\n";
+            errorMessage += "Error: course prefix does not match required format.\n";
         }
 
         if (!coursenumber) {
-            errorMessage += "Course Number is Blank.\n";
+            errorMessage += "Error: course number is a required field.\n";
         }
         else if (!courseNumRegex.test(coursenumber)) {
-            errorMessage += "Enter Course Number, Ex. 300.\n";
+            errorMessage += "Error: course number does not match required format.\n";
         }
 
         if (!coursesection) {
-            errorMessage += "Course Section is Blank.\n";
+            errorMessage += "Error: course section is a required field.\n";
         }
         else if (!courseSecRegex.test(coursesection)) {
-            errorMessage += "Enter Course Section, Ex. 01.\n";
+            errorMessage += "Error: course section does not match required format.\n";
         }
 
         if (errorMessage.length > 0) {
@@ -601,45 +600,45 @@ if (registerCourseForm) {
         const coursesection = event.target.elements.coursesection.value;
 
         if (!firstname) {
-            errorMessage += "First Name is Blank.\n";
+            errorMessage += "Error: first name is a required field.\n";
         }
         else if (!nameRegex.test(firstname)) {
-            errorMessage += "Enter Your First Name, Starting with a Capital Letter.\n";
+            errorMessage += "Error: student first name does not match required format.\n";
         }
 
         if (!lastname) {
-            errorMessage += "Last Name is Blank.\n";
+            errorMessage += "Error: last name is a required field.\n";
         }
         else if (!nameRegex.test(lastname)) {
-            errorMessage += "Enter Your Last Name.\n";
+            errorMessage += "Error: student last name does not match required format.\n";
         }
 
         if (!semester) {
-            errorMessage += "Semester is Blank.\n";
+            errorMessage += "Error: semester is a required field.\n";
         }
         else if (!semRegex.test(semester)) {
-            errorMessage += "Enter the Semester and Year, Ex. Fall 2026.\n";
+            errorMessage += "Error: semester does not match required format..\n";
         }
 
         if (!courseprefix) {
-            errorMessage += "Course Prefix is Blank.\n";
+            errorMessage += "Error: course prefix is a required field.\n";
         }
         else if (!coursePreRegex.test(courseprefix)) {
-            errorMessage += "Enter Course Prefix, Ex. CSCI.\n";
+            errorMessage += "Error: course prefix does not match required format.\n";
         }
 
         if (!coursenumber) {
-            errorMessage += "Course Number is Blank.\n";
+            errorMessage += "Error: course number is a required field.\n";
         }
         else if (!courseNumRegex.test(coursenumber)) {
-            errorMessage += "Enter Course Number, Ex. 300.\n";
+            errorMessage += "Error: course number does not match required format.\n";
         }
 
         if (!coursesection) {
-            errorMessage += "Course Section is Blank.\n";
+            errorMessage += "Error: course section is a required field.\n";
         }
         else if (!courseSecRegex.test(coursesection)) {
-            errorMessage += "Enter Course Section, Ex. 01.\n";
+            errorMessage += "Error: course section does not match required format.\n";
         }
 
         if (errorMessage.length > 0) {
