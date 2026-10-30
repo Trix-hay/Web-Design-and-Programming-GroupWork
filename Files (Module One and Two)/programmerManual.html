@@ -47,7 +47,7 @@ before.">
             <p>The Course Registration System is a web application designed to
                  automate the process of managing student course registration. The system is structured to allow users to add students, instructors, and courses through Web forms.
                 Users will also be able to register students for courses and drop students from courses.
-                The Web interface is implemented using HTML and CSS. The HTML pages provide the structure of the application 
+                The web interface is implemented using HTML and CSS. The HTML pages provide the structure of the application 
                 and contain the forms and input elements used to collect information. Each form element is assigned 
                 a unique id attribute so that the elements can be referenced by JavaScript and other application components in later modules. CSS is used to provide a 
                 consistent layout and visual style across the Web pages.
@@ -56,7 +56,7 @@ before.">
                 The application is divided into multiple HTML pages, with each page responsible for a specific part of the course registration process. 
                 The pages share a consistent layout and navigation structure so that users and developers can move between the different components of the system.
                 In module 2, the pages require some validation rules after which the information entered by the user is displayed back to the user
-                after submitting the form. All required fields must be filled by the user and must follow a required pattern, if not, an error message is displayed on the Page
+                after submitting the form. All required fields must be filled by the user and must follow a required pattern, if not, an error message is displayed on the page
                 and the form cannot be submitted until all fields match the required format.
             </p>
 
@@ -564,9 +564,10 @@ before.">
                     <td>The event handler is registered using addEventListener()
                         to respond when the form is submitted. It retrieves the
                         values entered by the user and checks them against the
-                        validation rules. If any validation check fails, the handler
-                        prevents the form from submitting. If all checks pass, it
-                        displays the entered information in an alert box.</td>
+                        validation rules. If any validation check fails,
+                        the function sets enrollStudentFormIsValid to false and prevents
+                        the form from submitting by dispaying an alert box containing the error messages. If all checks pass, it
+                        displays the entered information in an alert box back to the user.</td>
                 </tr>
                      <!-- Add Instructor Event Handler -->
                  <tr>
@@ -582,9 +583,9 @@ before.">
                     <td>The event handler is registered using addEventListener()
                         to respond when the form is submitted. It retrieves the
                         values entered in the addinstructor page by the user and checks them against the
-                        validation rules. If any validation check fails, the handler
-                        prevents the form from submitting. If all checks pass, it
-                        displays the entered information in an alert box.</td>
+                        validation rules. If any validation check fails,
+                        the function sets addInstructorFormIsValid to false and prevents the form from submitting by dispaying an alert box containing the error messages. If all checks pass, it
+                        displays the entered information in an alert box back to the user.</td>
                 </tr>
 
                 <!-- Add Course: Days Offered Change Event Handler -->
@@ -645,7 +646,8 @@ before.">
                         entered values and checks them against the validation rules
                         using regular expressions. If any validation check fails,
                         the function sets addCourseFormIsValid to false and prevents
-                        the form from submitting. If all checks pass, it prevents
+                        the form from submitting by dispaying an alert box containing the error messages. If all checks pass, it
+                        displays the entered information in an alert box back to the user. If all checks pass, it prevents
                         the normal form submission and displays the entered course
                         information in an alert box.
                     </td>
@@ -678,7 +680,7 @@ before.">
                         to respond when the form is submitted. It retrieves the
                         entered values and checks them against the validation rules
                         using regular expressions. If any validation check fails,
-                        it displays the error messages to the user using alert and prevents
+                        it displays the error messages to the user using the alert box and prevents
                         the form from submitting. If all checks pass, it prevents
                         the normal form submission and displays the entered course
                         information in an alert box.
@@ -713,7 +715,7 @@ before.">
                         to respond when the form is submitted. It retrieves the
                         entered values and checks them against the validation rules
                         using regular expressions. If any validation check fails, It displays the error
-                        message to the user using alert.
+                        message to the user in an alert box.
                         If all checks pass, it prevents the normal form submission and displays the entered course
                         information in an alert box.
                     </td>
