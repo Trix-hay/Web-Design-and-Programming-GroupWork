@@ -55,38 +55,59 @@ before.">
                 In Module 1, the primary focus is the Web interface, so the HTML forms have been created but do not yet perform database operations or other application functionality.
                 The application is divided into multiple HTML pages, with each page responsible for a specific part of the course registration process. 
                 The pages share a consistent layout and navigation structure so that users and developers can move between the different components of the system.
+                In module 2, the pages require some validation rules after which the information entered by the user is displayed back to the user
+                after submitting the form. All required fields must be filled by the user and must follow a required pattern, if not, an error message is displayed on the Page
+                and the form cannot be submitted until all fields match the required format.
             </p>
+
             <h2 id ="page-summary">Summary of Each Page Content</h2>
             <p>
                 <h3> <a href="HomePage.html">HomePage.html</a></h3>
-                The Home page serves at the starting page for the Course Registration System.
+
+                <p>The Home page serves at the starting page for the Course Registration System.
                 It contains the site header, navigation menu, main content area and footer.
+                </p>
 
                 <h3><a href="enrollstudent.html">enrollstudent.html</a></h3>
-                This page contains the Web form used to collect student information, 
-                including the student's first name, last name, year, major, and email address.
+                <p>This page contains the Web form used to collect student information, 
+                    including the student's first name, last name, year, major, and email address. There are validation rules for the student page which have detailed descriptions
+                    in the user manual page.
+                </p>
 
                 <h3> <a href="addinstructor.html">addinstructor.html</a></h3>
-                This page contains the Web form used to collect instructor information,
-                including the instructor's first name, last name, department, rank, and email address.
+                <p>This page contains the Web form used to collect instructor information,
+                    including the instructor's first name, last name, department, rank, and email address. Each form element has some validation rules to make data entered by
+                    the user more realistic.
+                </p>
+
 
                 <h3><a href="addcourse.html">addcourse.html</a></h3>
-                This page contains the Web form used to collect course information, 
-                including the semester and year, course prefix and number, section, course name, room, 
-                days offered, time, credit hours, instructor information, and enrollment cap.
+                <p>This page contains the Web form used to collect course information, 
+                    including the semester and year, course prefix and number, section, course name, room, 
+                    days offered, time, credit hours, instructor information, and enrollment cap. This page has several validation rules that must be followed by the user in order to 
+                    ensure that the form is submitted successfully.
+                </p>
+
 
                 <h3><a href="registercourse.html">registercourse.html</a></h3>
-                This page contains the Web form used to collect the information needed to register a student for a course.
-
+                <p>This page contains the Web form used to collect the information needed to register a student for a course.
+                    It has some validation rules similar to those in the add course page as well as the enroll student page to validate the user input.
+                </p>
                 <h3><a href="dropcourse.html">dropcourse.html</a></h3>
-                This page contains the Web form used to collect the information needed to drop a student from a course.
-
+                <p>This page contains the Web form used to collect the information needed to drop a student from a course.
+                    The form elements on this page must satisfy some validation rules for a successful drop in a course.
+                </p>
                 <h3><a href="ProgrammerManual.html">ProgrammerManual.html</a></h3>
                 Contains the technical documentation for the Course Registration System,
                 including the system overview, HTML page descriptions, file organization, form elements, and functions.
 
                 <h3><a href="moduleOne.css">Stylesheet.css</a></h3>
                 Contains the CSS rules used to provide consistent styling for the header, footer, navigation links, forms, and buttons throughout the website.
+
+                <h3><a href="validation.js">JavaScript.js</a></h3>
+                <p>contains the javascript code that provides the validation rules for each page and displaying content back to the user once the submit
+                    button is clicked.
+                </p>
             </p>
 
             <p>
@@ -401,7 +422,7 @@ before.">
                                 <td>Text input</td>
                                 <td>firstname</td>
                                 <td>Collects the student's first name.</td>
-                                <td>None</td>
+                                <td>Register Course form submit event handler. </td>
                         </tr>
 
                         <tr>
@@ -409,7 +430,7 @@ before.">
                                 <td>Text input</td>
                                 <td>lastname</td>
                                 <td>Collects the student's last name.</td>
-                                <td>None</td>
+                                <td>Register Course form submit event handler.</td>
                         </tr>
 
                             <tr>
@@ -417,7 +438,7 @@ before.">
                             <td>Select list</td>
                             <td>semester</td>
                             <td>Allows the user to select Spring, Summer, or Fall.</td>
-                            <td>None</td>
+                            <td>Register Course form submit event handler.</td>
                         </tr>
 
                         <tr>
@@ -425,7 +446,7 @@ before.">
                             <td>Text input</td>
                             <td>courseprefix</td>
                             <td>Collects the course prefix, such as CSCI.</td>
-                            <td>None</td>
+                            <td>Register Course form submit event handler.</td>
                         </tr>
 
                         <tr>
@@ -433,7 +454,7 @@ before.">
                             <td>Text input</td>
                             <td>coursenumber</td>
                             <td>Collects the course number.</td>
-                            <td>None</td>
+                            <td>Register Course form submit event handler.</td>
                         </tr>
 
                         <tr>
@@ -441,7 +462,7 @@ before.">
                             <td>Text input</td>
                             <td>coursesection</td>
                             <td>Collects the section number or identifier for the course.</td>
-                            <td>None</td>
+                            <td>Register Course form submit event handler.</td>
                         </tr>
 
                     </tbody>
@@ -467,7 +488,7 @@ before.">
                                 <td>Text input</td>
                                 <td>firstname</td>
                                 <td>Collects the student's first name.</td>
-                                <td>None</td>
+                                <td>Drop Course form submit event handler.</td>
                         </tr>
 
                         <tr>
@@ -475,7 +496,7 @@ before.">
                                 <td>Text input</td>
                                 <td>lastname</td>
                                 <td>Collects the student's last name.</td>
-                                <td>None</td>
+                                <td>Drop Course form submit event handler.</td>
                         </tr>
 
                             <tr>
@@ -483,7 +504,7 @@ before.">
                             <td>Select list</td>
                             <td>semester</td>
                             <td>Allows the user to select Spring, Summer, or Fall.</td>
-                            <td>None</td>
+                            <td>Drop Course form submit event handler.</td>
                         </tr>
 
                         <tr>
@@ -491,7 +512,7 @@ before.">
                             <td>Text input</td>
                             <td>courseprefix</td>
                             <td>Collects the course prefix, such as CSCI.</td>
-                            <td>None</td>
+                            <td>Drop Course form submit event handler.</td>
                         </tr>
 
                         <tr>
@@ -499,7 +520,7 @@ before.">
                             <td>Text input</td>
                             <td>coursenumber</td>
                             <td>Collects the course number.</td>
-                            <td>None</td>
+                            <td>Drop Course form submit event handler.</td>
                         </tr>
 
                         <tr>
@@ -507,7 +528,7 @@ before.">
                             <td>Text input</td>
                             <td>coursesection</td>
                             <td>Collects the section number or identifier for the course.</td>
-                            <td>None</td>
+                            <td>Drop Course form submit event handler.</td>
                         </tr>
 
                     </tbody>
@@ -629,8 +650,76 @@ before.">
                         information in an alert box.
                     </td>
                 </tr>
+
+                <!-- Register Course: Submit Event Handler -->
+                <tr>
+                    <td>Register course submit event handler (anonymous callback)</td>
+                    <td>
+                        Validates the course information, student first and last name before displaying the
+                        submitted data.
+                    </td>
+                    <td>
+                        The event object, event, which represents the form submission.
+                        The function also reads the values entered into the Year,
+                        Course Prefix, Course Number, Course Section, student first and last names.
+                    </td>
+                    <td>
+                        None. The function uses the variable errorMessage to track whether the form passes validation.
+                    </td>
+                    <td>registercourse.html</td>
+                    <td>
+                        The register course form and its Year, Course Prefix, Course Number,
+                        Course Section, Student First Name,
+                        and Student Last Name.
+                        An alert box is displayed if all validation checks pass.
+                    </td>
+                    <td>
+                        The event handler is registered using addEventListener()
+                        to respond when the form is submitted. It retrieves the
+                        entered values and checks them against the validation rules
+                        using regular expressions. If any validation check fails,
+                        it displays the error messages to the user using alert and prevents
+                        the form from submitting. If all checks pass, it prevents
+                        the normal form submission and displays the entered course
+                        information in an alert box.
+                    </td>
+                </tr>
                 
-            
+
+                 <!-- Drop Course: Submit Event Handler -->
+                <tr>
+                    <td>Drop course submit event handler (anonymous callback)</td>
+                    <td>
+                        Validates the course information, student first and last name before displaying the
+                        submitted data.
+                    </td>
+                    <td>
+                        The event object, event, which represents the form submission.
+                        The function also reads the values entered into the Year,
+                        Course Prefix, Course Number, Course Section, student first and last names.
+                    </td>
+                    <td>
+                        None. The function uses a variable errorMessage to track whether the form passes validation.
+                    </td>
+                    <td>dropcourse.html</td>
+                    <td>
+                        The drop course form and its Year, Course Prefix, Course Number,
+                        Course Section, Student First Name,
+                        and Student Last Name.
+                        An alert box is displayed if all validation checks pass.
+                    </td>
+                    <td>
+                        The event handler is registered using addEventListener()
+                        to respond when the form is submitted. It retrieves the
+                        entered values and checks them against the validation rules
+                        using regular expressions. If any validation check fails, It displays the error
+                        message to the user using alert.
+                        If all checks pass, it prevents the normal form submission and displays the entered course
+                        information in an alert box.
+                    </td>
+                </tr>
+
+                
             </tbody>
         </table>
 
