@@ -6,7 +6,7 @@
         <meta name="Programmer Manual" content="Provides all information necessary for programmers that have never seen this code
 before.">
         <title>Course Registration Program Manual</title>
-        <link rel="stylesheet" href="moduleOne.css">
+        <link rel="stylesheet" href="stylesheet.css">
     </head>
     <body>
         <header>
@@ -43,7 +43,7 @@ before.">
             <a href="#functions">Functions</a>
             </nav>  
 
-            <h2 id="overview"> Overview of the Course Registration System.</h2>
+            <h2 id="overview"> Overview of the Course Registration System</h2>
             <p>The Course Registration System is a web application designed to
                  automate the process of managing student course registration. The system is structured to allow users to add students, instructors, and courses through Web forms.
                 Users will also be able to register students for courses and drop students from courses.
@@ -52,67 +52,80 @@ before.">
                 a unique id attribute so that the elements can be referenced by JavaScript and other application components in later modules. CSS is used to provide a 
                 consistent layout and visual style across the Web pages.
                 The complete application is designed to use JavaScript, Node.js, and Express for application and server-side functionality and SQLite for database storage. The database will store information associated with students, instructors, courses, and course registrations. 
-                In Module 1, the primary focus is the Web interface, so the HTML forms have been created but do not yet perform database operations or other application functionality.
-                The application is divided into multiple HTML pages, with each page responsible for a specific part of the course registration process. 
+                In Module 1, the primary focus was creating the Web interface, so the HTML forms were created, but did not yet perform database operations or other application functionalities.
+                The application is divided into multiple HTML pages, where each page is responsible for a specific part of the course registration process. 
                 The pages share a consistent layout and navigation structure so that users and developers can move between the different components of the system.
+<<<<<<< Updated upstream
                 In module 2, the pages require some validation rules after which the information entered by the user is displayed back to the user
                 after submitting the form. All required fields must be filled by the user and must follow a required pattern, if not, an error message is displayed on the page
                 and the form cannot be submitted until all fields match the required format.
+=======
+                In module 2, the pages require some validation rules for the form fields. After the form is submitted, the information entered by the user is displayed back to them.
+                All required fields must be entered by the user, and most fields enforce a required pattern. If the pattern is not satisfied, an error message is displayed on the page.
+                Once the user enters all fields correctly, their answers are displayed back to them in a pop-up message.
+>>>>>>> Stashed changes
             </p>
 
-            <h2 id ="page-summary">Summary of Each Page Content</h2>
+            <h2 id ="page-summary">Summary of Page Content</h2>
             <p>
-                <h3> <a href="HomePage.html">HomePage.html</a></h3>
+                <h3> <a href="homepage.html">homepage.html</a></h3>
 
-                <p>The Home page serves at the starting page for the Course Registration System.
-                It contains the site header, navigation menu, main content area and footer.
+                <p>The home page serves at the starting page for the Course Registration System.
+                It contains the site header, navigation menu, main content area, and a footer.
                 </p>
 
                 <h3><a href="enrollstudent.html">enrollstudent.html</a></h3>
                 <p>This page contains the Web form used to collect student information, 
-                    including the student's first name, last name, year, major, and email address. There are validation rules for the student page which have detailed descriptions
-                    in the user manual page.
+                    including the student's first name, last name, year, major, and email address. Some form elements have validation rules to make data entered by
+                    the user more realistic. These validation rules are described in more detail in the user manual.
                 </p>
 
                 <h3> <a href="addinstructor.html">addinstructor.html</a></h3>
                 <p>This page contains the Web form used to collect instructor information,
-                    including the instructor's first name, last name, department, rank, and email address. Each form element has some validation rules to make data entered by
-                    the user more realistic.
+                    including the instructor's first name, last name, department, rank, and email address. Some form elements have validation rules to make data entered by
+                    the user more realistic. These validation rules are described in more detail in the user manual.
                 </p>
 
 
                 <h3><a href="addcourse.html">addcourse.html</a></h3>
                 <p>This page contains the Web form used to collect course information, 
                     including the semester and year, course prefix and number, section, course name, room, 
-                    days offered, time, credit hours, instructor information, and enrollment cap. This page has several validation rules that must be followed by the user in order to 
-                    ensure that the form is submitted successfully.
+                    days offered, time, credit hours, instructor information, and enrollment cap. Some form elements have validation rules to make data entered by
+                    the user more realistic. These validation rules are described in more detail in the user manual.
                 </p>
 
 
                 <h3><a href="registercourse.html">registercourse.html</a></h3>
                 <p>This page contains the Web form used to collect the information needed to register a student for a course.
-                    It has some validation rules similar to those in the add course page as well as the enroll student page to validate the user input.
+                    Some form elements have validation rules to make data entered by
+                    the user more realistic. These validation rules are described in more detail in the user manual.
                 </p>
                 <h3><a href="dropcourse.html">dropcourse.html</a></h3>
                 <p>This page contains the Web form used to collect the information needed to drop a student from a course.
-                    The form elements on this page must satisfy some validation rules for a successful drop in a course.
+                    Some form elements have validation rules to make data entered by
+                    the user more realistic. These validation rules are described in more detail in the user manual.
                 </p>
-                <h3><a href="ProgrammerManual.html">ProgrammerManual.html</a></h3>
+                <h3><a href="ProgrammerManual.html">programmermanual.html</a></h3>
                 Contains the technical documentation for the Course Registration System,
                 including the system overview, HTML page descriptions, file organization, form elements, and functions.
 
-                <h3><a href="moduleOne.css">Stylesheet.css</a></h3>
+                <h3><a href="stylesheet.css">stylesheet.css</a></h3>
                 Contains the CSS rules used to provide consistent styling for the header, footer, navigation links, forms, and buttons throughout the website.
 
                 <h3><a href="validation.js">validation.js</a></h3>
+<<<<<<< Updated upstream
                 <p>contains the javascript code that provides the validation rules for each page and displaying content back to the user once the submit
                     button is clicked.
+=======
+                <p>Contains the JavaScript code that provides the validation rules for each page and displaying content back to the user once the submit
+                    button is clicked. Other functionalities are included in the page to improve user experience.
+>>>>>>> Stashed changes
                 </p>
             </p>
 
             <p>
-                <h2 id="file-organization">Site/File organization</h2>
-                <p>All Module 1 and 2 HTML, CSS and javascript files are stored in the main project directory.
+                <h2 id="file-organization">Site/File Organization</h2>
+                <p>All HTML, CSS and JavaScript files are stored in the main project directory.
                 </p>
 
             </p>
@@ -121,7 +134,7 @@ before.">
                 <h2 id="form-elements">Description of all Form Elements</h2>
                 This section describes the form elements used throughout the
                 Course Registration System. Each form element has a unique
-                id  attribute so that it can be referenced by
+                id attribute so that it can be referenced by
                 JavaScript and other application components in later modules.
                <h3>Enroll Student</h3>
 
@@ -545,7 +558,7 @@ before.">
                     <th>Input Parameters</th>
                     <th>Return Value</th>
                     <th>Page(s) Used</th>
-                    <th>Important DOM elements Modification</th>
+                    <th>Important DOM Element Modifications</th>
                     <th>Technical Explanation of Function</th>
                 </tr>
             </thead>
@@ -555,8 +568,8 @@ before.">
                     <td> Enroll Student submit event handler (anonymous callback)</td>
                     <td>Validates the student information before displaying the submitted data.</td>
                     <td> The event object, e, which represents the form submission.
-                        The function also reads the values entered into the student form fields</td>
-                    <td>None.The function uses the Boolean variable
+                        The function also reads the values entered into the student form fields.</td>
+                    <td>None. The function uses the Boolean variable
                         enrollStudentFormIsValid to track whether the form passes validation.</td>
                     <td>enrollstudent.html</td>
                     <td>The Enroll Student form and its first name, last name, year,
@@ -574,8 +587,8 @@ before.">
                     <td> Add Instructor submit event handler (anonymous callback)</td>
                     <td>Validates the instructor information before displaying the submitted data.</td>
                     <td> The event object, e, which represents the form submission.
-                        The function also reads the values entered into the instructor form fields</td>
-                    <td>None.The function uses the Boolean variable
+                        The function also reads the values entered into the instructor form fields.</td>
+                    <td>None. The function uses the Boolean variable
                         addInstructorFormIsValid to track whether the form passes validation.</td>
                     <td>addinstructor.html</td>
                     <td>The add instructor  form and its first name, last name, department,
