@@ -15,29 +15,45 @@
             <p>This page allows users to add an instructor to our web application.</p>
         </header>
 
-        <form method="POST" id="addInstructorForm">
-            <label for="InstructorFirstName">Instructor's First Name:</label>
-            <input type="text" id="InstructorFirstName" name="InstructorFirstName" ><br>
+         <nav>
 
-            <label for="InstructorLastName">Instructor's Last Name:</label>
-            <input type="text" id="InstructorLastName" name="InstructorLastName"><br>
+            <a href="homepage.html">Home</a>
+            <a href="enrollstudent.html">Enroll Student</a>
+            <a href="addinstructor.html">Add Instructor</a>
+            <a href="addcourse.html">Add Course</a>
+            <a href="registercourse.html">Register Course</a>
+            <a href="dropcourse.html">Drop Course</a>
+            <a href="userManual.html">User Manual</a>
+            <a href="programmerManual.html">Programmer Manual</a>
 
-            <label for="Department">Instructor's Department:</label>
-            <input type="text" id="Department" name="Department"><br>
+        </nav>
+        <main>
 
-            <label for="Rank">Rank:</label>
-            <select name="Rank" id="Rank">
-                <option>Instructor</option>
-                <option>Assistant Professor</option>
-                <option>Associate Professor</option>
-                <option>Professor</option>
-            </select><br>
 
-            <label for="InstructorEmailAddress">Email:</label>
-            <input type="text" id="InstructorEmailAddress" name="InstructorEmailAddress" ><br>
+            <form method="POST" id="addInstructorForm">
+                <label for="InstructorFirstName">Instructor's First Name:</label>
+                <input type="text" id="InstructorFirstName" name="InstructorFirstName" ><br>
 
-            <button type="submit">Submit</button>
-        </form>
+                <label for="InstructorLastName">Instructor's Last Name:</label>
+                <input type="text" id="InstructorLastName" name="InstructorLastName"><br>
+
+                <label for="Department">Instructor's Department:</label>
+                <input type="text" id="Department" name="Department"><br>
+
+                <label for="Rank">Rank:</label>
+                <select name="Rank" id="Rank">
+                    <option>Instructor</option>
+                    <option>Assistant Professor</option>
+                    <option>Associate Professor</option>
+                    <option>Professor</option>
+                </select><br>
+
+                <label for="InstructorEmailAddress">Email:</label>
+                <input type="text" id="InstructorEmailAddress" name="InstructorEmailAddress" ><br>
+
+                <button type="submit">Submit</button>
+            </form>
+        </main>
        <footer>
            
        </footer> 
