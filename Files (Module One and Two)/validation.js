@@ -8,7 +8,7 @@ const registerCourseForm = document.getElementById("registerCourseForm");
 // -----ADD COURSE-----
 
 if (addCourseForm) { //confirm the page has this specific form before running validation. if the form element isn't found, we aren't on that page and don't need this validation
-    
+
     // -----ADD COURSE SELECT LIST DISPLAY-----
     const daysOffered = document.getElementById("DaysOffered");
     const MWFTime = document.getElementById("MWFTime");
@@ -30,7 +30,7 @@ if (addCourseForm) { //confirm the page has this specific form before running va
     singleDayTime.previousSibling.previousSibling.hidden = true;
     singleDayTime.hidden = true;
 
-    daysOffered.addEventListener("change", function(e) {
+    daysOffered.addEventListener("change", function (e) {
         const selectedDayIndex = e.target.selectedIndex;
         console.log(e.target.selectedIndex);
 
@@ -47,7 +47,7 @@ if (addCourseForm) { //confirm the page has this specific form before running va
             singleDayTime.previousSibling.previousSibling.hidden = true;
             singleDayTime.hidden = true;
         }
-        else if (selectedDayIndex == 1)  { //MW
+        else if (selectedDayIndex == 1) { //MW
             MWFTime.previousSibling.previousSibling.hidden = true;
             MWFTime.hidden = true;
 
@@ -88,7 +88,7 @@ if (addCourseForm) { //confirm the page has this specific form before running va
         }
     });
 
-    addCourseForm.addEventListener("submit", function(e) {
+    addCourseForm.addEventListener("submit", function (e) {
 
         let addCourseFormIsValid = true; //boolean to track what submission should do (more efficient way to track overall status)
         let failedMessage = ""; //will store info for alert, to be displayed if boolean becomes false
@@ -109,15 +109,15 @@ if (addCourseForm) { //confirm the page has this specific form before running va
 
         //year validation
         const yearRegEx = /^[3-9][0-9]{3}$|^202[6-9]$|^20[3-9][0-9]$|^2[1-9][0-9][0-9]$/; //regEx expression
-        
-        if (year == "") { 
+
+        if (year == "") {
             failedMessage += "Error: year is a required field.\n";
             addCourseFormIsValid = false;
         }
         else if (!yearRegEx.test(year)) { //only test the value of year against the defined year RegEx if something is in the field (otherwise, skip since it's a required field)
             //since above uses ! (not operator), this would be if the year does NOT match rules
             failedMessage += "Error: year does not match required format.\n";
-            addCourseFormIsValid = false; 
+            addCourseFormIsValid = false;
         }
         else {
             console.log("Success! You entered a valid year format.");
@@ -290,75 +290,75 @@ if (addCourseForm) { //confirm the page has this specific form before running va
 // -----ADD INSTRUCTOR-----
 
 if (addInstructorForm) {
-    addInstructorForm.addEventListener("submit", function(e) {
+    addInstructorForm.addEventListener("submit", function (e) {
         // validation rules go in here
 
-         let addInstructorFormIsValid = true;
-         let failedMessage = ""; //will store info for alert, to be displayed if boolean becomes false
+        let addInstructorFormIsValid = true;
+        let failedMessage = ""; //will store info for alert, to be displayed if boolean becomes false
 
         const InstructorFirstName = document.getElementById("InstructorFirstName").value;
-        const InstructorLastName =document.getElementById("InstructorLastName").value;
-        const Department=document.getElementById("Department").value;
-        const InstructorEmail=document.getElementById("InstructorEmailAddress").value;
+        const InstructorLastName = document.getElementById("InstructorLastName").value;
+        const Department = document.getElementById("Department").value;
+        const InstructorEmail = document.getElementById("InstructorEmailAddress").value;
         const Rank = document.getElementById("Rank").value;
 
         const nameRegex = /^[A-Za-z]+(?:[ '-][A-Za-z]+)*$/;
-        const emailRegex = /^[a-zA-Z]{2,3}[0-9]{3}@marietta\.edu$/;         
-        
-        if (InstructorFirstName===""){  //check if it is empty
-            failedMessage += "Error: Instructor first name is a required field.\n";
-            addInstructorFormIsValid = false;  
+        const emailRegex = /^[a-zA-Z]{2,3}[0-9]{3}@marietta\.edu$/;
 
-        } else if (!nameRegex.test(InstructorFirstName)){  //test the value of name against the defined name  RegEx
+        if (InstructorFirstName === "") {  //check if it is empty
+            failedMessage += "Error: Instructor first name is a required field.\n";
+            addInstructorFormIsValid = false;
+
+        } else if (!nameRegex.test(InstructorFirstName)) {  //test the value of name against the defined name  RegEx
             failedMessage += "Error: instructor first name does not match required format.\n";
             addInstructorFormIsValid = false;
-        
+
         }
         else {
             console.log("Success! You entered a valid instructor first name format.");
         }
 
-        if (InstructorLastName===""){  //check if it is empty
-            failedMessage +=  "Error: instructor last name is a required field.\n";
-            addInstructorFormIsValid= false;
-            
+        if (InstructorLastName === "") {  //check if it is empty
+            failedMessage += "Error: instructor last name is a required field.\n";
+            addInstructorFormIsValid = false;
 
-        } else if (!nameRegex.test(InstructorLastName)){  //test the value of name  against the defined name  RegEx
+
+        } else if (!nameRegex.test(InstructorLastName)) {  //test the value of name  against the defined name  RegEx
             failedMessage += "Error: instructor last name does not match required format.\n";
-            addInstructorFormIsValid= false;
+            addInstructorFormIsValid = false;
 
         }
         else {
             console.log("Success! You entered a valid instructor first name format.");
         }
 
-        if (Department !== "" && !nameRegex.test(Department)){
+        if (Department !== "" && !nameRegex.test(Department)) {
             failedMessage += "Error: department name does not match required format.\n";
-            addInstructorFormIsValid= false;
-        
+            addInstructorFormIsValid = false;
+
         }
-        else if (Department !== ""){
+        else if (Department !== "") {
             console.log("Success! You entered a valid department name format.");
         }
-        
-        if (InstructorEmail ===""){  // check if it is empty
+
+        if (InstructorEmail === "") {  // check if it is empty
             failedMessage += "Error: instructor email is a required field.\n";
             addInstructorFormIsValid = false;
-            
 
-        } else if (!emailRegex.test(InstructorEmail)){  //test the value of email  against the defined email RegEx
+
+        } else if (!emailRegex.test(InstructorEmail)) {  //test the value of email  against the defined email RegEx
             failedMessage += "Error: email does not match the required format.\n";
             addInstructorFormIsValid = false;
-    
+
         }
         else {
             console.log("Success! You entered a valid email format.");
         }
         // Extra Credit for addinstructor page
 
-         if ( Department.length < 2 || Department.length > 50){
+        if (Department.length < 2 || Department.length > 50) {
             failedMessage += "Error: department name must be between 2 and 50 characters.\n";
-            addInstructorFormIsValid= false;
+            addInstructorFormIsValid = false;
         }
 
         if (addInstructorFormIsValid == false) {
@@ -385,15 +385,86 @@ if (addInstructorForm) {
 // -----DROP COURSE-----
 
 if (dropCourseForm) {
-    dropCourseForm.addEventListener("submit", function(e) {
-        // validation rules go in here
+    dropCourseForm.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+        var errorMessage = "";
+
+        const nameRegex = /^[A-Za-z]+(?:[ '-][A-Za-z]+)*$/;
+        const semRegex = /^(Spring|Summer|Fall) (202[6-9]|20[3-9][0-9]{3})$/;
+        const coursePreRegex = /^[A-Z]{3,4}$/;
+        const courseNumRegex = /^[0-3][0-9]{2}$/;
+        const courseSecRegex = /^[0-9]{2}$/;
+
+        const firstname = event.target.elements.firstname.value;
+        const lastname = event.target.elements.lastname.value;
+        const semester = event.target.elements.semester.value;
+        const courseprefix = event.target.elements.courseprefix.value;
+        const coursenumber = event.target.elements.coursenumber.value;
+        const coursesection = event.target.elements.coursesection.value;
+
+        if (!firstname) {
+            errorMessage += "First Name is Blank.\n";
+        }
+        else if (!nameRegex.test(firstname)) {
+            errorMessage += "Enter Your First Name, Starting with a Capital Letter.\n";
+        }
+
+        if (!lastname) {
+            errorMessage += "Last Name is Blank.\n";
+        }
+        else if (!nameRegex.test(lastname)) {
+            errorMessage += "Enter Your Last Name.\n";
+        }
+
+        if (!semester) {
+            errorMessage += "Semester is Blank.\n";
+        }
+        else if (!semRegex.test(semester)) {
+            errorMessage += "Enter the Semester and Year, Ex. Fall 2026.\n";
+        }
+
+        if (!courseprefix) {
+            errorMessage += "Course Prefix is Blank.\n";
+        }
+        else if (!coursePreRegex.test(courseprefix)) {
+            errorMessage += "Enter Course Prefix, Ex. CSCI.\n";
+        }
+
+        if (!coursenumber) {
+            errorMessage += "Course Number is Blank.\n";
+        }
+        else if (!courseNumRegex.test(coursenumber)) {
+            errorMessage += "Enter Course Number, Ex. 300.\n";
+        }
+
+        if (!coursesection) {
+            errorMessage += "Course Section is Blank.\n";
+        }
+        else if (!courseSecRegex.test(coursesection)) {
+            errorMessage += "Enter Course Section, Ex. 01.\n";
+        }
+
+        if (errorMessage.length > 0) {
+            alert(errorMessage);
+        }
+        else {
+            alert(
+                `First Name: ${firstname}
+                Last Name: ${lastname}
+                Semester and Year: ${semester}
+                Course: ${courseprefix + " " + coursenumber}
+                Course Section: ${coursesection}`
+            )
+        }
     });
 }
 
 // -----ENROLL STUDENT-----
 
 if (enrollStudentForm) {
-    enrollStudentForm.addEventListener("submit", function(e) {
+    enrollStudentForm.addEventListener("submit", function (e) {
         // validation rules go in here
         let enrollStudentFormIsValid = true;
         let failedMessage = ""; //will store info for alert, to be displayed if boolean becomes false
@@ -401,24 +472,24 @@ if (enrollStudentForm) {
         // all validation
 
         const firstname = document.getElementById("StudentFirstName").value;
-        const lastname=document.getElementById("StudentLastName").value;
-        const year=document.getElementById("Year").value;
-        const major=document.getElementById("Major").value;
-        const email=document.getElementById("EmailAddress").value;
+        const lastname = document.getElementById("StudentLastName").value;
+        const year = document.getElementById("Year").value;
+        const major = document.getElementById("Major").value;
+        const email = document.getElementById("EmailAddress").value;
 
         const nameRegex = /^[A-Za-z]+(?:[ '-][A-Za-z]+)*$/;
         const emailRegex = /^[a-zA-Z]{2,3}[0-9]{3}@marietta\.edu$/;
 
-        
-        if (firstname===""){  //check if it is empty
+
+        if (firstname === "") {  //check if it is empty
             failedMessage += "Error: student first name is a required field.\n";
             enrollStudentFormIsValid = false;
 
 
-        } else if (!nameRegex.test(firstname)){  //test the value of name  against the defined name  RegEx
+        } else if (!nameRegex.test(firstname)) {  //test the value of name  against the defined name  RegEx
             failedMessage += "Error: student first name does not match required format.\n";
             enrollStudentFormIsValid = false;
-    
+
         }
 
         else {
@@ -426,12 +497,12 @@ if (enrollStudentForm) {
         }
 
 
-        if (lastname===""){  //check if it is empty
+        if (lastname === "") {  //check if it is empty
 
             failedMessage += "Error: student last name is a required field.\n";
             enrollStudentFormIsValid = false;
 
-        } else if (!nameRegex.test(lastname)){  //test the value of name  against the defined name  RegEx
+        } else if (!nameRegex.test(lastname)) {  //test the value of name  against the defined name  RegEx
             failedMessage += "Error: student last name does not match the required format.\n";
             enrollStudentFormIsValid = false;
         }
@@ -449,12 +520,12 @@ if (enrollStudentForm) {
             console.log("Success! You entered a valid  major format.");
         }
 
-        if (email ===""){  // check if it is empty
+        if (email === "") {  // check if it is empty
             failedMessage += "Error: student email is a required field.\n";
             enrollStudentFormIsValid = false;
 
 
-        } else if (!emailRegex.test(email)){  //test the value of email  against the defined email RegEx
+        } else if (!emailRegex.test(email)) {  //test the value of email  against the defined email RegEx
             failedMessage += "Error: student email does not match the required format.\n";
             enrollStudentFormIsValid = false;
         }
@@ -466,26 +537,26 @@ if (enrollStudentForm) {
         // Extra Credit for enroll student page
 
         // extra validation for student firstname length:
-        if (firstname.length < 2 || firstname.length > 20){
+        if (firstname.length < 2 || firstname.length > 20) {
             failedMessage += "Error: student first name must be between 2 and 20 characters\n";
             enrollStudentFormIsValid = false;
         }
 
         // extra validation for student lastname length:
 
-         if (lastname.length < 2 || lastname.length > 20){
+        if (lastname.length < 2 || lastname.length > 20) {
             failedMessage += "Error: student last name must be between 2 and 20 characters\n";
             enrollStudentFormIsValid = false;
         }
 
         // extra validation for student major length:
 
-         if (major.length < 3 || major.length > 50){
+        if (major.length < 3 || major.length > 50) {
             failedMessage += "Error: major must be between 3 and 50 characters\n";
             enrollStudentFormIsValid = false;
         }
 
-        
+
         if (enrollStudentFormIsValid == false) {
             console.log("Error: form can not be submitted due to issues with one or more fields.");
             alert(failedMessage); //displays errors back to user
@@ -510,9 +581,78 @@ if (enrollStudentForm) {
 }
 
 // -----REGISTER COURSE-----
-
 if (registerCourseForm) {
-    registerCourseForm.addEventListener("submit", function(e) {
-        // validation rules go in here
+    registerCourseForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        var errorMessage = "";
+
+        const nameRegex = /^[A-Za-z]+(?:[ '-][A-Za-z]+)*$/;
+        const semRegex = /^(Spring|Summer|Fall) (202[6-9]|20[3-9][0-9]{3})$/;
+        const coursePreRegex = /^[A-Z]{3,4}$/;
+        const courseNumRegex = /^[0-3][0-9]{2}$/;
+        const courseSecRegex = /^[0-9]{2}$/;
+
+        const firstname = event.target.elements.firstname.value;
+        const lastname = event.target.elements.lastname.value;
+        const semester = event.target.elements.semester.value;
+        const courseprefix = event.target.elements.courseprefix.value;
+        const coursenumber = event.target.elements.coursenumber.value;
+        const coursesection = event.target.elements.coursesection.value;
+
+        if (!firstname) {
+            errorMessage += "First Name is Blank.\n";
+        }
+        else if (!nameRegex.test(firstname)) {
+            errorMessage += "Enter Your First Name, Starting with a Capital Letter.\n";
+        }
+
+        if (!lastname) {
+            errorMessage += "Last Name is Blank.\n";
+        }
+        else if (!nameRegex.test(lastname)) {
+            errorMessage += "Enter Your Last Name.\n";
+        }
+
+        if (!semester) {
+            errorMessage += "Semester is Blank.\n";
+        }
+        else if (!semRegex.test(semester)) {
+            errorMessage += "Enter the Semester and Year, Ex. Fall 2026.\n";
+        }
+
+        if (!courseprefix) {
+            errorMessage += "Course Prefix is Blank.\n";
+        }
+        else if (!coursePreRegex.test(courseprefix)) {
+            errorMessage += "Enter Course Prefix, Ex. CSCI.\n";
+        }
+
+        if (!coursenumber) {
+            errorMessage += "Course Number is Blank.\n";
+        }
+        else if (!courseNumRegex.test(coursenumber)) {
+            errorMessage += "Enter Course Number, Ex. 300.\n";
+        }
+
+        if (!coursesection) {
+            errorMessage += "Course Section is Blank.\n";
+        }
+        else if (!courseSecRegex.test(coursesection)) {
+            errorMessage += "Enter Course Section, Ex. 01.\n";
+        }
+
+        if (errorMessage.length > 0) {
+            alert(errorMessage);
+        }
+        else {
+            alert(
+                `First Name: ${firstname}
+                Last Name: ${lastname}
+                Semester and Year: ${semester}
+                Course: ${courseprefix + " " + coursenumber}
+                Course Section: ${coursesection}`
+            )
+        }
     });
 }
