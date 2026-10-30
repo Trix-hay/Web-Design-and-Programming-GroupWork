@@ -537,21 +537,21 @@ if (enrollStudentForm) {
 
         // extra validation for student firstname length:
         if (firstname.length < 2 || firstname.length > 20) {
-            failedMessage += "Error: student first name must be between 2 and 20 characters\n";
+            failedMessage += "Error: student first name must be between 2 and 20 characters.\n";
             enrollStudentFormIsValid = false;
         }
 
         // extra validation for student lastname length:
 
         if (lastname.length < 2 || lastname.length > 20) {
-            failedMessage += "Error: student last name must be between 2 and 20 characters\n";
+            failedMessage += "Error: student last name must be between 2 and 20 characters.\n";
             enrollStudentFormIsValid = false;
         }
 
         // extra validation for student major length:
 
         if (major.length < 3 || major.length > 50) {
-            failedMessage += "Error: major must be between 3 and 50 characters\n";
+            failedMessage += "Error: major must be between 3 and 50 characters.\n";
             enrollStudentFormIsValid = false;
         }
 
