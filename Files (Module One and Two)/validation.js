@@ -116,7 +116,7 @@ if (addCourseForm) { //confirm the page has this specific form before running va
         }
         else if (!yearRegEx.test(year)) { //only test the value of year against the defined year RegEx if something is in the field (otherwise, skip since it's a required field)
             //since above uses ! (not operator), this would be if the year does NOT match rules
-            failedMessage += "Error: year does not match required format.\n";
+            failedMessage += "Error: year does not match required format. The year should consist of 4 digits and can not be before 2026.\n";
             addCourseFormIsValid = false;
         }
         else {
@@ -131,7 +131,7 @@ if (addCourseForm) { //confirm the page has this specific form before running va
             addCourseFormIsValid = false;
         }
         else if (!coursePrefixRegEx.test(coursePrefix)) {
-            failedMessage += "Error: course prefix does not match required format.\n";
+            failedMessage += "Error: course prefix does not match required format. The prefix should have either 3 or 4 capital letters.\n";
             addCourseFormIsValid = false;
         }
         else {
@@ -146,7 +146,7 @@ if (addCourseForm) { //confirm the page has this specific form before running va
             addCourseFormIsValid = false;
         }
         else if (!courseNumberRegEx.test(courseNumber)) {
-            failedMessage += "Error: course number does not match required format.\n";
+            failedMessage += "Error: course number does not match required format. The course number should be exactly 3 digits and be between 100 and 499.\n";
             addCourseFormIsValid = false;
         }
         else {
@@ -161,7 +161,7 @@ if (addCourseForm) { //confirm the page has this specific form before running va
             addCourseFormIsValid = false;
         }
         else if (!courseSectionRegEx.test(courseSection)) {
-            failedMessage += "Error: course section does not match required format.\n";
+            failedMessage += "Error: course section does not match required format. The course section must be exactly 2 digits.\n";
             addCourseFormIsValid = false;
         }
         else {
@@ -172,7 +172,7 @@ if (addCourseForm) { //confirm the page has this specific form before running va
         const roomRegEx = /^[A-Za-z'\s]+\s?[0-9]{2,3}[a-zA-Z]?$/;
 
         if (!roomRegEx.test(room)) {
-            failedMessage += "Error: room does not match required format.\n";
+            failedMessage += "Error: room does not match required format. The building name should be a string, and can contain spaces and/or apostrophes, and the room letter can be 2 or 3 digits and end with a letter.\n";
             addCourseFormIsValid = false;
         }
         else {
@@ -187,7 +187,7 @@ if (addCourseForm) { //confirm the page has this specific form before running va
             addCourseFormIsValid = false;
         }
         else if (!creditHoursRegEx.test(creditHours)) {
-            failedMessage += "Error: credit hours does not match required format.\n";
+            failedMessage += "Error: credit hours does not match required format. The credit hours must be between 0 and 4 digits.\n";
             addCourseFormIsValid = false;
         }
         else {
@@ -202,7 +202,7 @@ if (addCourseForm) { //confirm the page has this specific form before running va
             addCourseFormIsValid = false;
         }
         else if (!instructorFirstNameRegEx.test(instructorFirstName)) {
-            failedMessage += "Error: instructor first name does not match required format.\n";
+            failedMessage += "Error: instructor first name does not match required format. The instructor first name must be a string, and spaces, hyphens, and apostrophes are allowed.\n";
             addCourseFormIsValid = false;
         }
         else {
@@ -217,7 +217,7 @@ if (addCourseForm) { //confirm the page has this specific form before running va
             addCourseFormIsValid = false;
         }
         else if (!instructorLastNameRegEx.test(instructorLastName)) {
-            failedMessage += "Error: instructor last name does not match required format.\n";
+            failedMessage += "Error: instructor last name does not match required format. The instructor last name must be a string, and spaces, hyphens, and apostrophes are allowed.\n";
             addCourseFormIsValid = false;
         }
         else {
@@ -233,7 +233,7 @@ if (addCourseForm) { //confirm the page has this specific form before running va
             addCourseFormIsValid = false;
         }
         else if (!enrollmentCapRegEx.test(enrollmentCap)) {
-            failedMessage += "Error: enrollment cap does not match required format.\n";
+            failedMessage += "Error: enrollment cap does not match required format. The enrollment cap must be a 2 digit number.\n";
             addCourseFormIsValid = false;
         }
         else {
