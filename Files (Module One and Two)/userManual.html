@@ -10,7 +10,7 @@
 
         <meta name="description" content="A User Manual for the Course Registration System">
 
-        <link rel="stylesheet" href="stylesheet.css">
+        <link rel="stylesheet" href="moduleOne.css">
 
     </head>
 
@@ -178,16 +178,16 @@
                     <tr>
 
                         <td>Student First Name</td>
-                        <td>Required field, must be a string. Spaces, hyphens and apostrophes are allowed.</td>
+                        <td>Required field, must be a string. Spaces, hyphens and apostrophes are allowed. Firstname length must be between 2 and 50 characters.</td>
                         <td>Mary, Ann-Marie, M'ckennie</td>
-                        <td>"Error: student first name does not match the required format."</td>
+                        <td>"Error: student first name does not match the required format.The name must be a string with spaces, hyphens and apostrophes allowed. Firstname length must be between 2 and 50 characters."</td>
                     </tr>
 
                     <tr>
                         <td>Student Last Name</td>
-                        <td>Required field, must be a string. Spaces, hyphens and apostrophes are allowed.</td>
+                        <td>Required field, must be a string. Spaces, hyphens and apostrophes are allowed. Lastname length must be between 2 and 50 characters.</td>
                         <td>Harrel, O'Brien, Bob-Chase</td>
-                         <td>"Error: student last name name does not match the required format."</td>
+                         <td>"Error: student last name name does not match the required format. The name must be a string with spaces, hyphens and apostrophes allowed. Lastname length must be between 2 and 50 characters."</td>
                     </tr>
 
                     <tr>
@@ -199,16 +199,16 @@
 
                     <tr>
                         <td>Major</td>
-                        <td>Not required, must be a string. Spaces, hyphens and apostrohes are allowed.</td>
+                        <td>Not required, must be a string. Spaces, hyphens and apostrohes are allowed. The major length must be between 3 and 50 characters.</td>
                         <td>Computer Science, Mathematics</td>
-                        <td>"Error: Major does not match the required format."</td>
+                        <td>"Error: major does not match the required format. The major must be a string with spaces, hyphens and apostrophes allowed. Major length must be between 3 and 50 characters."</td>
                     </tr>
 
                     <tr>
                         <td>Student's Email Address</td>
                         <td>Required field, must follow the format of two or three letters, followed by exactly 3 digits, and ending with "@marietta.edu".</td>
                         <td>rty034@marietta.edu, ch345@marietta.edu</td>
-                        <td>"Error: email does not match the required format."</td>
+                        <td>"Error: email does not match the required format. It must follow the format of abc123@marietta.edu or ab123@marietta.edu. "</td>
                     </tr>
                 </tbody>
                 
@@ -278,21 +278,21 @@
                         <td>Instructor First Name</td>
                         <td>Required field, must be a string. Spaces, hyphens and apostrophes are allowed.</td>
                         <td>Matthew, Ann-Marie, Bob</td>
-                        <td>"Error: instructor first name does not match required format."</td>
+                        <td>"Error: instructor first name does not match required format. The name must be a string with spaces, hyphens and apostrophes allowed."</td>
                     </tr>
 
                     <tr>
                         <td>Instructor Last Name</td>
                         <td>Required field, must be a string. Spaces, hyphens and apostrophes are allowed.</td>
                         <td>Williamson, O'Neill, Van-Camp</td>
-                        <td>"Error: instructor last name does not match the required format."</td>
+                        <td>"Error: instructor last name does not match the required format. The name must be a string with spaces, hyphens and apostrophes allowed."</td>
                     </tr>
 
                     <tr>
                         <td>Instructor Department</td>
-                        <td>Not required. Must be a string. Spaces, hyphens and apostrophes are allowed.</td>
+                        <td>Not required. Must be a string. Spaces, hyphens and apostrophes are allowed. The department length must be between 2 and 50 characters.</td>
                         <td>Computer Science, Physics, Mathematics</td>
-                        <td>Error: department name does not match the required format."</td>
+                        <td>"Error: department name does not match the required format. The department name must be a string with spaces, hyphens and apostrophes allowed. Department length must be between 2 and 50 characters."</td>
                     </tr>
 
                     <tr>
@@ -306,7 +306,7 @@
                         <td>Instructor's Email Address</td>
                         <td>Required field, must follow the format of two or three letters, followed by exactly 3 digits, and ending with "@marietta.edu".</td>
                         <td>rty034@marietta.edu, ch345@marietta.edu</td>
-                        <td>"Error: email does not match the required email format."</td>
+                        <td>"Error: email does not match the required email format. It must follow the format of abc123@marietta.edu or ab123@marietta.edu. "</td>
                     </tr>
                 </tbody>
                 
@@ -509,42 +509,42 @@
                         <td>Semester and Year</td>
                         <td>Required field, must consist of four digits and cannot be before 2026.</td>
                         <td>Summer 2027</td>
-                        <td>"Error: year does not match required format."</td>
+                        <td>"Error: year does not match required format. The year should consist of 4 digits and can not be before 2026."</td>
                     </tr>
 
                     <tr>
                         <td>Course Prefix</td>
                         <td>Required field, must have either 3 or 4 capital letters.</td>
                         <td>ART, CSCI, MATH</td>
-                        <td>"Error: course prefix does not match required format."</td>
+                        <td>"Error: course prefix does not match required format. The prefix should have either 3 or 4 capital letters."</td>
                     </tr>
 
                     <tr>
                         <td>Course Number</td>
                         <td>Required field, must have exactly 3 digits and must be between 100 and 499.</td>
                         <td>101, 385, 495</td>
-                        <td>"Error: course number does not match required format."</td>
+                        <td>"Error: course number does not match required format. The course number should be exactly 3 digits and be between 100 and 499."</td>
                     </tr>
 
                     <tr>
                         <td>Course Section</td>
                         <td>Required field, must have exactly 2 digits.</td>
                         <td>01, 02, 03</td>
-                        <td>"Error: course section does not match required format."</td>
+                        <td>"Error: course section does not match required format. The course section must be exactly 2 digits."</td>
                     </tr>
 
                     <tr>
                         <td>Course Name</td>
-                        <td>No validation required.</td>
+                        <td>Not required, but if provided, must be between 5 and 50 characters.</td>
                         <td>Web Programming and Design</td>
-                        <td>-</td>
+                        <td>"Error: course name must be between 5 and 50 characters."</td>
                     </tr>
 
                     <tr>
                         <td>Room (Building and Room Number)</td>
                         <td>Not required, building name must be a string that can have spaces and/or apostrophes. Room number can be 2 or 3 digits and may end with a letter.</td>
                         <td>Selby 239, THMS 123H</td>
-                        <td>"Error: room does not match required format."</td>
+                        <td>"Error: room does not match required format.  The building name should be a string, and can contain spaces and/or apostrophes, and the room letter can be 2 or 3 digits and end with a letter. "</td>
                     </tr>
 
                     <tr>
@@ -565,7 +565,7 @@
                         <td>Credit Hours</td>
                         <td>Required field, must be formatted as a number between 0 and 4 hours.</td>
                         <td>1, 2, 3, 4</td>
-                        <td>"Error: credit hours does not match required format."</td>
+                        <td>"Error: credit hours does not match required format. The credit hours must be between 0 and 4 digits."</td>
                     </tr>
 
                     <tr>
@@ -573,21 +573,21 @@
                         <td>Instructor First Name</td>
                         <td>Required field, must be a string. Spaces, hyphens and apostrophes are allowed.</td>
                         <td>Matthew, Ann-Marie, Bob</td>
-                        <td>"Error: instructor first name does not match required format."</td>
+                        <td>"Error: instructor first name does not match required format. The instructor first name must be a string, and spaces, hyphens, and apostrophes are allowed."</td>
                     </tr>
 
                     <tr>
                         <td>Instructor Last Name</td>
                         <td>Required field, must be a string. Spaces, hyphens and apostrophes are allowed.</td>
                         <td>Williamson, O'Neill, Van-Camp</td>
-                        <td>"Error: instructor last name does not match required format."</td>
+                        <td>"Error: instructor last name does not match required format. The instructor last name must be a string, and spaces, hyphens, and apostrophes are allowed."</td>
                     </tr>
 
                     <tr>
                         <td>Enrollment Cap</td>
                         <td>Required field, must be a number with two digits.</td>
                         <td>25, 40</td>
-                        <td>"Error: enrollment cap does not match required format."</td>
+                        <td>"Error: enrollment cap does not match required format. The enrollment cap must be a 2 digit number."</td>
                     </tr>
 
                 </tbody>
@@ -671,14 +671,14 @@
                         <td>Student First Name</td>
                         <td>Required field, must be a string. Spaces, hyphens and apostrophes are allowed.</td>
                         <td>Mary, Ann-Marie, M'ckennie</td>
-                        <td>"Error: student first name does not match required format."</td>
+                        <td>"Error: first name does not match the required format."</td>
                     </tr>
 
                     <tr>
                         <td>Student Last Name</td>
                         <td>Required field, must be a string. Spaces, hyphens and apostrophes are allowed.</td>
                         <td>Harrel, O'Brien, Bob-Chase</td>
-                        <td>"Error: student last name does not match required format."</td>
+                        <td>"Error: last name does not match the required format."</td>
                     </tr>
 
                     <tr>
@@ -686,28 +686,28 @@
                         <td>Semester and Year</td>
                         <td>Required field, must consist of four digits and cannot be before 2026.</td>
                         <td>Summer 2027</td>
-                        <td>"Error: year does not match required format."</td>
+                        <td>"Error: semester does not match the required format."</td>
                     </tr>
 
                     <tr>
                         <td>Course Prefix</td>
                         <td>Required field, must have either 3 or 4 capital letters.</td>
                         <td>ART, CSCI, MATH</td>
-                        <td>"Error: course prefix does not match required format."</td>
+                        <td>"Error: course prefix does not match the required format."</td>
                     </tr>
 
                     <tr>
                         <td>Course Number</td>
                         <td>Required field, must have exactly 3 digits and must be between 100 and 499.</td>
                         <td>101, 385, 495</td>
-                        <td>"Error: course number does not match required format."</td>
+                        <td>"Error: course number does not match the required format."</td>
                     </tr>
 
                     <tr>
                         <td>Course Section</td>
                         <td>Required field, must have exactly 2 digits.</td>
                         <td>01, 02, 03</td>
-                        <td>"Error: course section does not match required format."</td>
+                        <td>"Error: course section does not match the required format."</td>
                     </tr>
                 </tbody>
             </table>
@@ -790,14 +790,14 @@
                         <td>Student First Name</td>
                         <td>Required field,must be a string. Spaces, hyphens and apostrophes are allowed.</td>
                         <td>Mary, Ann-Marie, M'ckennie</td>
-                        <td>"Error: student first name does not match required format."</td>
+                        <td>"Error: first name does not match the required format."</td>
                     </tr>
 
                     <tr>
                         <td>Student Last Name</td>
                         <td>Required field, must be a string. Spaces, hyphens and apostrophes are allowed.</td>
                         <td>Harrel, O'Brien, Bob-Chase</td>
-                        <td>"Error: student last name does not match required format."</td>
+                        <td>Error: last name does not match the required format."</td>
                     </tr>
 
                     <tr>
@@ -805,83 +805,32 @@
                         <td>Semester and Year</td>
                         <td>Required field, must consist of four digits and cannot be before 2026.</td>
                         <td>Summer 2027</td>
-                        <td>"Error: year does not match required format."</td>
+                        <td>"Error: semester does not match the required format."</td>
                     </tr>
 
                     <tr>
                         <td>Course Prefix</td>
                         <td>Required field, must have either 3 or 4 capital letters.</td>
                         <td>ART, CSCI, MATH</td>
-                        <td>"Error: course prefix does not match required format."</td>
+                        <td>"Error: course prefix does not match the required format."</td>
                     </tr>
 
                     <tr>
                         <td>Course Number</td>
                         <td>Required field, must have exactly 3 digits and must be between 100 and 499.</td>
                         <td>101, 385, 495</td>
-                        <td>"Error: course number does not match required format."</td>
+                        <td>"Error: course number does not match the required format."</td>
                     </tr>
 
                     <tr>
                         <td>Course Section</td>
                         <td>Required field, must have exactly 2 digits.</td>
                         <td>01, 02, 03</td>
-                        <td>"Error: course section does not match required format."</td>
+                        <td>"Error: course section does not match the required format."</td>
                     </tr>
                 </tbody>
             </table>
 
-             <h3>Extra Validation Rules</h3>
-             <p>This table  below shows five additional validation rules which makes the pages more realistic and the error
-                messages that shows when the user enters incorrect information.
-             </p>
-            <table class ="validation-table">
-                <thead>
-                    <th>Field</th>
-                    <th>Extra Validation Rule</th>
-                    <th>Page(s) Used</th>
-                    <th>Error Messages</th>
-                </thead>
-
-                <tbody>
-                    <tr>
-
-                        <td>Student First Name</td>
-                        <td>Firstname length must be between 2 and 20 characters.</td>
-                        <td>enrollstudent.html</td>
-                        <td>"Error: first name must be between 2 and 20 characters."</td>
-                    </tr>
-
-                    <tr>
-                        <td>Student Last Name</td>
-                        <td>Last name must be between 2 and 20 characters.</td>
-                        <td>enrollstudent.html</td>
-                        <td>"Error: last name must be between 2 and 20 characters."</td>
-                    </tr>
-
-                    <tr>
-                        <td>Student Major</td>
-                        <td>Major must be between 2 and 50 characters.</td>
-                        <td>enrollstudent.html</td>
-                        <td>"Error: major must be between 2 and  50 characters."</td>
-                    </tr>
-
-                    <tr>
-                        <td>Instructor Department</td>
-                        <td>Department must be between 2 and 50 characters.</td>
-                        <td>addinstructor.html</td>
-                        <td>"Error: department name must be between 2 and 50 characters."</td>
-                    </tr>
-
-                    <tr>
-                        <td>Course Name</td>
-                        <td>Course name must be between 5 and 50 characters.</td>
-                        <td>addcourse.html</td>
-                        <td>"Error: course name must be between 5 and 50 characters."</td>
-                    </tr>
-
-                </tbody>
-            </table>
         </main>
 
         <footer>
