@@ -310,7 +310,7 @@ if (addInstructorForm) {
             addInstructorFormIsValid = false;
 
         } else if (!nameRegex.test(InstructorFirstName)) {  //test the value of name against the defined name  RegEx
-            failedMessage += "Error: instructor first name does not match required format.\n";
+            failedMessage += "Error: instructor first name does not match required format. The name must be a string with spaces, hyphens and apostrophes allowed.\n";
             addInstructorFormIsValid = false;
 
         }
@@ -323,7 +323,7 @@ if (addInstructorForm) {
             addInstructorFormIsValid = false;
 
         } else if (!nameRegex.test(InstructorLastName)) {  //test the value of name  against the defined name  RegEx
-            failedMessage += "Error: instructor last name does not match required format.\n";
+            failedMessage += "Error: instructor last name does not match required format. The name must be a string with spaces, hyphens and apostrophes allowed.\n";
             addInstructorFormIsValid = false;
 
         }
@@ -332,7 +332,7 @@ if (addInstructorForm) {
         }
 
         if (Department !== "" && !nameRegex.test(Department)) {
-            failedMessage += "Error: department name does not match required format.\n";
+            failedMessage += "Error: department name does not match required format. The name must be a string with spaces, hyphens and apostrophes allowed.\n";
             addInstructorFormIsValid = false;
 
         }
@@ -346,7 +346,7 @@ if (addInstructorForm) {
 
 
         } else if (!emailRegex.test(InstructorEmail)) {  //test the value of email  against the defined email RegEx
-            failedMessage += "Error: instructor email does not match the required format.\n";
+            failedMessage += "Error: instructor email does not match the required format. It must follow the format of abc123@marietta.edu or ab123@marietta.edu.\n";
             addInstructorFormIsValid = false;
 
         }
@@ -486,7 +486,7 @@ if (enrollStudentForm) {
 
 
         } else if (!nameRegex.test(firstname)) {  //test the value of name  against the defined name  RegEx
-            failedMessage += "Error: student first name does not match required format.\n";
+            failedMessage += "Error: student first name does not match required format. The name must be a string with spaces, hyphens and apostrophes allowed.\n";
             enrollStudentFormIsValid = false;
 
         }
@@ -502,7 +502,7 @@ if (enrollStudentForm) {
             enrollStudentFormIsValid = false;
 
         } else if (!nameRegex.test(lastname)) {  //test the value of name  against the defined name  RegEx
-            failedMessage += "Error: student last name does not match the required format.\n";
+            failedMessage += "Error: student last name does not match the required format. The name must be a string with spaces, hyphens and apostrophes allowed.\n";
             enrollStudentFormIsValid = false;
         }
 
@@ -511,7 +511,7 @@ if (enrollStudentForm) {
         }
 
         if (major !== "" && !nameRegex.test(major)) {  //test the value of major  against the defined name  RegEx
-            failedMessage += "Error: major does not match the required format.\n";
+            failedMessage += "Error: major does not match the required format. The major must be a string with spaces, hyphens and apostrophes allowed.\n";
             enrollStudentFormIsValid = false;
         }
 
@@ -525,7 +525,7 @@ if (enrollStudentForm) {
 
 
         } else if (!emailRegex.test(email)) {  //test the value of email  against the defined email RegEx
-            failedMessage += "Error: student email does not match the required format.\n";
+            failedMessage += "Error: student email does not match the required format. It must follow the format of abc123@marietta.edu or ab123@marietta.edu.\n";
             enrollStudentFormIsValid = false;
         }
 
@@ -536,15 +536,15 @@ if (enrollStudentForm) {
         // Extra Credit for enroll student page
 
         // extra validation for student firstname length:
-        if (firstname.length < 2 || firstname.length > 20) {
-            failedMessage += "Error: student first name must be between 2 and 20 characters.\n";
+        if (firstname.length < 2 || firstname.length > 50) {
+            failedMessage += "Error: student first name must be between 2 and 50 characters.\n";
             enrollStudentFormIsValid = false;
         }
 
         // extra validation for student lastname length:
 
-        if (lastname.length < 2 || lastname.length > 20) {
-            failedMessage += "Error: student last name must be between 2 and 20 characters.\n";
+        if (lastname.length < 2 || lastname.length > 50) {
+            failedMessage += "Error: student last name must be between 2 and 50 characters.\n";
             enrollStudentFormIsValid = false;
         }
 
