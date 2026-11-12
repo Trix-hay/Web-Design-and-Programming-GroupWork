@@ -1,7 +1,10 @@
 const sqlite3 = require("sqlite3").verbose();
-const db = new sqlite3.Database("./courseRegistration");
+const db = new sqlite3.Database("./courseRegistration.db");
+
+db.run("PRAGMA foreign_keys = ON");
 
 db.serialize( () => {
+
     db.run(`
         CREATE TABLE IF NOT EXISTS
         Students (
@@ -41,12 +44,12 @@ db.serialize( () => {
             course_days_offered INTEGER,
             course_time INTEGER,
             course_credit_hours INTEGER NOT NULL,
-            instructor_first_name INTEGER NOT NULL,
-            instructor_last_name INTEGER NOT NULL,
+            instructor_first_name TEXT NOT NULL,
+            instructor_last_name TEXT NOT NULL,
             course_enrollment_cap INTEGER NOT NULL,
+            instructor_id INTEGER,
             
-            FOREIGN KEY (instructor_first_name) REFERENCES Instructors(instructor_first_name),
-            FOREIGN KEY (instructor_last_name) REFERENCES Instructors(instructor_last_name),        
+            FOREIGN KEY (instructor_id) REFERENCES Instructors(instructor_id)
         )
     `);
 
