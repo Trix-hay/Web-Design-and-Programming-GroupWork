@@ -89,8 +89,6 @@ if (addCourseForm) { //confirm the page has this specific form before running va
     });
 
     addCourseForm.addEventListener("submit", function (e) {
-        
-        //fetch() will go here to send data to Express server
 
         let addCourseFormIsValid = true; //boolean to track what submission should do (more efficient way to track overall status)
         let failedMessage = ""; //will store info for alert, to be displayed if boolean becomes false
@@ -259,6 +257,7 @@ if (addCourseForm) { //confirm the page has this specific form before running va
         } else {
             console.log("Success! All fields are valid. Now printing information.");
             e.preventDefault()
+            //FETCH() here?
             // determine which time to display based on what time select list is shown
             let selectedTime;
             if (!MWFTime.hidden) { //if the MWF select list is not hidden, it must be visible and thus has the time value we want
