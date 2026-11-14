@@ -257,7 +257,7 @@ if (addCourseForm) { //confirm the page has this specific form before running va
         } else {
             console.log("Success! All fields are valid. Now printing information.");
             e.preventDefault()
-            //FETCH() here?
+            
             // determine which time to display based on what time select list is shown
             let selectedTime;
             if (!MWFTime.hidden) { //if the MWF select list is not hidden, it must be visible and thus has the time value we want
@@ -272,6 +272,23 @@ if (addCourseForm) { //confirm the page has this specific form before running va
             else if (!singleDayTime.hidden) {
                 selectedTime = singleDayTime.value;
             }
+
+            
+            const addCourseData = {
+                year: year,
+                semester: semester,
+                coursePrefix: coursePrefix,
+                //maisee to pick up here
+
+            }
+
+            fetch("/addcourse", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(addCourseData)
+            });
 
             alert(
                 `Year: ${semester} ${year}
