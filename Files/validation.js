@@ -273,15 +273,23 @@ if (addCourseForm) { //confirm the page has this specific form before running va
                 selectedTime = singleDayTime.value;
             }
 
-            
+            //gather values enterted in the form
             const addCourseData = {
                 year: year,
                 semester: semester,
                 coursePrefix: coursePrefix,
-                //maisee to pick up here
-
+                courseNumber: courseNumber,
+                courseSection: courseSection,
+                courseName: courseName,
+                room: room,
+                daysOffered: daysOffered,
+                creditHours: creditHours,
+                instructorFirstName: instructorFirstName,
+                instructorLastName: instructorLastName,
+                enrollmentCap: enrollmentCap
             }
 
+            //send values to Express route
             fetch("/addcourse", {
                 method: "POST",
                 headers: {
