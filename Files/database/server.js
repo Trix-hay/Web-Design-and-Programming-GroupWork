@@ -46,9 +46,18 @@ app.post("/addCourse", (req, res) => {
         ]
     );
 
-    //return JSON response, Maisee to pick up here
-
-
+    //return JSON response
+    if (err) {
+	    console.log(err);
+	    res.status(404).send("File Not Found");
+	}
+	else {
+        res.status(201).json({
+            success: true,
+            message: "Add Course SQL Insert command complete."
+        });
+	    console.log("Add Course SQL Insert command complete");
+	}
 });
 
 app.listen(5678, () => {

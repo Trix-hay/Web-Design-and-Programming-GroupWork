@@ -50,8 +50,9 @@ db.serialize( () => {
             instructor_first_name TEXT NOT NULL,
             instructor_last_name TEXT NOT NULL,
             course_enrollment_cap INTEGER NOT NULL,
+            instructor_id INTEGER NOT NULL,
             
-            FOREIGN KEY (instructor_first_name) REFERENCES Instructors(instructor_first_name)
+            FOREIGN KEY (instructor_id) REFERENCES Instructors(instructor_id)
         )
     `);
 

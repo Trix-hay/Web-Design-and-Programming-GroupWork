@@ -296,8 +296,14 @@ if (addCourseForm) { //confirm the page has this specific form before running va
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify(addCourseData)
+            })
+                .then(response => response.json())
+                .then(displayMessage => {
+                    alert(displayMessage.message); //this will need checked when we test, this is the part I understand the least
+
             });
 
+            /* TEMPORARY comment out for testing purposes
             alert(
                 `Year: ${semester} ${year}
                 Course Prefix: ${coursePrefix}
@@ -308,6 +314,7 @@ if (addCourseForm) { //confirm the page has this specific form before running va
                 Instructor Name: ${instructorFirstName} ${instructorLastName}
                 Enrollment Cap: ${enrollmentCap}`
             );
+            */
         }
 
     });
