@@ -33,6 +33,7 @@ db.serialize( () => {
         )
     `);
 
+// change below to only include instructor_id
     db.run(
         `CREATE TABLE IF NOT EXISTS
         Courses (
