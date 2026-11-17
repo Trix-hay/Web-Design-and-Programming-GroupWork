@@ -260,7 +260,7 @@ if (addCourseForm) { //confirm the page has this specific form before running va
             }
 
             //send values to Express route
-            fetch("/addcourse", {
+            fetch("/addCourse", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

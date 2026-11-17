@@ -14,7 +14,6 @@ app.get("/", (req, res) => {
 //we use POST for add pages because we are "posting" data to the database
 //later, we will use app.get to retrieve information (for register and drop course pages)
 
-
 // ADD COURSE -- MAISEE
 
 app.post("/addCourse", (req, res) => {
