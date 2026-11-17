@@ -33,7 +33,6 @@ db.serialize( () => {
         )
     `);
 
-// change below to only include instructor_id
     db.run(
         `CREATE TABLE IF NOT EXISTS
         Courses (
@@ -48,8 +47,6 @@ db.serialize( () => {
             course_days_offered INTEGER,
             course_time INTEGER,
             course_credit_hours INTEGER NOT NULL,
-            instructor_first_name TEXT NOT NULL,
-            instructor_last_name TEXT NOT NULL,
             course_enrollment_cap INTEGER NOT NULL,
             instructor_id INTEGER NOT NULL,
             

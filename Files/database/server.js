@@ -11,8 +11,11 @@ app.get("/", (req, res) => {
     res.sendFile("/Users/Maisee/OneDrive - marietta.edu/Junior Year/F26/CSCI330/Group Project/Web-Design-and-Programming-GroupWork/Files/public/homepage.html");
 });
 
-//we use POST here because we are "posting" data to the database
+//we use POST for add pages because we are "posting" data to the database
 //later, we will use app.get to retrieve information (for register and drop course pages)
+
+
+// ADD COURSE -- MAISEE
 
 app.post("/addCourse", (req, res) => {
     //get info from fetch in validation.js
@@ -41,7 +44,7 @@ app.post("/addCourse", (req, res) => {
         course_enrollment_cap)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [semester, year, coursePrefix, courseNumber, courseSection,
-            courseName, room, daysOffered, creditHours, instructorFirstName,
+            courseName, room, daysOffered, selectedTime, creditHours, instructorFirstName,
             instructorLastName, enrollmentCap
         ]
     );
@@ -59,6 +62,34 @@ app.post("/addCourse", (req, res) => {
 	    console.log("Add Course SQL Insert command complete");
 	}
 });
+
+// ADD STUDENT -- Beatrice
+
+app.post("/addStudent", (req, res) => {
+
+});
+
+// ADD INSTRUCTOR -- Beatrice
+
+app.post("/addInstructor", (req, res) => {
+
+});
+
+// DROP COURSE -- Drew
+
+app.get("/dropCourse", (req, res) => {
+
+});
+
+// REGISTER COURSE -- Drew
+
+app.get("/registerCourse", (req, res) => {
+
+});
+
+// VIEW COURSES -- Maisee
+
+// VIEW STUDENTS -- Beatrice
 
 app.listen(5678, () => {
     console.log("Server running on port 5678.");

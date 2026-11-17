@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 
-<!-- 1. add script tag to do SQL query to get all instructors -->
-<!-- 2b/3. modify the DOM so the select list populates options by referencing the SQL query results-->
-<!-- make value attribute the instructor_id-->
+<!-- 4. use HTML value attribute as the instructor_id-->
 
 <html lang = "en">
     <head>
@@ -11,6 +9,12 @@
         <link rel="stylesheet" href="../stylesheet.css">
         <title>Course Registration: Add Course</title>
     </head>
+
+    <!-- 1. add script tag to do SQL query to get all instructors (make a seed.js file to populate the instructor table first)-->
+     <!-- 2b/3. modify the DOM so the select list populates options by referencing the SQL query results-->
+    <script>
+        
+    </script>
 
     <body>
         <header>
@@ -111,13 +115,10 @@
                 <label for="CreditHours">Credit Hours: </label>
                 <input type="text" name="CreditHours" id="CreditHours"><br>
 
-                <!-- 2. make new label and input to be a select list with all instructors from SQL query-->
-
-                <label for="InstructorFirstName">Instructor First Name: </label>
-                <input type="text" placeholder="Matt" name="InstructorFirstName" id="InstructorFirstName"><br>
-                
-                <label for="InstructorLastName">Instructor Last Name: </label>
-                <input type="text" placeholder="Williamson" name="InstructorLastName" id="InstructorLastName"><br>
+                <label for="InstructorName">Instructor: </label>
+                <select name="InstructorName" id="InstructorName">
+                    <option>Select an instructor...</option>
+                </select><br>
 
                 <label for="EnrollmentCap">Enrollment Cap: </label>
                 <input type="text" name="EnrollmentCap" id="EnrollmentCap"><br>

@@ -10,6 +10,7 @@ const registerCourseForm = document.getElementById("registerCourseForm");
 if (addCourseForm) { //confirm the page has this specific form before running validation. if the form element isn't found, we aren't on that page and don't need this validation
 
     // -----ADD COURSE SELECT LIST DISPLAY-----
+    // Note 11/16/26: This display is no longer working, Maisee will troubleshoot this and get it working
     const daysOffered = document.getElementById("DaysOffered");
     const MWFTime = document.getElementById("MWFTime");
     const MWTime = document.getElementById("MWTime");
@@ -103,8 +104,7 @@ if (addCourseForm) { //confirm the page has this specific form before running va
         const room = document.getElementById("Room").value;
         const daysOffered = document.getElementById("DaysOffered").value;
         const creditHours = document.getElementById("CreditHours").value;
-        const instructorFirstName = document.getElementById("InstructorFirstName").value;
-        const instructorLastName = document.getElementById("InstructorLastName").value;
+        const instructorName = document.getElementById("InstructorName").value;
         const enrollmentCap = document.getElementById("EnrollmentCap").value;
 
         //year validation
@@ -194,36 +194,6 @@ if (addCourseForm) { //confirm the page has this specific form before running va
             console.log("Success! You entered a valid credit hours format.");
         }
 
-        //instructor first name validation
-        const instructorFirstNameRegEx = /^[A-Za-z-'\s]+$/;
-
-        if (instructorFirstName == "") {
-            failedMessage += "Error: instructor first name is a required field.\n";
-            addCourseFormIsValid = false;
-        }
-        else if (!instructorFirstNameRegEx.test(instructorFirstName)) {
-            failedMessage += "Error: instructor first name does not match required format. The instructor first name must be a string, and spaces, hyphens, and apostrophes are allowed.\n";
-            addCourseFormIsValid = false;
-        }
-        else {
-            console.log("Success! You entered a valid instructor first name format.");
-        }
-
-        //instructor last name validation
-        const instructorLastNameRegEx = /^[A-Za-z-'\s]+$/;
-
-        if (instructorLastName == "") {
-            failedMessage += "Error: instructor last name is a required field.\n";
-            addCourseFormIsValid = false;
-        }
-        else if (!instructorLastNameRegEx.test(instructorLastName)) {
-            failedMessage += "Error: instructor last name does not match required format. The instructor last name must be a string, and spaces, hyphens, and apostrophes are allowed.\n";
-            addCourseFormIsValid = false;
-        }
-        else {
-            console.log("Success! You entered a valid instructor last name format.");
-        }
-
         //enrollment cap validation
 
         const enrollmentCapRegEx = /^[0-9]{2}$/;
@@ -283,9 +253,9 @@ if (addCourseForm) { //confirm the page has this specific form before running va
                 courseName: courseName,
                 room: room,
                 daysOffered: daysOffered,
+                selectedTime: selectedTime,
                 creditHours: creditHours,
-                instructorFirstName: instructorFirstName,
-                instructorLastName: instructorLastName,
+                instructorName: instructorName,
                 enrollmentCap: enrollmentCap
             }
 
