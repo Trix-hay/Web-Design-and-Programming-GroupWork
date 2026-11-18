@@ -411,42 +411,42 @@ if (dropCourseForm) {
             errorMessage += "Error: first name is a required field.\n";
         }
         else if (!nameRegex.test(firstname)) {
-            errorMessage += "Error: first name does not match required format.\n";
+            errorMessage += "Error: first name does not match required format. The name must be a string with spaces, hyphens and apostrophes allowed.\n";
         }
 
         if (!lastname) {
             errorMessage += "Error: last name is a required field.\n";
         }
         else if (!nameRegex.test(lastname)) {
-            errorMessage += "Error: last name does not match required format.\n";
+            errorMessage += "Error: last name does not match required format. The name must be a string with spaces, hyphens and apostrophes allowed.\n";
         }
 
         if (!semester) {
             errorMessage += "Error: semester is a required field.\n";
         }
         else if (!semRegex.test(semester)) {
-            errorMessage += "Error: semester does not match required format.\n";
+            errorMessage += "Error: semester does not match required format. The year should consist of 4 digits and can not be before 2026.\n";
         }
 
         if (!courseprefix) {
             errorMessage += "Error: course prefix is a required field.\n";
         }
         else if (!coursePreRegex.test(courseprefix)) {
-            errorMessage += "Error: course prefix does not match required format.\n";
+            errorMessage += "Error: course prefix does not match required format. The prefix must be 3 or 4 uppercase letters.\n";
         }
 
         if (!coursenumber) {
             errorMessage += "Error: course number is a required field.\n";
         }
         else if (!courseNumRegex.test(coursenumber)) {
-            errorMessage += "Error: course number does not match required format.\n";
+            errorMessage += "Error: course number does not match required format. The course number should be exactly 3 digits and be between 100 and 499.\n";
         }
 
         if (!coursesection) {
             errorMessage += "Error: course section is a required field.\n";
         }
         else if (!courseSecRegex.test(coursesection)) {
-            errorMessage += "Error: course section does not match required format.\n";
+            errorMessage += "Error: course section does not match required format. The course section must be exactly 2 digits.\n";
         }
 
         if (errorMessage.length > 0) {
@@ -554,7 +554,7 @@ if (enrollStudentForm) {
 
         // extra validation for student major length:
 
-        if (major.length < 3 || major.length > 50) {
+        if ( major !== "" && (major.length < 3 || major.length > 50) ) {
             failedMessage += "Error: major must be between 3 and 50 characters.\n";
             enrollStudentFormIsValid = false;
         }
@@ -568,9 +568,40 @@ if (enrollStudentForm) {
             // If you reach this point, validation has passed.
 
         } else {
-            console.log("Success! All fields are valid. Now printing information.");
-            e.preventDefault()
+            // stop the form from submitting and refreshing the page
+            e.preventDefault();
 
+            // package the student information
+            const studentData = {
+                firstname: firstname,
+                lastname: lastname,
+                year: year,
+                major: major,
+                email: email
+            };
+        
+            // send the student information to the server
+            fetch("/addStudent",{
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(studentData)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message);
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    alert("An error occurred while adding the student. Please try again.");
+                });
+            }
+    });
+}
+
+
+            /*
             alert(
                 `First Name: ${firstname}
                 Last Name: ${lastname}
@@ -578,10 +609,9 @@ if (enrollStudentForm) {
                 Major: ${major}
                 Email: ${email}`
             );
-        }
+            */
 
-    });
-}
+            
 
 // -----REGISTER COURSE-----
 if (registerCourseForm) {
@@ -607,42 +637,42 @@ if (registerCourseForm) {
             errorMessage += "Error: first name is a required field.\n";
         }
         else if (!nameRegex.test(firstname)) {
-            errorMessage += "Error: student first name does not match required format.\n";
+            errorMessage += "Error: student first name does not match required format. The name must be a string with spaces, hyphens and apostrophes allowed.\n";
         }
 
         if (!lastname) {
             errorMessage += "Error: last name is a required field.\n";
         }
         else if (!nameRegex.test(lastname)) {
-            errorMessage += "Error: student last name does not match required format.\n";
+            errorMessage += "Error: student last name does not match required format. The name must be a string with spaces, hyphens and apostrophes allowed.\n";
         }
 
         if (!semester) {
             errorMessage += "Error: semester is a required field.\n";
         }
         else if (!semRegex.test(semester)) {
-            errorMessage += "Error: semester does not match required format..\n";
+            errorMessage += "Error: semester does not match required format. The year should consist of 4 digits and can not be before 2026.\n";
         }
 
         if (!courseprefix) {
             errorMessage += "Error: course prefix is a required field.\n";
         }
         else if (!coursePreRegex.test(courseprefix)) {
-            errorMessage += "Error: course prefix does not match required format.\n";
+            errorMessage += "Error: course prefix does not match required format. The prefix must be 3 or 4 uppercase letters.\n";
         }
 
         if (!coursenumber) {
             errorMessage += "Error: course number is a required field.\n";
         }
         else if (!courseNumRegex.test(coursenumber)) {
-            errorMessage += "Error: course number does not match required format.\n";
+            errorMessage += "Error: course number does not match required format. The course number should be exactly 3 digits and be between 100 and 499.\n";
         }
 
         if (!coursesection) {
             errorMessage += "Error: course section is a required field.\n";
         }
         else if (!courseSecRegex.test(coursesection)) {
-            errorMessage += "Error: course section does not match required format.\n";
+            errorMessage += "Error: course section does not match required format. The course section must be exactly 2 digits. \n";
         }
 
         if (errorMessage.length > 0) {
