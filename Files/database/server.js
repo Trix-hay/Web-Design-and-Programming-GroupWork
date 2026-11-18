@@ -8,19 +8,6 @@ app.use(express.json());
 
 //get localhost:5678 to start by displaying the home page
 app.use(express.static(path.join(__dirname, "..", "public")));
-app.get("/", (req, res) => {
-    res.sendFile("/Users/Maisee/OneDrive - marietta.edu/Junior Year/F26/CSCI330/Group Project/Web-Design-and-Programming-GroupWork/Files/public/homepage.html");
-});
-
-// This is the path I used to test the server. we can ask Dr. Williamson what is the best way to use a path.
-/*
-//get localhost:5678 to start by displaying the home page
-app.use(express.static(path.join(__dirname, "public")));
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "index.html"));
-});
-*/
-
 
 //we use POST for add pages because we are "posting" data to the database
 //later, we will use app.get to retrieve information (for register and drop course pages)
@@ -31,7 +18,7 @@ app.get("/instructorSelectList", (req, res) => {
         [],
         (err, rows) => {
             if (err) {
-                res.status(500).json({ error: err.messahe });
+                res.status(500).json({ error: err.message });
                 console.log("Error with getting instructors for Add Course select list.");
             }
             else {
@@ -124,11 +111,9 @@ app.post("/addStudent", (req, res) => {
         console.log("Student added successfully.");
       }
     }
-
   );
 });
     
-
 
 // ADD INSTRUCTOR -- Beatrice
 
@@ -150,7 +135,15 @@ app.get("/registerCourse", (req, res) => {
 
 // VIEW COURSES -- Maisee
 
+app.get("/viewCourses", (req, res) => {
+
+});
+
 // VIEW STUDENTS -- Beatrice
+
+app.get("/viewStudents", (req, res) => {
+
+});
 
 app.listen(5678, () => {
     console.log("Server running on port 5678.");
