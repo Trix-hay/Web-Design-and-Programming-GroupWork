@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 
-<!-- 4. use HTML value attribute as the instructor_id-->
-
 <html lang = "en">
     <head>
         <meta charset="utf-8">
         <meta name="Add Course" content="Allows users to add a course.">
-        <link rel="stylesheet" href="../stylesheet.css">
+        <link rel="stylesheet" href="/stylesheet.css">
         <title>Course Registration: Add Course</title>
     </head>
 
-    <!-- 1. add script tag to do SQL query to get all instructors (make a seed.js file to populate the instructor table first)-->
-    <!-- 2b/3. modify the DOM so the select list populates options by referencing the SQL query results-->
     <script>
+        fetch("/instructorSelectList")
+            .then(response => response.json())
+            .then(instructorListPopulation => {
+                const instructorSelectList = document.getElementById("InstructorName");
+                instructorListPopulation.forEach(instructor => {
+                    const option = document.createElement("option");
+                    option.value = instructor.instructor_id;
+                    option.textContent = instructor.instructor_first_name + " " + instructor.instructor_last_name;
+                    instructorSelectList.appendChild(option);
+                });
+            });
         
     </script>
 
@@ -132,6 +139,6 @@
 
         </footer>
         
-        <script src="../validation.js"></script>
+        <script src="/validation.js"></script>
     </body>
 </html>

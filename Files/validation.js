@@ -104,7 +104,6 @@ if (addCourseForm) { //confirm the page has this specific form before running va
         const room = document.getElementById("Room").value;
         const daysOffered = document.getElementById("DaysOffered").value;
         const creditHours = document.getElementById("CreditHours").value;
-        const instructorName = document.getElementById("InstructorName").value;
         const enrollmentCap = document.getElementById("EnrollmentCap").value;
 
         //year validation
@@ -243,10 +242,12 @@ if (addCourseForm) { //confirm the page has this specific form before running va
                 selectedTime = singleDayTime.value;
             }
 
+            const instructorId = document.getElementById("InstructorName").value; //contains instructor_id, get it once form is submitted so most recent/changed value is what gets used
+
             //gather values enterted in the form
             const addCourseData = {
-                year: year,
                 semester: semester,
+                year: year,
                 coursePrefix: coursePrefix,
                 courseNumber: courseNumber,
                 courseSection: courseSection,
@@ -255,8 +256,8 @@ if (addCourseForm) { //confirm the page has this specific form before running va
                 daysOffered: daysOffered,
                 selectedTime: selectedTime,
                 creditHours: creditHours,
-                instructorName: instructorName,
-                enrollmentCap: enrollmentCap
+                enrollmentCap: enrollmentCap,
+                instructorId: instructorId,
             }
 
             //send values to Express route

@@ -1,12 +1,13 @@
 const express = require("express");
 const sqlite3 = require("sqlite3").verbose();
+const path = require("path");
 const app = express();
 const db = new sqlite3.Database("./courseRegistration.db");
 
 app.use(express.json());
 
 //get localhost:5678 to start by displaying the home page
-app.use(express.static("/Users/Maisee/OneDrive - marietta.edu/Junior Year/F26/CSCI330/Group Project/Web-Design-and-Programming-GroupWork/Files/public"));
+app.use(express.static(path.join(__dirname, "..", "public")));
 app.get("/", (req, res) => {
     res.sendFile("/Users/Maisee/OneDrive - marietta.edu/Junior Year/F26/CSCI330/Group Project/Web-Design-and-Programming-GroupWork/Files/public/homepage.html");
 });
@@ -14,22 +15,38 @@ app.get("/", (req, res) => {
 //we use POST for add pages because we are "posting" data to the database
 //later, we will use app.get to retrieve information (for register and drop course pages)
 
+app.get("/instructorSelectList", (req, res) => {
+    db.all(
+        "SELECT instructor_id, instructor_first_name, instructor_last_name FROM Instructors",
+        [],
+        (err, rows) => {
+            if (err) {
+                res.status(500).json({ error: err.messahe });
+                console.log("Error with getting instructors for Add Course select list.");
+            }
+            else {
+                res.json(rows);
+            }
+        }
+    );
+});
+
 // ADD COURSE -- MAISEE
 
 app.post("/addCourse", (req, res) => {
     //get info from fetch in validation.js
-    const year = res.body.year;
-    const semester = res.body.semester;
-    const coursePrefix = res.body.coursePrefix;
-    const courseNumber = res.body.courseNumber;
-    const courseSection = res.body.courseSection;
-    const courseName = res.body.courseName;
-    const room = res.body.room;
-    const daysOffered = res.body.daysOffered;
-    const creditHours = res.body.creditHours;
-    const instructorFirstName = res.body.instructorFirstName;
-    const instructorLastName = res.body.instructorLastName;
-    const enrollmentCap = res.body.enrollmentCap;
+    const year = req.body.year;
+    const semester = req.body.semester;
+    const coursePrefix = req.body.coursePrefix;
+    const courseNumber = req.body.courseNumber;
+    const courseSection = req.body.courseSection;
+    const courseName = req.body.courseName;
+    const room = req.body.room;
+    const daysOffered = req.body.daysOffered;
+    const selectedTime = req.body.selectedTime;
+    const creditHours = req.body.creditHours;
+    const enrollmentCap = req.body.enrollmentCap;
+    const instructorId = req.body.instructorId;
 
     //execute SQL query
     db.run(
@@ -39,27 +56,27 @@ app.post("/addCourse", (req, res) => {
         course_section, course_name,
         course_room, course_days_offered,
         course_time, course_credit_hours,
-        instructor_first_name, instructor_last_name,
-        course_enrollment_cap)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        course_enrollment_cap, instructor_id)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [semester, year, coursePrefix, courseNumber, courseSection,
-            courseName, room, daysOffered, selectedTime, creditHours, instructorFirstName,
-            instructorLastName, enrollmentCap
-        ]
-    );
+            courseName, room, daysOffered, selectedTime, creditHours, enrollmentCap, instructorId
+        ],
 
-    //return JSON response
-    if (err) {
-	    console.log(err);
-	    res.status(404).send("File Not Found");
-	}
-	else {
-        res.status(201).json({
-            success: true,
-            message: "Add Course SQL Insert command complete."
-        });
-	    console.log("Add Course SQL Insert command complete");
-	}
+        function(err) {
+                //return JSON response
+            if (err) {
+                console.log(err);
+                res.status(404).send("File Not Found");
+            }
+            else {
+                res.status(201).json({
+                    success: true,
+                    message: "Add Course SQL Insert command complete."
+                });
+                console.log("Add Course SQL Insert command complete");
+            }
+        }
+    );
 });
 
 // ADD STUDENT -- Beatrice
