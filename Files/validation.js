@@ -272,7 +272,7 @@ if (addCourseForm) { //confirm the page has this specific form before running va
             })
                 .then(response => response.json())
                 .then(displayMessage => {
-                    alert(displayMessage.message); //this will need checked when we test, this is the part I understand the least
+                    alert(displayMessage.message); 
 
             });
 
@@ -674,7 +674,18 @@ if (viewStudentsForm) { // Beatrice
 if (viewCoursesForm) { // Maisee
 
     viewCoursesForm.addEventListener("change", function (e) {
-        
+        if (e.target.value == "byStudent") {
+            fetch("/viewCoursesByStudent")
+            // 3a. Hide any table currently displayed so only one table is shown (come back to this step after 3b so we can reference tables properly)
+            // 3b. Do DOM manipulation to create and display table (if JSON message is [], do not create table. Display "error" message instead)
+
+        }
+        else if (e.target.value == "byInstructor") {
+            fetch("/viewCoursesByInstructor")
+            // 3a. Hide any table currently displayed so only one table is shown
+            // 3b. Do DOM manipulation to create and display table (if JSON message is [], do not create table. Display "error" message instead)
+
+        }
 
     });
 }

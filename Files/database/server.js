@@ -135,7 +135,48 @@ app.get("/registerCourse", (req, res) => {
 
 // VIEW COURSES -- Maisee
 
-app.get("/viewCourses", (req, res) => {
+app.get("/viewCoursesByStudent", (req, res) => {
+
+    //1. Do SQL Query for desired elements
+    db.all(
+        `SELECT Courses.course_prefix, Courses.course_number, Courses.course_section, Courses.course_name, 
+        Courses.course_days_offered, Courses.course_time, Courses.course_room, Courses.course_credit_hours, 
+        Courses.course_enrollment_cap, Instructors.instructor_first_name, Instructors.instructor_last_name 
+        FROM Courses INNER JOIN Instructors ON Courses.instructor_id = Instructors.instructor_id;`,
+        [],
+        //2. Send response as JSON
+        (err, rows) => {
+            if (err) {
+                res.status(500).json({ error: err.message });
+                console.log("Error with getting information to view courses by student.");
+            }
+            else {
+                res.json(rows);
+            }
+        }
+    );
+
+});
+
+app.get("/viewCoursesByInstructor", (req, res) => {
+
+    //1. Do SQL Query for desired elements
+    db.all(
+        `SELECT course_prefix, course_number, course_section, course_name, course_days_offered, 
+        course_time, course_room, course_credit_hours, course_enrollment_cap 
+        FROM Courses`,
+        [],
+        //2. Send response as JSON
+        (err, rows) => {
+            if (err) {
+                res.status(500).json({ error: err.message });
+                console.log("Error with getting information to view courses by instructor.");
+            }
+            else {
+                res.json(rows);
+            }
+        }
+    );
 
 });
 
