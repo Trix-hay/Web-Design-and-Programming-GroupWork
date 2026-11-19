@@ -360,8 +360,37 @@ if (addInstructorForm) {
             e.preventDefault()
 
         } else {
-            console.log("Success! All fields are valid. Now printing information.");
-            e.preventDefault()
+            // stop the form from submitting and refreshing the page
+            e.preventDefault();
+        
+            const instructorData = {
+                instructor_first_name: InstructorFirstName,
+                instructor_last_name: InstructorLastName,
+                instructor_dept: Department,
+                instructor_rank: Rank,
+                instructor_email:InstructorEmail
+            };
+            // send the instructor  information to the server
+            fetch("/addInstructor",{
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(instructorData)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message);
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    alert("An error occurred while adding the instructor. Please try again.");
+                });
+            }
+    });
+}
+
+/*
 
             alert(
                 `First Name: ${InstructorFirstName}
@@ -374,6 +403,7 @@ if (addInstructorForm) {
 
     });
 }
+    */
 
 // -----DROP COURSE-----
 
