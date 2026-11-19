@@ -5,10 +5,12 @@ const dropCourseForm = document.getElementById("dropCourseForm");
 const enrollStudentForm = document.getElementById("enrollStudentForm");
 const registerCourseForm = document.getElementById("registerCourseForm");
 
+const viewStudentsForm = document.getElementById("viewStudentsForm");
+const viewCoursesForm = document.getElementById("viewCoursesForm");
+
 // -----ADD COURSE-----
 
 if (addCourseForm) { //confirm the page has this specific form before running validation. if the form element isn't found, we aren't on that page and don't need this validation
-
     // -----ADD COURSE SELECT LIST DISPLAY-----
     // Note 11/16/26: This display is no longer working, Maisee will troubleshoot this and get it working
     const daysOffered = document.getElementById("DaysOffered");
@@ -274,18 +276,6 @@ if (addCourseForm) { //confirm the page has this specific form before running va
 
             });
 
-            /* TEMPORARY comment out for testing purposes
-            alert(
-                `Year: ${semester} ${year}
-                Course Prefix: ${coursePrefix}
-                Course: ${courseName} ${courseNumber}-${courseSection}
-                Room: ${room}
-                Time: ${selectedTime} ${daysOffered}
-                Credit Hours: ${creditHours}
-                Instructor Name: ${instructorFirstName} ${instructorLastName}
-                Enrollment Cap: ${enrollmentCap}`
-            );
-            */
         }
 
     });
@@ -599,20 +589,7 @@ if (enrollStudentForm) {
             }
     });
 }
-
-
-            /*
-            alert(
-                `First Name: ${firstname}
-                Last Name: ${lastname}
-                Year: ${year}
-                Major: ${major}
-                Email: ${email}`
-            );
-            */
-
-            
-
+         
 // -----REGISTER COURSE-----
 if (registerCourseForm) {
     registerCourseForm.addEventListener("submit", function (event) {
@@ -687,5 +664,17 @@ if (registerCourseForm) {
                 Course Section: ${coursesection}`
             )
         }
+    });
+}
+
+if (viewStudentsForm) { // Beatrice
+
+}
+
+if (viewCoursesForm) { // Maisee
+
+    viewCoursesForm.addEventListener("change", function (e) {
+        
+
     });
 }

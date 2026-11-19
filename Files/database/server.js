@@ -60,7 +60,7 @@ app.post("/addCourse", (req, res) => {
         ],
 
         function(err) {
-                //return JSON response
+            //return JSON response
             if (err) {
                 console.log(err);
                 res.status(404).send("File Not Found");
