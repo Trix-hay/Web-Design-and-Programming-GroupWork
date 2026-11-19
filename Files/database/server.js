@@ -113,12 +113,42 @@ app.post("/addStudent", (req, res) => {
     }
   );
 });
-    
 
 // ADD INSTRUCTOR -- Beatrice
-
 app.post("/addInstructor", (req, res) => {
+    //get information from validation.js
+    const instructor_first_name = req.body.instructor_first_name;
+    const instructor_last_name = req.body.instructor_last_name;
+    const instructor_dept = req.body.instructor_dept;
+    const instructor_rank = req.body.instructor_rank;
+    const instructor_email = req.body.instructor_email;
 
+    // insert the information into the instructors table
+    db.run(
+        `INSERT INTO Instructors
+        (instructor_first_name, instructor_last_name,instructor_dept, instructor_rank, instructor_email)
+        VALUES(?,?,?,?,?)`,
+        [instructor_first_name, instructor_last_name, instructor_dept, instructor_rank, instructor_email],
+        
+        function(err){
+            if (err){
+                console.log(err.message);
+                return res.status(500).json({
+          success: false,
+          message: "Error adding instructor to the database."
+        });
+      }
+      else{
+        res.status(201).json({
+          success: true,
+          message: "Instructor added successfully."
+        });
+
+        console.log("Instructor added successfully.");
+      }
+    }
+
+  );
 });
 
 // DROP COURSE -- Drew
