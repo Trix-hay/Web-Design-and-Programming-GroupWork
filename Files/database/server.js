@@ -212,9 +212,87 @@ app.get("/viewCoursesByInstructor", (req, res) => {
 
 // VIEW STUDENTS -- Beatrice
 
-app.get("/viewStudents", (req, res) => {
+// view student by course
 
+app.get("/viewStudentsByCourse", (req, res) => {
+    // get the course the user selected on the view student page
+    const courseId = req.query.course_id;
+
+    // run an sql query to get students registered in the selected course
+    // INNER JOIN is important because student and course information are stored
+    // in separate tables. The Registration table connects them using student_id
+    // and course_id, allowing us to retrieve the students registered for a
+    // particular course or semester.
+    db.all(
+        `SELECT
+        Students.student_id,
+        Students.student_first_name,
+        Students.student_last_name,
+        Students.student_year,
+        Students.student_major,
+        Students.student_email
+        FROM Registration
+        INNER JOIN Students
+            ON Registration.student_id = Students.student_id
+        INNER JOIN Courses
+            ON Registration.course_id = Courses.course_id
+        WHERE Courses.course_id = ?`,
+        [courseId],
+
+        (err,rows) => {
+            if (err){
+                return res.status(500).json({
+                    error:err.message
+                });
+                console.log("Error with getting information to view students by course.");
+            }
+            res.json(rows);
+        }
+    );
 });
+
+// view student by semester and year.
+
+app.get("/viewStudentsBySemester", (req, res) => {
+    // this gets the semester and year the user selects in the vew student page
+    const semester = req.query.semester;
+    const year = req.query.year;
+
+    db.all(
+        `SELECT
+        Students.student_id,
+        Students.student_first_name,
+        Students.student_last_name,
+        Students.student_year,
+        Students.student_major,
+        Students.student_email,
+        Courses.course_prefix,
+        Courses.course_number,
+        Courses.course_section,
+        Courses.course_semester,
+        Courses.course_year
+        FROM Registration
+        INNER JOIN Students
+            ON Registration.student_id = Students.student_id
+        INNER JOIN Courses
+            ON Registration.course_id = Courses.course_id
+        WHERE Courses.course_semester = ?
+        AND Courses.course_year = ?`,
+        [semester, year],
+
+        (err,rows) => {
+            if (err){
+                return res.status(500).json({
+                    error:err.message
+                });
+                console.log("Error with getting information to view studnets by semester.");
+            }
+            res.json(rows);
+        }
+    );
+});
+
+    
 
 app.listen(5678, () => {
     console.log("Server running on port 5678.");
