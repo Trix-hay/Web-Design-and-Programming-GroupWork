@@ -4,7 +4,6 @@ const addInstructorForm = document.getElementById("addInstructorForm");
 const dropCourseForm = document.getElementById("dropCourseForm");
 const enrollStudentForm = document.getElementById("enrollStudentForm");
 const registerCourseForm = document.getElementById("registerCourseForm");
-
 const viewStudentsForm = document.getElementById("viewStudentsForm");
 const viewCoursesForm = document.getElementById("viewCoursesForm");
 
@@ -12,7 +11,6 @@ const viewCoursesForm = document.getElementById("viewCoursesForm");
 
 if (addCourseForm) { //confirm the page has this specific form before running validation. if the form element isn't found, we aren't on that page and don't need this validation
     // -----ADD COURSE SELECT LIST DISPLAY-----
-    // Note 11/16/26: This display is no longer working, Maisee will troubleshoot this and get it working
     const daysOffered = document.getElementById("DaysOffered");
     const MWFTime = document.getElementById("MWFTime");
     const MWTime = document.getElementById("MWTime");
@@ -390,21 +388,6 @@ if (addInstructorForm) {
     });
 }
 
-/*
-
-            alert(
-                `First Name: ${InstructorFirstName}
-                Last Name: ${InstructorLastName}
-                Department: ${Department}
-                Rank: ${Rank}
-                Email: ${InstructorEmail}`
-            );
-        }
-
-    });
-}
-    */
-
 // -----DROP COURSE-----
 
 if (dropCourseForm) {
@@ -708,12 +691,30 @@ if (viewCoursesForm) { // Maisee
             fetch("/viewCoursesByStudent")
             // 3a. Hide any table currently displayed so only one table is shown (come back to this step after 3b so we can reference tables properly)
             // 3b. Do DOM manipulation to create and display table (if JSON message is [], do not create table. Display "error" message instead)
+            .then(response => response.json())
+            .then(students => {
+                //define constants (overarching container, aka table div tag. use a neutral name so we can hide it if radio button is changed)
+                //create table HTML 
+                //do students.forEach so rows are created for every student
+                //create table-specific HTML elements (rows, columns, etc.) and append to table
+                    //specify attributes for elements (fill in table fields, etc.)
+                
+            });
 
         }
         else if (e.target.value == "byInstructor") {
             fetch("/viewCoursesByInstructor")
             // 3a. Hide any table currently displayed so only one table is shown
             // 3b. Do DOM manipulation to create and display table (if JSON message is [], do not create table. Display "error" message instead)
+            .then(response => response.json())
+            .then(instructors => {
+                //define constants (overarching container, aka table div tag. use a neutral name so we can hide it if radio button is changed)
+                //create table HTML 
+                //do instructors.forEach so rows are created for every student
+                //create table-specific HTML elements (rows, columns, etc.) and append to table
+                    //specify attributes for elements (fill in table fields, etc.)
+                
+            });
 
         }
 
