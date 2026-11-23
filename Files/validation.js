@@ -694,10 +694,46 @@ if (viewCoursesForm) { // Maisee
             .then(response => response.json())
             .then(students => {
                 //define constants (overarching container, aka table div tag. use a neutral name so we can hide it if radio button is changed)
-                //create table HTML 
-                //do students.forEach so rows are created for every student
-                //create table-specific HTML elements (rows, columns, etc.) and append to table
-                    //specify attributes for elements (fill in table fields, etc.)
+                const tableDiv = document.createElement("div");
+                tableDiv.className = "viewCoursesTable";
+                console.log("Created table div.");
+
+                //the following 4 elements might need to be appended after all internal elements are "updated"
+                const table = document.createElement("table");
+                tableDiv.appendChild(table);
+                console.log("Table is appended to table div.");
+
+                const tHead = document.createElement("thead");
+                table.appendChild(tHead);
+                console.log("Table head appended to table.");
+
+                const tableBody = document.createElement("tbody");
+                table.appendChild(tableBody);
+                console.log("Table body appended to table.");
+
+                const tHeadRow = document.createElement("tr");
+                tHead.appendChild(tHeadRow);
+                console.log("Table header row appended to table head.");
+
+                /* this needs to be done for every "item" being displayed. this same variable can/will also be used in student.forEach to add data to each row
+                    const tHeadData = document.createElement("th");
+                    console.log("Table head cells appended to table head.");
+                */
+
+                //do students.forEach so rows are created for every student, and every row is appended to tbody
+                students.forEach(student => { //create a row for every student, append every row to tbody
+                    
+                    tableBody.appendChild(tableRow);
+                    console.log("Table row appended to table body.");
+                });
+
+                //do row.forEach so cells are created for every row, and every cell is appended to the related row
+                    tableRow.forEach(row => {
+                        const tableRowData = document.createElement("td");
+
+                        tableRow.appendChild(tableRowData);
+                        console.log("Table data appended to table row.");
+                    });
                 
             });
 
