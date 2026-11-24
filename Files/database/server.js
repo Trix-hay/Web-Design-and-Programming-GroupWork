@@ -19,7 +19,23 @@ app.get("/instructorSelectList", (req, res) => {
         (err, rows) => {
             if (err) {
                 res.status(500).json({ error: err.message });
-                console.log("Error with getting instructors for Add Course select list.");
+                console.log("Error with getting instructors for select list.");
+            }
+            else {
+                res.json(rows);
+            }
+        }
+    );
+});
+
+app.get("/studentSelectList", (req, res) => {
+    db.all(
+        "SELECT student_id, student_first_name, student_last_name FROM Students",
+        [],
+        (err, rows) => {
+            if (err) {
+                res.status(500).json({ error: err.message });
+                console.log("Error with getting students for select list.");
             }
             else {
                 res.json(rows);

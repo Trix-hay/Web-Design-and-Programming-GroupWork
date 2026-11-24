@@ -1,16 +1,17 @@
 //get all form elements from the form and store them for references
+console.log("Validation.js is running!");
 const addCourseForm = document.getElementById("addCourseForm");
 const addInstructorForm = document.getElementById("addInstructorForm");
 const dropCourseForm = document.getElementById("dropCourseForm");
 const enrollStudentForm = document.getElementById("enrollStudentForm");
 const registerCourseForm = document.getElementById("registerCourseForm");
+const viewStudentsForm = document.getElementById("viewStudentsForm");
+const viewCoursesForm = document.getElementById("viewCoursesForm");
 
 // -----ADD COURSE-----
 
 if (addCourseForm) { //confirm the page has this specific form before running validation. if the form element isn't found, we aren't on that page and don't need this validation
-
     // -----ADD COURSE SELECT LIST DISPLAY-----
-    // Note 11/16/26: This display is no longer working, Maisee will troubleshoot this and get it working
     const daysOffered = document.getElementById("DaysOffered");
     const MWFTime = document.getElementById("MWFTime");
     const MWTime = document.getElementById("MWTime");
@@ -242,7 +243,7 @@ if (addCourseForm) { //confirm the page has this specific form before running va
                 selectedTime = singleDayTime.value;
             }
 
-            const instructorName = document.getElementById("InstructorName").value; //contains instructor_id, get it once form is submitted so most recent/changed value is what gets used
+            const instructorId = document.getElementById("InstructorName").value; //contains instructor_id, get it once form is submitted so most recent/changed value is what gets used
 
             //gather values enterted in the form
             const addCourseData = {
@@ -257,7 +258,7 @@ if (addCourseForm) { //confirm the page has this specific form before running va
                 selectedTime: selectedTime,
                 creditHours: creditHours,
                 enrollmentCap: enrollmentCap,
-                instructorId: instructorName,
+                instructorId: instructorId,
             }
 
             //send values to Express route
@@ -270,22 +271,10 @@ if (addCourseForm) { //confirm the page has this specific form before running va
             })
                 .then(response => response.json())
                 .then(displayMessage => {
-                    alert(displayMessage.message); //this will need checked when we test, this is the part I understand the least
+                    alert(displayMessage.message); 
 
             });
 
-            /* TEMPORARY comment out for testing purposes
-            alert(
-                `Year: ${semester} ${year}
-                Course Prefix: ${coursePrefix}
-                Course: ${courseName} ${courseNumber}-${courseSection}
-                Room: ${room}
-                Time: ${selectedTime} ${daysOffered}
-                Credit Hours: ${creditHours}
-                Instructor Name: ${instructorFirstName} ${instructorLastName}
-                Enrollment Cap: ${enrollmentCap}`
-            );
-            */
         }
 
     });
@@ -370,18 +359,33 @@ if (addInstructorForm) {
             e.preventDefault()
 
         } else {
-            console.log("Success! All fields are valid. Now printing information.");
-            e.preventDefault()
-
-            alert(
-                `First Name: ${InstructorFirstName}
-                Last Name: ${InstructorLastName}
-                Department: ${Department}
-                Rank: ${Rank}
-                Email: ${InstructorEmail}`
-            );
-        }
-
+            // stop the form from submitting and refreshing the page
+            e.preventDefault();
+        
+            const instructorData = {
+                instructor_first_name: InstructorFirstName,
+                instructor_last_name: InstructorLastName,
+                instructor_dept: Department,
+                instructor_rank: Rank,
+                instructor_email:InstructorEmail
+            };
+            // send the instructor  information to the server
+            fetch("/addInstructor",{
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(instructorData)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message);
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    alert("An error occurred while adding the instructor. Please try again.");
+                });
+            }
     });
 }
 
@@ -411,42 +415,42 @@ if (dropCourseForm) {
             errorMessage += "Error: first name is a required field.\n";
         }
         else if (!nameRegex.test(firstname)) {
-            errorMessage += "Error: first name does not match required format.\n";
+            errorMessage += "Error: first name does not match required format. The name must be a string with spaces, hyphens and apostrophes allowed.\n";
         }
 
         if (!lastname) {
             errorMessage += "Error: last name is a required field.\n";
         }
         else if (!nameRegex.test(lastname)) {
-            errorMessage += "Error: last name does not match required format.\n";
+            errorMessage += "Error: last name does not match required format. The name must be a string with spaces, hyphens and apostrophes allowed.\n";
         }
 
         if (!semester) {
             errorMessage += "Error: semester is a required field.\n";
         }
         else if (!semRegex.test(semester)) {
-            errorMessage += "Error: semester does not match required format.\n";
+            errorMessage += "Error: semester does not match required format. The year should consist of 4 digits and can not be before 2026.\n";
         }
 
         if (!courseprefix) {
             errorMessage += "Error: course prefix is a required field.\n";
         }
         else if (!coursePreRegex.test(courseprefix)) {
-            errorMessage += "Error: course prefix does not match required format.\n";
+            errorMessage += "Error: course prefix does not match required format. The prefix must be 3 or 4 uppercase letters.\n";
         }
 
         if (!coursenumber) {
             errorMessage += "Error: course number is a required field.\n";
         }
         else if (!courseNumRegex.test(coursenumber)) {
-            errorMessage += "Error: course number does not match required format.\n";
+            errorMessage += "Error: course number does not match required format. The course number should be exactly 3 digits and be between 100 and 499.\n";
         }
 
         if (!coursesection) {
             errorMessage += "Error: course section is a required field.\n";
         }
         else if (!courseSecRegex.test(coursesection)) {
-            errorMessage += "Error: course section does not match required format.\n";
+            errorMessage += "Error: course section does not match required format. The course section must be exactly 2 digits.\n";
         }
 
         if (errorMessage.length > 0) {
@@ -554,7 +558,7 @@ if (enrollStudentForm) {
 
         // extra validation for student major length:
 
-        if (major.length < 3 || major.length > 50) {
+        if ( major !== "" && (major.length < 3 || major.length > 50) ) {
             failedMessage += "Error: major must be between 3 and 50 characters.\n";
             enrollStudentFormIsValid = false;
         }
@@ -568,21 +572,38 @@ if (enrollStudentForm) {
             // If you reach this point, validation has passed.
 
         } else {
-            console.log("Success! All fields are valid. Now printing information.");
-            e.preventDefault()
+            // stop the form from submitting and refreshing the page
+            e.preventDefault();
 
-            alert(
-                `First Name: ${firstname}
-                Last Name: ${lastname}
-                Year: ${year}
-                Major: ${major}
-                Email: ${email}`
-            );
-        }
-
+            // package the student information
+            const studentData = {
+                firstname: firstname,
+                lastname: lastname,
+                year: year,
+                major: major,
+                email: email
+            };
+        
+            // send the student information to the server
+            fetch("/addStudent",{
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(studentData)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message);
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    alert("An error occurred while adding the student. Please try again.");
+                });
+            }
     });
 }
-
+         
 // -----REGISTER COURSE-----
 if (registerCourseForm) {
     registerCourseForm.addEventListener("submit", function (event) {
@@ -607,42 +628,42 @@ if (registerCourseForm) {
             errorMessage += "Error: first name is a required field.\n";
         }
         else if (!nameRegex.test(firstname)) {
-            errorMessage += "Error: student first name does not match required format.\n";
+            errorMessage += "Error: student first name does not match required format. The name must be a string with spaces, hyphens and apostrophes allowed.\n";
         }
 
         if (!lastname) {
             errorMessage += "Error: last name is a required field.\n";
         }
         else if (!nameRegex.test(lastname)) {
-            errorMessage += "Error: student last name does not match required format.\n";
+            errorMessage += "Error: student last name does not match required format. The name must be a string with spaces, hyphens and apostrophes allowed.\n";
         }
 
         if (!semester) {
             errorMessage += "Error: semester is a required field.\n";
         }
         else if (!semRegex.test(semester)) {
-            errorMessage += "Error: semester does not match required format..\n";
+            errorMessage += "Error: semester does not match required format. The year should consist of 4 digits and can not be before 2026.\n";
         }
 
         if (!courseprefix) {
             errorMessage += "Error: course prefix is a required field.\n";
         }
         else if (!coursePreRegex.test(courseprefix)) {
-            errorMessage += "Error: course prefix does not match required format.\n";
+            errorMessage += "Error: course prefix does not match required format. The prefix must be 3 or 4 uppercase letters.\n";
         }
 
         if (!coursenumber) {
             errorMessage += "Error: course number is a required field.\n";
         }
         else if (!courseNumRegex.test(coursenumber)) {
-            errorMessage += "Error: course number does not match required format.\n";
+            errorMessage += "Error: course number does not match required format. The course number should be exactly 3 digits and be between 100 and 499.\n";
         }
 
         if (!coursesection) {
             errorMessage += "Error: course section is a required field.\n";
         }
         else if (!courseSecRegex.test(coursesection)) {
-            errorMessage += "Error: course section does not match required format.\n";
+            errorMessage += "Error: course section does not match required format. The course section must be exactly 2 digits. \n";
         }
 
         if (errorMessage.length > 0) {
@@ -657,5 +678,154 @@ if (registerCourseForm) {
                 Course Section: ${coursesection}`
             )
         }
+    });
+}
+
+if (viewStudentsForm) { // Beatrice
+
+}
+
+if (viewCoursesForm) { // Maisee
+    console.log("View Courses Form:" , viewCoursesForm);
+
+    viewCoursesForm.addEventListener("change", function (e) {
+        console.log("Change detected!");
+        console.log("Target:", e.target);
+        console.log("Value:", e.target.value);
+
+        if (document.getElementById("viewCourseSelectList")) {
+            document.getElementById("viewCourseSelectList").remove();
+        }
+
+        if (e.target.value == "byStudent") {
+
+            fetch("/studentSelectList")
+            .then(response => response.json())
+            .then(studentListPopulation => {
+
+                const selectListDiv = document.createElement("div");
+                selectListDiv.id = "viewCourseSelectList";
+                viewCoursesForm.appendChild(selectListDiv);
+
+                const studentSelectListLabel = document.createElement("label");
+                studentSelectListLabel.htmlFor = "StudentName";
+                studentSelectListLabel.textContent = "Student: "
+                selectListDiv.appendChild(studentSelectListLabel);
+                
+                const studentSelectList = document.createElement("select");
+                studentSelectList.name = "StudentName";
+                studentSelectList.id = "StudentName";
+                selectListDiv.appendChild(studentSelectList);
+
+                const studentSelectListInitialOption = document.createElement("option");
+                studentSelectListInitialOption.textContent = "Select a student...";
+                studentSelectList.appendChild(studentSelectListInitialOption);
+                
+                studentListPopulation.forEach(student => {
+                    const option = document.createElement("option");
+                    option.value = student.student_id;
+                    option.textContent = student.student_first_name + " " + student.student_last_name;
+                    studentSelectList.appendChild(option);
+                });
+
+                studentSelectList.addEventListener("change", function (e) {
+                    console.log("Student selected: ", e.target.value);
+
+                    fetch("/viewCoursesByStudent") //11/23/26: Maisee to pick up here. Need to chnage fetch to send id of selected student, then in server do query for fields related to that student_id. Will also need to mess around with table creation and deletion once working
+                    // get all students, then create and populate select list with every student in DB
+                    .then(response => response.json())
+                    .then(courses => {
+                        //define constants (overarching container, aka table div tag. use a neutral name so we can hide it if radio button is changed)
+                        const tableDiv = document.createElement("div");
+                        tableDiv.id = "viewCoursesTable";
+                        console.log("Created table div.");
+                        viewCoursesForm.appendChild(tableDiv);
+
+                        const columnNames = Object.keys(courses[0]); // get all the property names
+
+                        for (let i = 0; i < columnNames.length; i++) {
+                            const tHeadData = document.createElement("th");
+                            tHeadData.textContent = columnNames[i]; // set the text content for the header cells to be the property name for each element retrieved in the query
+                            tHeadRow.appendChild(tHeadData);
+                        }
+
+                        console.log("Table head cells appended to table head.");
+
+                        //do students.forEach so rows are created for every student, and every row is appended to tbody
+                        courses.forEach(course => { //create a row for every student, append every row to tbody
+                            
+                            const tableRow = document.createElement("tr");
+                            numberOfRows += 1;
+                            tableBody.appendChild(tableRow);
+                            console.log("Table row appended to table body.");
+                        });
+
+                        const tHeadRow = document.createElement("tr");
+                        tHead.appendChild(tHeadRow);
+                        console.log("Table header row appended to table head.");
+
+                        const tableBody = document.createElement("tbody");
+                        table.appendChild(tableBody);
+                        console.log("Table body appended to table.");
+
+                        const tHead = document.createElement("thead");
+                        table.appendChild(tHead);
+                        console.log("Table head appended to table.");
+
+                        const table = document.createElement("table");
+                        tableDiv.appendChild(table);
+                        console.log("Table is appended to table div.");
+                        
+                    });
+                });
+            }); 
+        }
+        
+        else if (e.target.value == "byInstructor") {
+            console.log("By Instructor selected.");
+
+            fetch("/instructorSelectList")
+            .then(response => response.json())
+            .then(instructorListPopulation => {
+
+                const selectListDiv = document.createElement("div");
+                selectListDiv.id = "viewCourseSelectList";
+                viewCoursesForm.appendChild(selectListDiv);
+
+                console.log("Instructor list being populated.");
+                const instructorSelectListLabel = document.createElement("label");
+                instructorSelectListLabel.htmlFor = "InstructorName";
+                instructorSelectListLabel.textContent = "Instructor: "
+                selectListDiv.appendChild(instructorSelectListLabel);
+
+                const instructorSelectList = document.createElement("select");
+                instructorSelectList.name = "InstructorName";
+                instructorSelectList.id = "InstructorName";
+                selectListDiv.appendChild(instructorSelectList);
+
+                const instructorSelectListInitialOption = document.createElement("option");
+                instructorSelectListInitialOption.textContent = "Select an instructor...";
+                instructorSelectList.appendChild(instructorSelectListInitialOption);
+                
+                instructorListPopulation.forEach(instructor => {
+                    const option = document.createElement("option");
+                    option.value = instructor.instructor_id;
+                    option.textContent = instructor.instructor_first_name + " " + instructor.instructor_last_name;
+                    instructorSelectList.appendChild(option);
+                });
+            });
+        }
+
+        fetch("/viewCoursesByInstructor")
+            .then(response => response.json())
+            .then(instructors => {
+                //define constants (overarching container, aka table div tag. use a neutral name so we can hide it if radio button is changed)
+                //create table HTML 
+                //do instructors.forEach so rows are created for every student
+                //create table-specific HTML elements (rows, columns, etc.) and append to table
+                    //specify attributes for elements (fill in table fields, etc.)
+                
+            });
+
     });
 }
