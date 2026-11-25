@@ -7,8 +7,10 @@ const db = new sqlite3.Database("./courseRegistration.db")
 app.use(express.json());
 
 //get localhost:5678 to start by displaying the home page
+app.use(express.static(path.join(__dirname, "public"))); 
+/*
 app.use(express.static(path.join(__dirname, "..", "public")));
-
+*/
 //we use POST for add pages because we are "posting" data to the database
 //later, we will use app.get to retrieve information (for register and drop course pages)
 
@@ -43,6 +45,54 @@ app.get("/studentSelectList", (req, res) => {
         }
     );
 });
+
+
+// courseSelectList route
+// gets the courses from the database
+app.get("/courseSelectList", (req, res) => {
+    db.all(
+        `SELECT course_id, course_prefix,course_number,course_section,course_semester, course_year
+        FROM Courses`,
+        [],
+        (err, rows)=> {
+            if (err){
+                res.status(500).json({error: err.message});
+                console.log("error getting the courses");
+
+            }
+            else{
+                res.json(rows);
+            }
+        }
+       
+    );
+
+});
+
+// semesterSelectList Route
+//DISTINCT ensures that each combination of semester and year appears only once.
+app.get("/semesterSelectList", (req, res) => {
+    db.all(
+        `SELECT DISTINCT course_semester, course_year
+        FROM Courses`,
+        [],
+        (err, rows)=> {
+            if (err){
+                res.status(500).json({error: err.message});
+                console.log("error getting the courses");
+
+            }
+            else{
+                res.json(rows);
+            }
+        }
+       
+    );
+
+});
+
+
+
 
 // ADD COURSE -- MAISEE
 
