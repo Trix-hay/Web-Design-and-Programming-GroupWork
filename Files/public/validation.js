@@ -682,6 +682,108 @@ if (registerCourseForm) {
 }
 
 if (viewStudentsForm) { // Beatrice
+    viewStudentsForm.addEventListener("change", function(e){
+
+        if (e.target.value =="byCourse"){
+            fetch("/courseSelectList")
+            .then(response => response.json())
+            .then(coursespopulation => {
+                const courseList = document.getElementById("courseList")
+                courseList.innerHTML ='<option value="">Select a course</option>'; // this removes all previously added options and restores the original placeholder
+                coursespopulation.forEach(course=> {
+                    const option = document.createElement("option")
+                    option.value = course.course_id;
+                    option.textContent = course.course_prefix + " " + course.course_number + " " + "- Section" + course.course_section + " " + course.course_semester + " " + course.course_year;
+                    courseList.appendChild(option);
+
+                })
+
+            });
+
+            document.getElementById("courseSelection").hidden = false;
+            document.getElementById("semesterSelection").hidden = true;
+            
+        }
+        else if (e.target.value =="bySemester"){
+            fetch("/semesterSelectList")
+            .then(response => response.json())
+            .then(semesterpopulation => {
+                const semesterList = document.getElementById("semesterList")
+                semesterList.innerHTML ='<option value="">Select a semester</option>'; // this removes all previously added options and restores the original placeholder
+                semesterpopulation.forEach(semester=> {
+                    const option = document.createElement("option")
+                    option.value = semester.course_semester + "|" + semester.course_year
+                    option.textContent = semester.course_semester + " " + semester.course_year;
+                    semesterList.appendChild(option);
+
+                })
+
+            });
+            document.getElementById("semesterSelection").hidden = false;
+            document.getElementById("courseSelection").hidden = true;
+
+
+        }
+
+    });
+    // what happens when the view students button is clicked
+    viewStudentsForm.addEventListener("submit",function(e){
+        e.preventDefault();
+        const selectedOption = document.querySelector('input[name="howToView"]:checked'); // gets which radio button is selected
+        if ( selectedOption == null){
+            alert("select either By Course or By Semester");
+            return;
+        }
+        if (selectedOption.value == "byCourse"){
+            const courseID = document.getElementById("courseList").value;
+            if (courseID ==""){
+                alert("select a course");
+                return;
+            }
+            fetch("/viewStudentsByCourse?course_id=" + courseID) // get the courseid
+            .then(response => response.json())
+            .then(students => {
+                const studentResults = document.getElementById("studentResults")
+                studentResults.innerHTML = "";
+                if(students.length == 0){
+                   studentResults.textContent = "No students registered in this course."
+                   return;
+                }
+                const table = document.createElement("table");
+                const thead =document.createElement("thead");
+                const headerrow = document.createElement("tr");
+                const headers = ["First Name", "Last Name", "Year", "Major", "Email"];
+                headers.forEach(header =>{
+                    const th = document.createElement("th");
+                    th.textContent=header;
+                    headerrow.appendChild(th);
+                });
+                thead.appendChild(headerrow);
+                table.appendChild(thead);
+                const tbody = document.createElement("tbody");
+                students.forEach(student => {
+                    const row = document.createElement("tr");
+                    const studentData =[student.student_first_name, student.student_last_name, student.student_year, student.student_major, student.student_email];
+                    studentData.forEach(data =>{
+                        const td = document.createElement("td");
+                        td.textContent = data;
+                        row.appendChild(td);
+                    });
+                    tbody.appendChild(row);
+
+                });
+                table.appendChild(tbody);
+                studentResults.appendChild(table);
+                
+            });
+
+        }
+        else if(selectedOption.value == "bySemester"){ // will continue from here
+
+        }
+
+
+    });
 
 }
 
