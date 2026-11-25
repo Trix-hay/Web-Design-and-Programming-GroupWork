@@ -11,7 +11,7 @@
     <body>
         <header>
             <a href="homepage.html"><h1>Course Registration System</h1></a>
-            <h2>View Courses</h2>
+            <h2>View Students</h2>
             <p>This page allows users to view a list of students enrolled in a specific course or all courses within a given semester.</p>
         </header>
 
@@ -41,28 +41,38 @@
                 <input type="radio" id="semester" name="howToView" value="bySemester">
                 <label for="semester">By Semester</label>
                 <br>
+                
 
-                <div id = "courseSelection"
+                <div id = "courseSelection" hidden>
                     <label for ="courseList">Select a course:</label>
+                   
                     <select id="courseList">
                         <option value = ""> select a course</option>
                     </select>
+                   
                 </div>
 
-                <div id = "semesterSelection"
+                <div id = "semesterSelection" hidden>
                     <label for = "semesterList">Select a semester:</label>
+                   
                     <select id = "semesterList">
                         <option value = ""> select a semester</option>
                     </select>
+                    
                 </div>
 
                 <br>
 
+
                 <button type = "submit">View Students</button>
+                
 
             </form>
+            <div id="studentResults"></div>
+        
 
         </main>
+        <script src="validation.js"></script>
     </body>
 
 </html>
