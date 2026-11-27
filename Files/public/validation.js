@@ -721,8 +721,6 @@ if (viewStudentsForm) { // Beatrice
             });
             document.getElementById("semesterSelection").hidden = false;
             document.getElementById("courseSelection").hidden = true;
-
-
         }
 
     });
@@ -730,7 +728,7 @@ if (viewStudentsForm) { // Beatrice
     viewStudentsForm.addEventListener("submit",function(e){
         e.preventDefault();
         const selectedOption = document.querySelector('input[name="howToView"]:checked'); // gets which radio button is selected
-        if ( selectedOption == null){
+        if (selectedOption == null){
             alert("select either By Course or By Semester");
             return;
         }
@@ -782,13 +780,11 @@ if (viewStudentsForm) { // Beatrice
 
         }
 
-
     });
 
 }
 
 if (viewCoursesForm) { // Maisee
-    console.log("View Courses Form:" , viewCoursesForm);
 
     viewCoursesForm.addEventListener("change", function (e) {
         console.log("Change detected!");
@@ -796,7 +792,7 @@ if (viewCoursesForm) { // Maisee
         console.log("Value:", e.target.value);
 
         if (document.getElementById("viewCourseSelectList")) {
-            document.getElementById("viewCourseSelectList").remove();
+            document.getElementById("viewCourseSelectList").remove(); //possibly change to hidden?
         }
 
         if (e.target.value == "byStudent") {
@@ -823,7 +819,7 @@ if (viewCoursesForm) { // Maisee
                 studentSelectListInitialOption.textContent = "Select a student...";
                 studentSelectList.appendChild(studentSelectListInitialOption);
                 
-                studentListPopulation.forEach(student => {
+                studentListPopulation.forEach(student => { // get all students, then create and populate select list with every student in DB
                     const option = document.createElement("option");
                     option.value = student.student_id;
                     option.textContent = student.student_first_name + " " + student.student_last_name;
@@ -832,9 +828,16 @@ if (viewCoursesForm) { // Maisee
 
                 studentSelectList.addEventListener("change", function (e) {
                     console.log("Student selected: ", e.target.value);
-
-                    fetch("/viewCoursesByStudent") //11/23/26: Maisee to pick up here. Need to chnage fetch to send id of selected student, then in server do query for fields related to that student_id. Will also need to mess around with table creation and deletion once working
-                    // get all students, then create and populate select list with every student in DB
+                    //11/26/26: Maisee to pick up here. in server do query for fields related to that student_id. Will also need to mess around with table creation and deletion once working
+                    const studentId = e.target.value;
+                    console.log(studentId);
+                    fetch("/viewCoursesByStudent", {
+                        method: "POST",
+                        headers: {
+                        "Content-Type": "application/json"
+                        },
+                    body: JSON.stringify(studentId)
+                    })
                     .then(response => response.json())
                     .then(courses => {
                         //define constants (overarching container, aka table div tag. use a neutral name so we can hide it if radio button is changed)

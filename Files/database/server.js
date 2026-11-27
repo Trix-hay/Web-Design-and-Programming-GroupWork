@@ -6,11 +6,13 @@ const db = new sqlite3.Database("./courseRegistration.db")
 
 app.use(express.json());
 
-//get localhost:5678 to start by displaying the home page
-app.use(express.static(path.join(__dirname, "public"))); 
+//get localhost:5678 to start by displaying the home page.
 /*
-app.use(express.static(path.join(__dirname, "..", "public")));
+Note from Maisee: I am not sure why I need the ".." included in the path to make it work. I will talk to Dr. Williamson about why this is happening and what we can do to fix it.
+app.use(express.static(path.join(__dirname, "public"))); 
 */
+app.use(express.static(path.join(__dirname, "..", "public")));
+
 //we use POST for add pages because we are "posting" data to the database
 //later, we will use app.get to retrieve information (for register and drop course pages)
 
