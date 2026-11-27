@@ -38,4 +38,28 @@ db.all(
     VALUES (Maisee, Carrier, 2028,  )`
 );
 */
+//Test cases to see if view courses is working without registration routes set up
+db.run(
+    `INSERT INTO Registration (student_id, course_id)
+    VALUES (1, 1)`
+);
+
+
+db.run(
+    `INSERT INTO Registration (student_id, course_id)
+    VALUES (1, 3)`
+);
+
+db.run(
+    `INSERT INTO Registration (student_id, course_id)
+    VALUES (2, 1)`
+);
+
+db.all(
+    "SELECT * FROM Registration",
+    [],
+    (err, rows) => {
+        console.log(rows);
+    }
+);
 db.close();

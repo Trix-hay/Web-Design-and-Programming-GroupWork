@@ -93,9 +93,6 @@ app.get("/semesterSelectList", (req, res) => {
 
 });
 
-
-
-
 // ADD COURSE -- MAISEE
 
 app.post("/addCourse", (req, res) => {

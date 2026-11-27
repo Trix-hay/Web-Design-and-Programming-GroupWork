@@ -835,16 +835,23 @@ if (viewCoursesForm) { // Maisee
                     .then(response => response.json())
                     .then(courses => {
                         console.log(courses);
-                        if (courses = []) {
+                        if (courses.length == 0) {
                             console.log("No courses registered for this student.");
                             alert("No courses registered for this student.");
                         }
-                        else { //Maisee to pick up here (as of 11/26), probably need to add more specific condition to get this to work right
+                        else { //Maisee to pick up here (as of 11/27). Need to adjust table creation
                         //define constants (overarching container, aka table div tag. use a neutral name so we can hide it if radio button is changed)
                             const tableDiv = document.createElement("div");
                             tableDiv.id = "viewCoursesTable";
                             console.log("Created table div.");
                             viewCoursesForm.appendChild(tableDiv);
+
+                            const table = document.createElement("table");
+                            const tableBody = document.createElement("tbody");
+                            const tHead = document.createElement("thead");
+                            const tHeadRow = document.createElement("tr");
+
+                            const numberOfRows = 0; //initialize for tracking in for loop below
 
                             const columnNames = Object.keys(courses[0]); // get all the property names
 
@@ -865,19 +872,15 @@ if (viewCoursesForm) { // Maisee
                                 console.log("Table row appended to table body.");
                             });
 
-                            const tHeadRow = document.createElement("tr");
-                            tHead.appendChild(tHeadRow);
-                            console.log("Table header row appended to table head.");
-
-                            const tableBody = document.createElement("tbody");
                             table.appendChild(tableBody);
                             console.log("Table body appended to table.");
 
-                            const tHead = document.createElement("thead");
                             table.appendChild(tHead);
                             console.log("Table head appended to table.");
 
-                            const table = document.createElement("table");
+                            tHead.appendChild(tHeadRow);
+                            console.log("Table header row appended to table head.");
+                            
                             tableDiv.appendChild(table);
                             console.log("Table is appended to table div.");
                         }
