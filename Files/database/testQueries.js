@@ -25,4 +25,17 @@ db.all(
     }
 );
 
+db.all(
+    "SELECT * FROM Students",
+    [],
+    (err, rows) => {
+        console.log(rows);
+    }
+);
+
+/*db.run(
+    `INSERT INTO Students (student_first_name, student_last_name, student_year, student_major, student_email)
+    VALUES (Maisee, Carrier, 2028,  )`
+);
+*/
 db.close();

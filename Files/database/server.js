@@ -234,14 +234,18 @@ app.get("/registerCourse", (req, res) => {
 // VIEW COURSES -- Maisee
 
 app.get("/viewCoursesByStudent", (req, res) => {
+    const studentId = req.query.studentId; //get studentId from URL
 
     //1. Do SQL Query for desired elements
     db.all(
         `SELECT Courses.course_prefix, Courses.course_number, Courses.course_section, Courses.course_name, 
         Courses.course_days_offered, Courses.course_time, Courses.course_room, Courses.course_credit_hours, 
         Courses.course_enrollment_cap, Instructors.instructor_first_name, Instructors.instructor_last_name 
-        FROM Courses INNER JOIN Instructors ON Courses.instructor_id = Instructors.instructor_id;`,
-        [],
+        FROM Courses INNER JOIN Instructors ON Courses.instructor_id = Instructors.instructor_id
+        INNER JOIN Registration ON Courses.course_id = Registration.course_id
+        WHERE Registration.student_id = ?;`,
+        [studentId],
+        
         //2. Send response as JSON
         (err, rows) => {
             if (err) {

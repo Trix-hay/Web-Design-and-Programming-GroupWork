@@ -828,58 +828,59 @@ if (viewCoursesForm) { // Maisee
 
                 studentSelectList.addEventListener("change", function (e) {
                     console.log("Student selected: ", e.target.value);
-                    //11/26/26: Maisee to pick up here. in server do query for fields related to that student_id. Will also need to mess around with table creation and deletion once working
+                    //11/26/26: Maisee to pick up here. in server, do query for fields related to that student_id. Will also need to mess around with table creation and deletion once working
                     const studentId = e.target.value;
                     console.log(studentId);
-                    fetch("/viewCoursesByStudent", {
-                        method: "POST",
-                        headers: {
-                        "Content-Type": "application/json"
-                        },
-                    body: JSON.stringify(studentId)
-                    })
+                    fetch("/viewCoursesByStudent?studentId=" + studentId) // send studentId in the URL since server is set up with app.get for this route
                     .then(response => response.json())
                     .then(courses => {
-                        //define constants (overarching container, aka table div tag. use a neutral name so we can hide it if radio button is changed)
-                        const tableDiv = document.createElement("div");
-                        tableDiv.id = "viewCoursesTable";
-                        console.log("Created table div.");
-                        viewCoursesForm.appendChild(tableDiv);
-
-                        const columnNames = Object.keys(courses[0]); // get all the property names
-
-                        for (let i = 0; i < columnNames.length; i++) {
-                            const tHeadData = document.createElement("th");
-                            tHeadData.textContent = columnNames[i]; // set the text content for the header cells to be the property name for each element retrieved in the query
-                            tHeadRow.appendChild(tHeadData);
+                        console.log(courses);
+                        if (courses = []) {
+                            console.log("No courses registered for this student.");
+                            alert("No courses registered for this student.");
                         }
+                        else { //Maisee to pick up here (as of 11/26), probably need to add more specific condition to get this to work right
+                        //define constants (overarching container, aka table div tag. use a neutral name so we can hide it if radio button is changed)
+                            const tableDiv = document.createElement("div");
+                            tableDiv.id = "viewCoursesTable";
+                            console.log("Created table div.");
+                            viewCoursesForm.appendChild(tableDiv);
 
-                        console.log("Table head cells appended to table head.");
+                            const columnNames = Object.keys(courses[0]); // get all the property names
 
-                        //do students.forEach so rows are created for every student, and every row is appended to tbody
-                        courses.forEach(course => { //create a row for every student, append every row to tbody
-                            
-                            const tableRow = document.createElement("tr");
-                            numberOfRows += 1;
-                            tableBody.appendChild(tableRow);
-                            console.log("Table row appended to table body.");
-                        });
+                            for (let i = 0; i < columnNames.length; i++) {
+                                const tHeadData = document.createElement("th");
+                                tHeadData.textContent = columnNames[i]; // set the text content for the header cells to be the property name for each element retrieved in the query
+                                tHeadRow.appendChild(tHeadData);
+                            }
 
-                        const tHeadRow = document.createElement("tr");
-                        tHead.appendChild(tHeadRow);
-                        console.log("Table header row appended to table head.");
+                            console.log("Table head cells appended to table head.");
 
-                        const tableBody = document.createElement("tbody");
-                        table.appendChild(tableBody);
-                        console.log("Table body appended to table.");
+                            //do students.forEach so rows are created for every student, and every row is appended to tbody
+                            courses.forEach(course => { //create a row for every student, append every row to tbody
+                                
+                                const tableRow = document.createElement("tr");
+                                numberOfRows += 1;
+                                tableBody.appendChild(tableRow);
+                                console.log("Table row appended to table body.");
+                            });
 
-                        const tHead = document.createElement("thead");
-                        table.appendChild(tHead);
-                        console.log("Table head appended to table.");
+                            const tHeadRow = document.createElement("tr");
+                            tHead.appendChild(tHeadRow);
+                            console.log("Table header row appended to table head.");
 
-                        const table = document.createElement("table");
-                        tableDiv.appendChild(table);
-                        console.log("Table is appended to table div.");
+                            const tableBody = document.createElement("tbody");
+                            table.appendChild(tableBody);
+                            console.log("Table body appended to table.");
+
+                            const tHead = document.createElement("thead");
+                            table.appendChild(tHead);
+                            console.log("Table head appended to table.");
+
+                            const table = document.createElement("table");
+                            tableDiv.appendChild(table);
+                            console.log("Table is appended to table div.");
+                        }
                         
                     });
                 });
