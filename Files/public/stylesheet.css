@@ -264,5 +264,22 @@ body {
     line-height: 1.5;
 }
 
+#viewCoursesTable {
+    width: 100%; 
+    table-layout: fixed;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 15px;
+}
 
+#viewCoursesTable table {
+    background-color: #f0f4f8;
+    width: 95%;
+    table-layout: fixed;
+}
 
+#viewCoursesTable th, 
+#viewCoursesTable td {
+    overflow-wrap: break-word;
+    padding: 5px;
+}

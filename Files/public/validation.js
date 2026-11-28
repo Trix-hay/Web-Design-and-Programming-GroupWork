@@ -791,8 +791,13 @@ if (viewCoursesForm) { // Maisee
         console.log("Target:", e.target);
         console.log("Value:", e.target.value);
 
-        if (document.getElementById("viewCourseSelectList")) {
-            document.getElementById("viewCourseSelectList").remove(); //possibly change to hidden?
+        if (e.target.type === "radio") {
+            if (document.getElementById("viewCourseSelectList")) {
+                document.getElementById("viewCourseSelectList").remove(); //possibly change to hidden?
+            }
+            if (document.getElementById("viewCoursesTable")) {
+                document.getElementById("viewCoursesTable").remove();
+            }
         }
 
         if (e.target.value == "byStudent") {
@@ -828,7 +833,11 @@ if (viewCoursesForm) { // Maisee
 
                 studentSelectList.addEventListener("change", function (e) {
                     console.log("Student selected: ", e.target.value);
-                    //11/26/26: Maisee to pick up here. in server, do query for fields related to that student_id. Will also need to mess around with table creation and deletion once working
+                    if (document.getElementById("viewCoursesTable")) {
+                    
+                        document.getElementById("viewCoursesTable").remove(); //possibly change to hidden?
+                    }
+
                     const studentId = e.target.value;
                     console.log(studentId);
                     fetch("/viewCoursesByStudent?studentId=" + studentId) // send studentId in the URL since server is set up with app.get for this route
@@ -839,47 +848,53 @@ if (viewCoursesForm) { // Maisee
                             console.log("No courses registered for this student.");
                             alert("No courses registered for this student.");
                         }
-                        else { //Maisee to pick up here (as of 11/27). Need to adjust table creation
+                        else {
                         //define constants (overarching container, aka table div tag. use a neutral name so we can hide it if radio button is changed)
                             const tableDiv = document.createElement("div");
+                            const main = document.querySelector("main");
                             tableDiv.id = "viewCoursesTable";
                             console.log("Created table div.");
-                            viewCoursesForm.appendChild(tableDiv);
+                            main.appendChild(tableDiv);
 
                             const table = document.createElement("table");
                             const tableBody = document.createElement("tbody");
                             const tHead = document.createElement("thead");
                             const tHeadRow = document.createElement("tr");
 
-                            const numberOfRows = 0; //initialize for tracking in for loop below
-
                             const columnNames = Object.keys(courses[0]); // get all the property names
 
                             for (let i = 0; i < columnNames.length; i++) {
                                 const tHeadData = document.createElement("th");
-                                tHeadData.textContent = columnNames[i]; // set the text content for the header cells to be the property name for each element retrieved in the query
+                                tHeadData.textContent = columnNames[i]
+                                    .replaceAll("_", " ") //replace the underscores in the names with spaces
+                                    .replace(/\b\w/g, char => char.toUpperCase()); // use RegEx that identifies the first character in each word to change to capital letter
                                 tHeadRow.appendChild(tHeadData);
                             }
 
                             console.log("Table head cells appended to table head.");
 
-                            //do students.forEach so rows are created for every student, and every row is appended to tbody
                             courses.forEach(course => { //create a row for every student, append every row to tbody
                                 
                                 const tableRow = document.createElement("tr");
-                                numberOfRows += 1;
                                 tableBody.appendChild(tableRow);
                                 console.log("Table row appended to table body.");
+                                
+                                for (let i = 0; i < columnNames.length; i++) {
+                                    const tData = document.createElement("td");
+                                    tData.textContent = course[columnNames[i]]; // explain more
+                                    tableRow.appendChild(tData);
+                                    console.log("Data appended to table row.");
+                                }
                             });
 
                             table.appendChild(tableBody);
                             console.log("Table body appended to table.");
 
-                            table.appendChild(tHead);
-                            console.log("Table head appended to table.");
-
                             tHead.appendChild(tHeadRow);
                             console.log("Table header row appended to table head.");
+
+                            table.appendChild(tHead);
+                            console.log("Table head appended to table.");
                             
                             tableDiv.appendChild(table);
                             console.log("Table is appended to table div.");
@@ -890,6 +905,8 @@ if (viewCoursesForm) { // Maisee
             }); 
         }
         
+
+        //11/27: Maisee to pick up here, will transfer logic from student and change variables/references as needed.
         else if (e.target.value == "byInstructor") {
             console.log("By Instructor selected.");
 
